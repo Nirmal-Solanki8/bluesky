@@ -57,7 +57,7 @@ const seedDB = async () => {
           slug: 'architectural-infinity-edge-pools',
           shortDescription: 'Signature vanishing-edge horizons with glass viewing walls and negative edge hydraulics.',
           fullDescription: 'Bluesky International crafts breathtaking infinity pools that visually merge with natural horizons and skies. Engineered with earthquake-resistant monolithic RCC, structural acrylic glass panels, and precision balancing tanks.',
-          image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=900&auto=format&fit=crop&q=80',
+          image: '/images/infinity-pool.jpg',
           features: ['Monolithic Leakproof RCC Structure', 'Submerged Architectural Acrylic Glass Walls', 'Zero-Noise Balancing Tank & Surge Systems', 'Smart Multi-Zone RGBW Lighting'],
           order: 1
         },
@@ -66,7 +66,7 @@ const seedDB = async () => {
           slug: 'luxury-villa-rooftop-swimming-pools',
           shortDescription: 'Ultra-lightweight structural rooftop pools with advanced membrane waterproofing and sky views.',
           fullDescription: 'Engineered specifically for penthouses and luxury villa terraces. Featuring ultra-durable waterproofing membranes, high-rate compact filtration systems, and bespoke designer mosaics.',
-          image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&auto=format&fit=crop&q=80',
+          image: '/images/rooftop-pool.jpg',
           features: ['Engineered Structural Load Distribution', 'Triple-Layer Anti-Seepage Membrane', 'Quiet Eco Inverter Pumps', 'Anti-Slip Italian Deck Porcelain'],
           order: 2
         },
@@ -75,7 +75,7 @@ const seedDB = async () => {
           slug: 'commercial-resorts-semi-olympic-pools',
           shortDescription: 'High-capacity pools built in compliance with FINA and international water safety standards.',
           fullDescription: 'Customized for 5-star hospitality resorts, sports clubs, and township clubhouses. Incorporates high-capacity bobbin wound sand filters, automatic ORP/pH controllers, and ozone sanitation.',
-          image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=900&auto=format&fit=crop&q=80',
+          image: '/images/resort-pool.jpg',
           features: ['FINA Standard Dimensions & Lane Lines', 'Automatic Chlorine & pH Dosing Units', 'Dual In-Ground Skimmers & Overflow Gratings', 'Underwater Sound & Lighting Systems'],
           order: 3
         },
@@ -84,7 +84,7 @@ const seedDB = async () => {
           slug: 'hydrotherapy-jacuzzi-thermal-spas',
           shortDescription: 'Heated hydrotherapy spas with targeted air-water massage jets and chromotherapy.',
           fullDescription: 'Turn your backyard or terrace into an opulent private wellness sanctuary with digital heat pumps, whisper-quiet air blowers, and ergonomic loungers.',
-          image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&auto=format&fit=crop&q=80',
+          image: '/images/jacuzzi-spa.jpg',
           features: ['Rotary Hydrotherapy Jets', 'Energy-Efficient Titanium Heat Pump', 'Ergonomic Therapeutic Seating', 'Touch Control & Smartphone App Sync'],
           order: 4
         },
@@ -93,7 +93,7 @@ const seedDB = async () => {
           slug: 'turnkey-pool-renovation-leak-proofing',
           shortDescription: 'Modernization of aging pools, epoxy regrouting, LED retrofitting, and automated chlorination.',
           fullDescription: 'Revitalize cracked or leaking older pools into modern luxury oases with premium glass mosaic retiling, skimmer replacements, and automated filtration upgrades.',
-          image: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=900&auto=format&fit=crop&q=80',
+          image: '/images/pool-types/vanishing-edge.webp',
           features: ['Structural Crack Injection & Sealing', 'Designer Glass Mosaic Retiling', 'Saltwater Chlorinator Conversion', 'Eco-Friendly Inverter Filtration Retrofit'],
           order: 5
         },
@@ -102,7 +102,7 @@ const seedDB = async () => {
           slug: 'annual-maintenance-contracts-amc',
           shortDescription: 'Routine vacuum sweeping, chemical balancing, backwashing, and 24/7 technical assistance.',
           fullDescription: 'Keep your pool pristine and crystalline year-round with our certified pool chemists and technicians.',
-          image: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=900&auto=format&fit=crop&q=80',
+          image: '/images/pool-types/overflow.webp',
           features: ['Bi-Weekly Suction Sweeping & Brushing', 'Precise pH & Free Chlorine Balancing', 'Preventative Pump & Multiport Servicing', '24/7 Rapid Emergency Response'],
           order: 6
         }
@@ -121,7 +121,7 @@ const seedDB = async () => {
           location: 'Sanand Palm Greens, Ahmedabad',
           dimensions: '45ft x 20ft x 4.5ft',
           completionYear: '2024',
-          coverImage: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=900&auto=format&fit=crop&q=80',
+          coverImage: '/images/infinity-pool.jpg',
           isFeatured: true
         },
         {
@@ -131,7 +131,7 @@ const seedDB = async () => {
           location: 'Gir Forest Eco Resort, Gujarat',
           dimensions: '75ft x 35ft',
           completionYear: '2024',
-          coverImage: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=900&auto=format&fit=crop&q=80',
+          coverImage: '/images/resort-pool.jpg',
           isFeatured: true
         },
         {
@@ -141,7 +141,7 @@ const seedDB = async () => {
           location: 'Dumas Road, Surat',
           dimensions: '38ft x 16ft',
           completionYear: '2024',
-          coverImage: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&auto=format&fit=crop&q=80',
+          coverImage: '/images/rooftop-pool.jpg',
           isFeatured: true
         },
         {
@@ -151,7 +151,7 @@ const seedDB = async () => {
           location: 'Bodakdev, Ahmedabad',
           dimensions: '28ft x 14ft',
           completionYear: '2023',
-          coverImage: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&auto=format&fit=crop&q=80',
+          coverImage: '/images/jacuzzi-spa.jpg',
           isFeatured: true
         }
       ]);
