@@ -186,14 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drawerBackdrop.addEventListener('click', window.closeMobileDrawer);
   }
 
-  // Mobile accordion
-  document.querySelectorAll('.drawer-accordion-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const parent = btn.closest('.drawer-dropdown-item');
-      if (parent) parent.classList.toggle('open');
-    });
-  });
+  // Drawer accordions are handled cleanly by window.toggleDrawerAccordion in header.ejs
 
   // For on-page anchor links in drawer, close drawer after scroll
   document.querySelectorAll('.drawer-links a').forEach(link => {

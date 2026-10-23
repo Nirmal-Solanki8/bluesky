@@ -40,8 +40,8 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional">
   </noscript>
 
-  <!-- Core Stylesheet (Cache-Busted v=9.1) -->
-  <link rel="stylesheet" href="/css/style.css?v=9.1">
+  <!-- Core Stylesheet (Cache-Busted v=9.2) -->
+  <link rel="stylesheet" href="/css/style.css?v=9.2">
 
   <!-- Guaranteed Zero-Delay Mobile Drawer Fallback Handlers -->
   <script>
@@ -68,6 +68,22 @@
         window.closeMobileDrawer(e);
       } else {
         window.openMobileDrawer(e);
+      }
+    };
+    window.toggleDrawerAccordion = function(btn, e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
+      var item = btn ? btn.closest('.drawer-dropdown-item') : null;
+      if (!item) return;
+      var wasOpen = item.classList.contains('open');
+      var allItems = document.querySelectorAll('.drawer-dropdown-item');
+      for (var i = 0; i < allItems.length; i++) {
+        allItems[i].classList.remove('open');
+      }
+      if (!wasOpen) {
+        item.classList.add('open');
       }
     };
 
@@ -237,12 +253,15 @@
 
       <!-- Mobile Pool Types Accordion -->
       <li class="drawer-dropdown-item">
-        <button class="drawer-accordion-btn" type="button" onclick="this.closest('.drawer-dropdown-item').classList.toggle('open')">
+        <button class="drawer-accordion-btn" type="button" onclick="window.toggleDrawerAccordion(this, event)">
           <span>Pool Types</span>
-          <i class="fa-solid fa-chevron-down"></i>
+          <svg class="drawer-chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
         <div class="drawer-accordion-content">
-          <a href="/pool-types">&bull; Types Overview</a>
+          <a href="/pool-types" class="drawer-sub-featured">
+            <span>✨ All 9 Pool Types (Overview)</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
           <a href="/private-swimming-pools">&bull; Private Villa Pools</a>
           <a href="/commercial-swimming-pools">&bull; Commercial Pools</a>
           <a href="/recreational-swimming-pools">&bull; Recreational Pools</a>
@@ -256,11 +275,15 @@
 
       <!-- Mobile Services Accordion -->
       <li class="drawer-dropdown-item">
-        <button class="drawer-accordion-btn" type="button" onclick="this.closest('.drawer-dropdown-item').classList.toggle('open')">
+        <button class="drawer-accordion-btn" type="button" onclick="window.toggleDrawerAccordion(this, event)">
           <span>Services</span>
-          <i class="fa-solid fa-chevron-down"></i>
+          <svg class="drawer-chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
         <div class="drawer-accordion-content">
+          <a href="/services" class="drawer-sub-featured">
+            <span>✨ All Services Overview</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
           <a href="/services#swimming-pools">&bull; Turnkey Swimming Pools</a>
           <a href="/services#waterfalls">&bull; Waterfall & Fountains</a>
           <a href="/services#renovation">&bull; Pool Renovation & Leak Repair</a>
@@ -270,11 +293,15 @@
 
       <!-- Mobile Products Accordion -->
       <li class="drawer-dropdown-item">
-        <button class="drawer-accordion-btn" type="button" onclick="this.closest('.drawer-dropdown-item').classList.toggle('open')">
+        <button class="drawer-accordion-btn" type="button" onclick="window.toggleDrawerAccordion(this, event)">
           <span>Products</span>
-          <i class="fa-solid fa-chevron-down"></i>
+          <svg class="drawer-chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
         <div class="drawer-accordion-content">
+          <a href="/products" class="drawer-sub-featured">
+            <span>✨ All Products Catalog</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
           <a href="/products?category=Pool%20Filtration%20%26%20Pumps">&bull; Equipment & Pumps</a>
           <a href="/products">&bull; Bathtubs & Jacuzzis</a>
           <a href="/products?category=Pool%20Tiles%20%26%20Mosaics">&bull; Pool Tiles & Mosaics</a>

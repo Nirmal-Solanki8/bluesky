@@ -759,38 +759,77 @@ img {
   background: rgba(2, 132, 199, 0.08);
 }
 
-.drawer-accordion-btn i {
-  font-size: 0.85rem;
-  transition: transform 0.25s ease;
-  opacity: 0.7;
+.drawer-chevron-icon {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  stroke: #64748b;
+  flex-shrink: 0;
 }
 
-.drawer-dropdown-item.open .drawer-accordion-btn i {
+.drawer-dropdown-item.open .drawer-chevron-icon {
   transform: rotate(180deg);
-  opacity: 1;
+  stroke: #0284c7;
+}
+
+.drawer-dropdown-item.open .drawer-accordion-btn {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
 }
 
 .drawer-accordion-content {
   display: none;
   flex-direction: column;
-  gap: 3px;
-  padding: 6px 0 8px 16px;
-  border-left: 2px solid #0284c7;
-  margin: 4px 0 6px 14px;
+  gap: 4px;
+  padding: 8px 0 10px 14px;
+  border-left: 2.5px solid #0284c7;
+  margin: 4px 0 8px 16px;
+  background: rgba(2, 132, 199, 0.03);
+  border-radius: 0 12px 12px 0;
 }
 
 .drawer-dropdown-item.open .drawer-accordion-content {
   display: flex;
+  animation: drawerFadeSlide 0.22s ease-out;
+}
+
+@keyframes drawerFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.drawer-sub-featured {
+  background: rgba(2, 132, 199, 0.1) !important;
+  color: #0284c7 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 4px !important;
+}
+
+.drawer-sub-featured:hover,
+.drawer-sub-featured:active {
+  background: #0284c7 !important;
+  color: #ffffff !important;
 }
 
 .drawer-accordion-content a {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-muted);
-  padding: 10px 12px;
+  color: #334155;
+  padding: 9px 12px;
   border-radius: 8px;
   transition: all 0.18s ease;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
@@ -802,6 +841,7 @@ img {
 .drawer-accordion-content a:active {
   color: #0284c7;
   background: rgba(2, 132, 199, 0.08);
+  padding-left: 16px;
 }
 
 /* ===================================================================
