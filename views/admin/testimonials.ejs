@@ -1,0 +1,130 @@
+<%- include('layouts/header') %>
+
+<div class="page-title-box">
+  <div>
+    <h1>Client Reviews & Testimonials</h1>
+    <p style="color: var(--admin-text-muted); font-size: 0.9rem;">Manage client feedback and reviews displayed on the website</p>
+  </div>
+</div>
+
+<!-- Add Testimonial Form -->
+<div class="admin-form-card">
+  <h3 style="margin-bottom: 20px; font-size: 1.15rem; color: #0f172a;">
+    <i class="fa-solid fa-plus-circle" style="color: #0284c7;"></i> Add New Client Review
+  </h3>
+  
+  <form action="/admin/testimonials" method="POST">
+    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 20px;">
+      <div class="admin-form-group">
+        <label>Client / Customer Name *</label>
+        <input type="text" name="clientName" class="admin-form-control" placeholder="Client Name" required>
+      </div>
+
+      <div class="admin-form-group">
+        <label>Designation / Role</label>
+        <input type="text" name="designation" class="admin-form-control" placeholder="Designation / Role" value="Villa Owner">
+      </div>
+
+      <div class="admin-form-group">
+        <label>Location (City/Area)</label>
+        <input type="text" name="location" class="admin-form-control" placeholder="Location / City">
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
+      <div class="admin-form-group">
+        <label>Star Rating (1 to 5)</label>
+        <select name="rating" class="admin-form-control">
+          <option value="5" selected>⭐⭐⭐⭐⭐ (5 Stars)</option>
+          <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+          <option value="3">⭐⭐⭐ (3 Stars)</option>
+          <option value="2">⭐⭐ (2 Stars)</option>
+          <option value="1">⭐ (1 Star)</option>
+        </select>
+      </div>
+
+      <div class="admin-form-group" style="padding-top: 28px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600;">
+          <input type="checkbox" name="isApproved" checked style="width: 18px; height: 18px;">
+          <span>Show publicly on website (Approved)</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="admin-form-group">
+      <label>Review / Testimonial Text *</label>
+      <textarea name="review" rows="3" class="admin-form-control" placeholder="What did the client say about our swimming pool design, construction quality, timeline and equipment?" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-sm btn-admin-primary" style="padding: 10px 22px; font-size: 0.92rem;">
+      <i class="fa-solid fa-cloud-arrow-up"></i> Save Review
+    </button>
+  </form>
+</div>
+
+<!-- Testimonials Table -->
+<div class="card-table">
+  <div class="card-header">
+    <h3>Existing Client Reviews (<%= (typeof testimonials !== 'undefined' && testimonials) ? testimonials.length : 0 %>)</h3>
+  </div>
+
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Designation</th>
+          <th>Location</th>
+          <th>Rating</th>
+          <th>Review</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (testimonials && testimonials.length > 0) { %>
+          <% testimonials.forEach(t => { %>
+            <tr>
+              <td><strong><%= t.clientName %></strong></td>
+              <td><%= t.designation %></td>
+              <td><%= t.location || '-' %></td>
+              <td style="color: #f59e0b; font-size: 0.9rem;">
+                <% for (let i = 0; i < t.rating; i++) { %>★<% } %>
+              </td>
+              <td style="max-width: 320px; font-size: 0.88rem; color: #475569;">
+                "<%= t.review %>"
+              </td>
+              <td>
+                <% if (t.isApproved) { %>
+                  <span class="badge badge-success">Approved</span>
+                <% } else { %>
+                  <span class="badge badge-danger">Hidden</span>
+                <% } %>
+              </td>
+              <td>
+                <div class="action-btns">
+                  <a href="/admin/testimonials/<%= t._id %>/edit" class="btn-sm btn-admin-warning">
+                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                  </a>
+                  <form action="/admin/testimonials/<%= t._id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this review?');" style="display: inline;">
+                    <button type="submit" class="btn-sm btn-admin-danger">
+                      <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="7" style="text-align: center; padding: 35px; color: #64748b;">
+              No testimonials found. Add your first customer testimonial using the form above!
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>

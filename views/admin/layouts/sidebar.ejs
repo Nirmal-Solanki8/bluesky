@@ -1,0 +1,62 @@
+<aside class="admin-sidebar">
+  <div class="sidebar-brand" style="padding: 18px 20px;">
+    <img src="/images/logo.svg" alt="Blue Sky International" style="height: 40px; width: auto; background: #ffffff; padding: 4px 10px; border-radius: 8px;">
+  </div>
+
+  <ul class="sidebar-menu">
+    <li class="sidebar-item">
+      <a href="/admin/dashboard" class="sidebar-link <%= activeMenu === 'dashboard' ? 'active' : '' %>">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="/admin/products" class="sidebar-link <%= activeMenu === 'products' ? 'active' : '' %>">
+        <i class="fa-solid fa-box-open"></i>
+        <span>Pool Products</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="/admin/projects" class="sidebar-link <%= activeMenu === 'projects' ? 'active' : '' %>">
+        <i class="fa-solid fa-images"></i>
+        <span>Portfolio / Projects</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="/admin/services" class="sidebar-link <%= activeMenu === 'services' ? 'active' : '' %>">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <span>Pool Services</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="/admin/testimonials" class="sidebar-link <%= activeMenu === 'testimonials' ? 'active' : '' %>">
+        <i class="fa-solid fa-comments"></i>
+        <span>Client Reviews</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="/admin/inquiries" class="sidebar-link <%= activeMenu === 'inquiries' ? 'active' : '' %>">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <span>Quotations & Leads</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="/admin/settings" class="sidebar-link <%= activeMenu === 'settings' ? 'active' : '' %>">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Website Settings</span>
+      </a>
+    </li>
+    <li class="sidebar-item" style="margin-top: 25px;">
+      <a href="/" target="_blank" class="sidebar-link">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <span>View Live Site</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <div style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 6px;">Logged in as:</div>
+    <div style="font-weight: 600; color: #fff; font-size: 0.9rem;"><%= admin ? admin.name : 'Pritesh (Admin)' %></div>
+    <div style="font-size: 0.75rem; color: #38bdf8;"><%= admin ? admin.email : 'pritesh029@gmail.com' %></div>
+  </div>
+</aside>

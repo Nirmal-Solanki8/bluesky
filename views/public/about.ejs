@@ -1,0 +1,574 @@
+<%- include('layouts/header') %>
+
+  <!-- ===================================================================
+   HERO BANNER: ABOUT BLUESKY INTERNATIONAL
+   =================================================================== -->
+  <section class="about-hero-cinematic">
+    <!-- Cinematic High-Visibility Background Image -->
+    <div class="about-hero-bg"></div>
+
+    <!-- Sophisticated Contrast Gradient Overlay -->
+    <div class="about-hero-overlay"></div>
+
+    <div class="container" style="position: relative; z-index: 10;">
+      <span class="section-tag-gold"
+        style="margin-bottom: 22px; display: inline-flex; align-items: center; gap: 8px; background: rgba(245, 158, 11, 0.16); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 4px 20px rgba(245, 158, 11, 0.22); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
+        <i class="fa-solid fa-water-ladder" style="color: #fbbf24;"></i> 16+ Years Turnkey Aquatic Mastery
+      </span>
+
+      <h1
+        style="font-family: var(--font-hero); font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 900; color: #ffffff; margin-bottom: 18px; line-height: 1.12; letter-spacing: -0.5px; text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);">
+        Engineering World-Class <span
+          style="background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none;">Aquatic
+          Architecture</span>
+      </h1>
+
+      <p
+        style="font-size: clamp(1.1rem, 1.8vw, 1.25rem); color: #e2e8f0; font-weight: 500; max-width: 800px; margin: 0 auto 36px; line-height: 1.75; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);">
+        Surat's foremost turnkey swimming pool construction and filtration engineering firm. Transforming private villa
+        estates, luxury rooftops, and commercial resorts into crystalline waterscapes since 2008.
+      </p>
+
+      <!-- Frosted Glass Liquid Credentials Pills -->
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <div class="about-glass-pill">
+          <i class="fa-solid fa-award" style="color: #fbbf24;"></i> 16+ Years Industry Leadership
+        </div>
+        <div class="about-glass-pill">
+          <i class="fa-solid fa-water" style="color: #38bdf8;"></i>
+          <%= settings.poolsBuilt || 650 %>+ Pools Built
+        </div>
+        <div class="about-glass-pill">
+          <i class="fa-solid fa-shield-halved" style="color: #34d399;"></i> 100% Monolithic RCC Leakproof
+        </div>
+        <div class="about-glass-pill">
+          <i class="fa-solid fa-location-dot" style="color: #f87171;"></i> Surat, Gujarat Headquarters
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+   SECTION 1: THE BLUESKY STORY & HERITAGE
+   =================================================================== -->
+  <section class="section" style="background: #ffffff;">
+    <div class="container-wide">
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(30px, 5vw, 60px); align-items: center;">
+        <!-- Visual Showcase Collage -->
+        <div style="position: relative;">
+          <div
+            style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 45px rgba(0,0,0,0.12); border: 1px solid var(--border-subtle);">
+            <img src="/images/pool-types/vanishing-edge.webp" alt="Bluesky Luxury Infinity Pool" width="600"
+              height="420" loading="lazy" decoding="async" style="width: 100%; height: 420px; object-fit: cover;"
+              onerror="this.src='/images/pool-types/vanishing-edge.webp'">
+          </div>
+
+          <!-- Floating Credential Card -->
+          <div class="collage-credential-card">
+            <div
+              style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-yellow); font-weight: 800; margin-bottom: 4px;">
+              <i class="fa-solid fa-certificate"></i> Established 2008
+            </div>
+            <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-main); margin-bottom: 4px;">
+              16+ Years of Proven Reliability
+            </div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.4;">
+              Gujarat's trusted benchmark for resort and private estate pools.
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Text Content -->
+        <div>
+          <span class="section-tag-gold" style="margin-bottom: 12px;"><i class="fa-solid fa-trophy"></i> The Bluesky
+            Standard</span>
+          <h2
+            style="font-family: var(--font-hero); font-size: clamp(2rem, 3.2vw, 2.7rem); font-weight: 800; color: var(--text-main); line-height: 1.2; margin-bottom: 18px;">
+            Pioneering Aquatic Living With Engineering Integrity
+          </h2>
+
+          <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 18px;">
+            Founded in Katargam, Surat, <strong>
+              <%= settings.companyName %>
+            </strong> was established with a singular mission: to eliminate the headaches of leaking pools, cloudy
+            water, and unreliable local contractors by introducing certified, turnkey civil and hydraulic engineering.
+          </p>
+
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 25px;">
+            Unlike conventional general builders who sub-contract pool excavation, plumbing, and tiling to separate
+            third-party laborers, Bluesky operates an integrated, in-house team. Structural civil engineers, hydraulic
+            calculation specialists, certified electricians, and Spanish mosaic craftsmen work in complete unison from
+            initial 3D laser survey to final chemical balancing.
+          </p>
+
+          <!-- Feature Points Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+            <div
+              style="background: var(--bg-card-subtle); padding: 18px; border-radius: 12px; border-left: 4px solid var(--brand-cyan);">
+              <div style="font-weight: 800; color: var(--text-main); font-size: 0.98rem; margin-bottom: 4px;">
+                <i class="fa-solid fa-shield-halved" style="color: var(--brand-cyan); margin-right: 6px;"></i>
+                Monolithic RCC Pour
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+                Zero cold joints, M30/M35 concrete with crystalline polymer injection tested under 72h hydrostatic
+                ponding.
+              </p>
+            </div>
+
+            <div
+              style="background: var(--bg-card-subtle); padding: 18px; border-radius: 12px; border-left: 4px solid var(--brand-yellow);">
+              <div style="font-weight: 800; color: var(--text-main); font-size: 0.98rem; margin-bottom: 4px;">
+                <i class="fa-solid fa-filter" style="color: var(--brand-yellow); margin-right: 6px;"></i> Italian
+                Filtration MEP
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+                High-rate bobbin-wound sand filters, AFM activated glass media, and automated salt chlorination systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+   SECTION 2: LIVE METRICS & MILESTONES STRIP
+   =================================================================== -->
+  <section style="background: #0f172a; padding: 60px 0; color: #ffffff;">
+    <div class="container-wide">
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; text-align: center;">
+        <div>
+          <div
+            style="font-family: var(--font-hero); font-size: 2.8rem; font-weight: 900; color: #38bdf8; line-height: 1;">
+            <%= settings.experienceYears || 16 %>+
+          </div>
+          <div
+            style="color: #94a3b8; font-size: 0.9rem; margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+            Years Experience
+          </div>
+        </div>
+
+        <div>
+          <div
+            style="font-family: var(--font-hero); font-size: 2.8rem; font-weight: 900; color: #fbbf24; line-height: 1;">
+            <%= settings.poolsBuilt || 650 %>+
+          </div>
+          <div
+            style="color: #94a3b8; font-size: 0.9rem; margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+            Pools Completed
+          </div>
+        </div>
+
+        <div>
+          <div
+            style="font-family: var(--font-hero); font-size: 2.8rem; font-weight: 900; color: #34d399; line-height: 1;">
+            <%= settings.happyClients || 580 %>+
+          </div>
+          <div
+            style="color: #94a3b8; font-size: 0.9rem; margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+            Happy Clients
+          </div>
+        </div>
+
+        <div>
+          <div
+            style="font-family: var(--font-hero); font-size: 2.8rem; font-weight: 900; color: #a78bfa; line-height: 1;">
+            <%= settings.maintenanceContracts || 120 %>+
+          </div>
+          <div
+            style="color: #94a3b8; font-size: 0.9rem; margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+            Active AMC Contracts
+          </div>
+        </div>
+
+        <div>
+          <div
+            style="font-family: var(--font-hero); font-size: 2.8rem; font-weight: 900; color: #38bdf8; line-height: 1;">
+            100%
+          </div>
+          <div
+            style="color: #94a3b8; font-size: 0.9rem; margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+            Leakproof Guarantee
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+   SECTION 3: FOUR PILLARS OF EXCELLENCE
+   =================================================================== -->
+  <section class="section" style="background: var(--bg-main);">
+    <div class="container-wide">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto 50px;">
+        <span class="section-tag-gold"><i class="fa-solid fa-gem"></i> Quality Framework</span>
+        <h2
+          style="font-family: var(--font-hero); font-size: clamp(2rem, 3.2vw, 2.7rem); font-weight: 800; color: var(--text-main); margin-top: 10px; margin-bottom: 14px;">
+          Four Pillars of the Bluesky Standard
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">
+          Every swimming pool project follows our rigorous engineering discipline, ensuring zero structural settlement,
+          flawless water filtration, and timeless aesthetics.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 26px;">
+        <!-- Pillar 1 -->
+        <div class="pillar-card-luxury">
+          <div
+            style="width: 58px; height: 58px; border-radius: 14px; background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); color: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 22px; box-shadow: 0 8px 18px rgba(2, 132, 199, 0.15);">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <h3
+            style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -0.3px;">
+            3D Laser CAD Design</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin: 0;">
+            Precise topographical plot survey, hydraulic flow calculations, and photorealistic 3D architectural renders
+            before a single inch of ground is excavated.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card-luxury">
+          <div
+            style="width: 58px; height: 58px; border-radius: 14px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #b45309; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 22px; box-shadow: 0 8px 18px rgba(245, 158, 11, 0.15);">
+            <i class="fa-solid fa-cubes"></i>
+          </div>
+          <h3
+            style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -0.3px;">
+            Monolithic Concrete</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin: 0;">
+            Continuous monolithic concrete pouring with dual-cage high-tensile steel mesh reinforcement, preventing
+            cold-joint stress fractures under heavy water loads.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card-luxury">
+          <div
+            style="width: 58px; height: 58px; border-radius: 14px; background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); color: #166534; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 22px; box-shadow: 0 8px 18px rgba(22, 101, 52, 0.15);">
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <h3
+            style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -0.3px;">
+            Bio-Active Filtration</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin: 0;">
+            High-rate deep bed sand filtration with activated glass media, variable speed inverter pumps saving up to
+            80% power, and skin-friendly salt chlorinators.
+          </p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="pillar-card-luxury">
+          <div
+            style="width: 58px; height: 58px; border-radius: 14px; background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); color: #7e22ce; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 22px; box-shadow: 0 8px 18px rgba(126, 34, 206, 0.15);">
+            <i class="fa-solid fa-hand-holding-hand"></i>
+          </div>
+          <h3
+            style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -0.3px;">
+            Lifetime AMC Support</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin: 0;">
+            Our relationship continues long after handover. Dedicated in-house pool specialists handle periodic
+            maintenance, water balancing, and hardware care.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+   SECTION 4: BLUESKY VS. LOCAL CONTRACTORS COMPARISON MATRIX
+   =================================================================== -->
+  <section class="section" style="background: #ffffff;">
+    <div class="container-wide">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto 45px;">
+        <span class="section-tag-gold"><i class="fa-solid fa-scale-balanced"></i> Architectural Comparison</span>
+        <h2
+          style="font-family: var(--font-hero); font-size: clamp(2rem, 3.2vw, 2.7rem); font-weight: 800; color: var(--text-main); margin-top: 10px; margin-bottom: 14px;">
+          Why Discerning Clients Choose Bluesky
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">
+          See the critical engineering differences between certified turnkey pool architecture and unengineered local
+          masonry contractors.
+        </p>
+      </div>
+
+      <div
+        style="background: #ffffff; border-radius: 20px; border: 1px solid var(--border-subtle); box-shadow: 0 15px 45px rgba(2, 44, 84, 0.08); overflow: hidden;">
+        <div style="overflow-x: auto;">
+          <table class="comparison-table-luxury">
+            <thead>
+              <tr style="background: #f8fafc; border-bottom: 2px solid var(--border-subtle);">
+                <th style="font-weight: 800; color: var(--text-main); font-size: 0.98rem; width: 28%;">Engineering
+                  Parameter</th>
+                <th class="comparison-highlight-col"
+                  style="font-weight: 900; color: #0284c7; font-size: 1.05rem; width: 38%;">
+                  <div
+                    style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                    <span><i class="fa-solid fa-circle-check" style="color: #0284c7; margin-right: 6px;"></i> Bluesky
+                      Standard</span>
+                    <span
+                      style="background: #fbbf24; color: #78350f; font-size: 0.72rem; padding: 3px 10px; border-radius: 50px; font-weight: 800; letter-spacing: 0.5px;">GOLD
+                      BENCHMARK</span>
+                  </div>
+                </th>
+                <th style="font-weight: 700; color: #94a3b8; font-size: 0.95rem; width: 34%;">
+                  Conventional Contractors
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 700; color: var(--text-main);">Structural Core</td>
+                <td class="comparison-highlight-col" style="color: #0f172a; font-weight: 700;">
+                  <i class="fa-solid fa-check" style="color: #0284c7; margin-right: 8px;"></i> Monolithic RCC with CAD
+                  design & dual-mesh steel
+                </td>
+                <td style="color: #64748b;">
+                  <i class="fa-solid fa-xmark" style="color: #ef4444; margin-right: 8px;"></i> Brick masonry or light
+                  PCC prone to settlement & cracking
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: var(--text-main);">Waterproofing Integrity</td>
+                <td class="comparison-highlight-col" style="color: #0f172a; font-weight: 700;">
+                  <i class="fa-solid fa-check" style="color: #0284c7; margin-right: 8px;"></i> 2-layer crystalline
+                  membrane + mandatory 72-hour ponding test
+                </td>
+                <td style="color: #64748b;">
+                  <i class="fa-solid fa-xmark" style="color: #ef4444; margin-right: 8px;"></i> Basic cement slurry wash
+                  or single bitumen coat prone to leaks
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: var(--text-main);">Hydraulics & Water Care</td>
+                <td class="comparison-highlight-col" style="color: #0f172a; font-weight: 700;">
+                  <i class="fa-solid fa-check" style="color: #0284c7; margin-right: 8px;"></i> Italian variable speed
+                  pumps & bio-active glass AFM media
+                </td>
+                <td style="color: #64748b;">
+                  <i class="fa-solid fa-xmark" style="color: #ef4444; margin-right: 8px;"></i> Undersized low-efficiency
+                  pumps that cause cloudy water
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: var(--text-main);">Lighting & Electrical Safety</td>
+                <td class="comparison-highlight-col" style="color: #0f172a; font-weight: 700;">
+                  <i class="fa-solid fa-check" style="color: #0284c7; margin-right: 8px;"></i> 12V IP68 resin-filled
+                  underwater LED lights with safety isolators
+                </td>
+                <td style="color: #64748b;">
+                  <i class="fa-solid fa-xmark" style="color: #ef4444; margin-right: 8px;"></i> Non-certified niche lamps
+                  risking water ingress and short circuits
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: var(--text-main);">Post-Handover Warranty & AMC</td>
+                <td class="comparison-highlight-col" style="color: #0f172a; font-weight: 700;">
+                  <i class="fa-solid fa-check" style="color: #0284c7; margin-right: 8px;"></i> Written leakproof
+                  warranty + dedicated in-house service team
+                </td>
+                <td style="color: #64748b;">
+                  <i class="fa-solid fa-xmark" style="color: #ef4444; margin-right: 8px;"></i> No written warranty;
+                  untraceable after final payment
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+   SECTION 5: FEATURED MASTERPIECE PROJECTS PREVIEW
+   =================================================================== -->
+  <% if (projects && projects.length> 0) { %>
+    <section class="section" style="background: var(--bg-card-subtle);">
+      <div class="container-wide">
+        <div
+          style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="section-tag-gold"><i class="fa-solid fa-trophy"></i> Masterpiece Portfolio</span>
+            <h2
+              style="font-family: var(--font-hero); font-size: clamp(2rem, 3.2vw, 2.7rem); font-weight: 800; color: var(--text-main); margin-bottom: 0;">
+              Recent Completed Projects
+            </h2>
+          </div>
+          <div>
+            <a href="/gallery" class="filter-pill active">
+              View Complete Gallery (<%= projects.length %>+) &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+          <% projects.forEach(p=> { %>
+            <div
+              style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm); transition: transform 0.3s ease;">
+              <div style="height: 220px; overflow: hidden;">
+                <img src="<%= p.coverImage %>" alt="<%= p.title %>" loading="lazy" decoding="async"
+                  style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='/images/infinity-pool.jpg'">
+              </div>
+              <div style="padding: 20px;">
+                <span style="font-size: 0.75rem; color: #0284c7; font-weight: 800; text-transform: uppercase;">
+                  <%= p.category %>
+                </span>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 6px 0 10px;">
+                  <%= p.title %>
+                </h3>
+                <div
+                  style="font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--brand-yellow);"></i>
+                  <%= p.location %> • <%= p.completionYear %>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+      </div>
+    </section>
+    <% } %>
+
+      <!-- ===================================================================
+   SECTION 6: CLIENT TESTIMONIALS (FROM DATABASE)
+   =================================================================== -->
+      <section class="section" style="background: #ffffff;">
+        <div class="container-wide">
+          <div style="text-align: center; max-width: 760px; margin: 0 auto 50px;">
+            <span class="section-tag-gold"><i class="fa-solid fa-star"></i> Client Testimonials</span>
+            <h2
+              style="font-family: var(--font-hero); font-size: clamp(2rem, 3.2vw, 2.7rem); font-weight: 800; color: var(--text-main); margin-top: 10px; margin-bottom: 14px;">
+              Trusted by High-Net-Worth Villa Owners & Resorts
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">
+              Hear directly from our private estate and hospitality clients who experienced turnkey excellence with
+              Bluesky International.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <% if (testimonials && testimonials.length> 0) { %>
+              <% testimonials.slice(0, 3).forEach(item=> { %>
+                <div class="testimonial-luxury-card">
+                  <div>
+                    <div class="stars-rating">
+                      <% for (let i=0; i < (item.rating || 5); i++) { %>
+                        <i class="fa-solid fa-star"></i>
+                        <% } %>
+                    </div>
+                    <p class="testimonial-body">"<%= item.review %>"</p>
+                  </div>
+                  <div>
+                    <div class="testimonial-author-name">
+                      <%= item.clientName %>
+                    </div>
+                    <div class="testimonial-author-role">
+                      <%= item.location || 'Gujarat' %> • <%= item.designation || 'Villa Owner' %>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+                  <% } else { %>
+                    <div class="testimonial-luxury-card">
+                      <div>
+                        <div class="stars-rating">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-body">"Bluesky International built our Katargam villa infinity pool in
+                          record time. The leakproof concrete structure and automated saltwater chlorination are
+                          flawless!"</p>
+                      </div>
+                      <div>
+                        <div class="testimonial-author-name">Rajesh & Meena Shah</div>
+                        <div class="testimonial-author-role">Katargam, Surat • Private Villa Owner</div>
+                      </div>
+                    </div>
+
+                    <div class="testimonial-luxury-card">
+                      <div>
+                        <div class="stars-rating">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-body">"Their 16 years of expertise clearly shows. From 3D CAD modeling to
+                          the Spanish glass mosaic finish, everything was delivered turnkey with absolute
+                          professionalism."</p>
+                      </div>
+                      <div>
+                        <div class="testimonial-author-name">Harish Patel</div>
+                        <div class="testimonial-author-role">Bodakdev, Ahmedabad • Luxury Estate Owner</div>
+                      </div>
+                    </div>
+
+                    <div class="testimonial-luxury-card">
+                      <div>
+                        <div class="stars-rating">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-body">"Outstanding commercial resort swimming pool engineering. The
+                          high-rate sand filtration pumps and zero-edge deck gutters keep the water crystal clear 24/7."
+                        </p>
+                      </div>
+                      <div>
+                        <div class="testimonial-author-name">Sanjay Verma</div>
+                        <div class="testimonial-author-role">Mumbai, Maharashtra • Resort Managing Director</div>
+                      </div>
+                    </div>
+                    <% } %>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+   SECTION 7: CORPORATE HEADQUARTERS & CONSULTATION CTA
+   =================================================================== -->
+      <section style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 80px 0;">
+        <div class="container-wide">
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; align-items: center;">
+            <div>
+              <span class="section-tag-gold" style="margin-bottom: 16px;"><i class="fa-solid fa-compass-drafting"></i>
+                Free 3D Site Survey</span>
+              <h2
+                style="font-family: var(--font-hero); font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 900; line-height: 1.2; margin-bottom: 18px; color: #ffffff;">
+                Ready to Build Your Private Aquatic Oasis?
+              </h2>
+              <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.7; margin-bottom: 25px;">
+                Meet with our senior structural and hydraulic engineers at our Surat Studio or schedule a free site
+                laser inspection at your villa plot anywhere across Gujarat and Mumbai.
+              </p>
+
+              <div
+                style="background: rgba(255, 255, 255, 0.06); padding: 22px 24px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12); margin-bottom: 0;">
+                <div style="font-weight: 700; color: #fbbf24; margin-bottom: 6px; font-size: 0.95rem;">
+                  <i class="fa-solid fa-location-dot" style="color: #38bdf8;"></i> Surat Corporate Office:
+                </div>
+                <div style="color: #f1f5f9; font-size: 0.92rem; line-height: 1.6;">
+                  <%= settings.address
+                    || 'A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat 395004'
+                    %>
+                </div>
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div
+                style="border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);">
+                <img src="/images/private-pool-hero.webp" alt="Private Luxury Pool by Bluesky" width="600" height="380"
+                  loading="lazy" decoding="async" style="width: 100%; height: 380px; object-fit: cover;"
+                  onerror="this.src='/images/rooftop-pool.jpg'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <%- include('layouts/footer') %>

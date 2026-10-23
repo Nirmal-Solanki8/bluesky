@@ -1,0 +1,95 @@
+<!-- Floating WhatsApp Pill Button (The ONLY WhatsApp Button on Site as Requested) -->
+<a href="https://wa.me/918128920702?text=Hello%20Bluesky%20International,%20I%20am%20interested%20in%20a%20swimming%20pool%20project."
+  class="whatsapp-pill-btn" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp"
+  aria-label="WhatsApp Chat">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Chat with us</span>
+</a>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container-wide">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="nav-brand" style="margin-bottom: 20px;">
+          <img src="/images/logo.svg" alt="Blue Sky International" width="160" height="48"
+            style="height: 48px; width: auto;" decoding="async">
+        </div>
+        <p class="footer-brand-p">
+          <%= settings.tagline || 'Luxury Swimming Pool Architecture, Turnkey Construction & Filtration Engineering' %>
+        </p>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>
+            <%= settings.address %>
+          </span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+918128920702">+91 81289 20702</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:<%= settings.email || 'pritesh029@gmail.com' %>">
+            <%= settings.email || 'pritesh029@gmail.com' %>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Bluesky</a></li>
+          <li><a href="/pool-types">All Pool Types</a></li>
+          <li><a href="/services">Services & MEP</a></li>
+          <li><a href="/products">Equipment Catalog</a></li>
+          <li><a href="/gallery">Project Showcase</a></li>
+          <li><a href="/contact">Get Free Quote</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pool Types</h4>
+        <ul class="footer-links">
+          <li><a href="/vanishing-edge-swimming-pools">Infinity Horizon Pools</a></li>
+          <li><a href="/private-swimming-pools">Private Villa Pools</a></li>
+          <li><a href="/commercial-swimming-pools">Resort & Commercial Pools</a></li>
+          <li><a href="/pool-types#recreational">Recreational Water Parks</a></li>
+          <li><a href="/pool-types#readymade-frp">Readymade FRP Pools</a></li>
+          <li><a href="/services#maintenance">Annual Maintenance (AMC)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Surat Head Office</h4>
+        <p style="font-size: 0.95rem; margin-bottom: 16px; color: var(--text-muted); line-height: 1.6;">
+          A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat
+          395004
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <div class="footer-badge-pill">
+            <i class="fa-solid fa-shield-halved"></i> ISO 9001:2015
+          </div>
+          <div class="footer-badge-pill"
+            style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25); color: #b45309;">
+            <i class="fa-solid fa-award"></i>
+            <%= settings.experienceYears || 16 %>+ Years
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© <%= new Date().getFullYear() %> Bluesky International. All Rights Reserved.</div>
+      <div>
+        Bespoke Swimming Pool Architecture & Turnkey Hydraulic Engineering
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js?v=8.9" defer></script>
+</body>
+
+</html>

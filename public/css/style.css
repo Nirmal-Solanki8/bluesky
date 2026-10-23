@@ -1,0 +1,3234 @@
+/* ===================================================================
+   BLUESKY INTERNATIONAL - DESIGN SYSTEM (BASE DESKTOP)
+   =================================================================== */
+
+/* ===================================================================
+   BLUESKY INTERNATIONAL - ULTRA LUXURY SWIMMING POOL ARCHITECTURE
+   Exact Match to Crystal Pools Design System:
+   - Floating Pill Navbar (Logo + Links + Exact Dropdown Cards + Light/Dark Mode)
+   - Expanded Cinematic Fullscreen Live Hero ("We build Bespoke Pools|")
+   - Clean "Dive into Excellence" with Sunset Ocean Pool & Jump/Tilt Card
+   - FULL-WIDTH "Our Premium Services" Bento Grid
+   - SVG Aquatic Waves Background across all non-hero sections
+   - 16+ Years Experience
+   - Single Floating "Chat with us" WhatsApp Pill Button on Bottom Right
+   =================================================================== */
+
+:root {
+  /* Default Clean Luxury Palette (Matching Crystal Pools Aesthetic) */
+  --bg-main: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-subtle: #f1f5f9;
+  --text-main: #0a192f;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+  --border-subtle: rgba(10, 25, 47, 0.08);
+  --border-accent: rgba(2, 132, 199, 0.35);
+
+  /* Signature Brand Accents (Blue Sky International) */
+  --brand-yellow: #f59e0b;
+  --brand-gold: #fbbf24;
+  --brand-cyan: #0284c7;
+  --brand-blue: #0369a1;
+  --brand-purple: #86198f;
+  --whatsapp-green: #25d366;
+
+  /* Floating Pill Navbar - Liquid Glass Tokens */
+  --pill-bg: rgba(255, 255, 255, 0.38);
+  --pill-border: rgba(255, 255, 255, 0.65);
+  --pill-shadow: 0 16px 38px -10px rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(255, 255, 255, 0.95) inset, 0 -1px 2px 0 rgba(2, 132, 199, 0.06) inset;
+  --pill-link: #0f172a;
+  --pill-link-active: #0284c7;
+
+  --radius-pill: 9999px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-bento: 26px;
+
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-hero: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===================================================================
+   UNIFIED LUXURY CONTAINER & RESPONSIVE GRID SYSTEM
+   =================================================================== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 28px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.container-hero-wide {
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 28px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+.fluid-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 32px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Grids */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* Showcase Row (Services & Pool Types Side-by-Side) */
+.showcase-row {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 75px;
+}
+
+.showcase-row.reverse {
+  grid-template-columns: 1fr 1.15fr;
+}
+
+/* Specs Mini Grid */
+.specs-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Unified Cinematic Page Hero Banner */
+.page-hero-cinematic {
+  position: relative;
+  min-height: 440px;
+  padding: 155px 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+  background-color: #061325;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 18, 36, 0.62) 0%, rgba(6, 18, 36, 0.42) 45%, rgba(6, 18, 36, 0.90) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Dedicated Services Hero */
+.services-hero-cinematic {
+  position: relative;
+  min-height: 480px;
+  padding: 155px 0 80px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #061325;
+  box-sizing: border-box;
+}
+
+.services-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/infinity-pool.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.services-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(6, 18, 36, 0.88) 0%, rgba(6, 18, 36, 0.52) 55%, rgba(6, 18, 36, 0.25) 100%),
+    linear-gradient(180deg, transparent 60%, rgba(6, 18, 36, 0.92) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.page-hero-title {
+  font-family: var(--font-hero);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.65);
+}
+
+.page-hero-desc {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: #cbd5e1;
+  font-weight: 500;
+  line-height: 1.7;
+  max-width: 740px;
+  margin: 0 auto;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+}
+
+.text-glow-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+/* Premium Product Card */
+.product-card-premium {
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+}
+
+.product-card-premium:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px -8px rgba(2, 44, 84, 0.16);
+  border-color: rgba(2, 132, 199, 0.35);
+}
+
+.product-img-wrap {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background: #f1f5f9;
+  position: relative;
+}
+
+.product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card-premium:hover .product-img-wrap img {
+  transform: scale(1.06);
+}
+
+/* ===================================================================
+   STANDARDIZED LUXURY SECTION PADDING & LAYOUT SYSTEM
+   =================================================================== */
+.section {
+  padding: 90px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.section-fullwidth {
+  width: 100%;
+  padding: 90px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-head .section-tag-gold {
+  margin-bottom: 14px;
+}
+
+.section-head p {
+  color: var(--text-muted);
+  font-size: 1.12rem;
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 12px auto 0;
+}
+
+.dive-heading,
+.services-main-title {
+  font-family: var(--font-hero);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--text-main);
+  line-height: 1.12;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+/* ===================================================================
+   CLEAN LUXURY BACKGROUND FOR ALL SECTIONS (REMOVED CLUTTERED SVG)
+   =================================================================== */
+.has-svg-water-bg {
+  position: relative;
+}
+
+/* ===================================================================
+   FLOATING PILL NAVBAR - 120HZ LIQUID GLASS
+   =================================================================== */
+.floating-nav-pill {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: calc(100% - 36px);
+  max-width: 1180px;
+  height: 58px;
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  border-radius: var(--radius-pill) !important;
+  box-shadow:
+    0 10px 30px -8px rgba(2, 44, 84, 0.12),
+    0 1px 2px 0 rgba(255, 255, 255, 0.95) inset,
+    0 -1px 2px 0 rgba(2, 132, 199, 0.05) inset !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px 0 22px;
+  z-index: 1000;
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Scrolled: Solid frosted glass for maximum clarity over page content */
+.floating-nav-pill.scrolled {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(255, 255, 255, 0.98) !important;
+  box-shadow:
+    0 12px 30px -8px rgba(2, 44, 84, 0.16),
+    0 1px 2px 0 rgba(255, 255, 255, 0.98) inset !important;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-links-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+}
+
+.nav-links-list li {
+  position: relative;
+}
+
+.nav-links-list li a {
+  font-size: 0.90rem;
+  font-weight: 700;
+  color: #0f172a;
+  transition: all 0.22s ease;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: -0.2px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-arrow {
+  font-size: 0.72rem;
+  transition: transform 0.25s ease;
+  opacity: 0.75;
+}
+
+.has-dropdown:hover .nav-arrow {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.nav-links-list li a:hover {
+  color: #0284c7;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.nav-links-list li a.active {
+  color: #0284c7;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15), 0 1px 2px rgba(255, 255, 255, 0.95) inset;
+}
+
+/* ===================================================================
+   EXCLUSIVE NON-OVERLAPPING DROPDOWN CARD (FROSTED LIQUID GLASS)
+   =================================================================== */
+.has-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Invisible hover bridge */
+.has-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  pointer-events: auto;
+}
+
+.has-dropdown>.nav-dropdown-card {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  border-radius: 16px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(255, 255, 255, 0.95) inset !important;
+  padding: 8px 6px;
+  min-width: 270px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 2500;
+}
+
+/* Show ONLY when directly hovered or active */
+.has-dropdown:hover>.nav-dropdown-card,
+.has-dropdown.open>.nav-dropdown-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+.has-dropdown:hover>a .nav-arrow,
+.has-dropdown.open>a .nav-arrow {
+  transform: rotate(180deg) !important;
+}
+
+.nav-dropdown-tall {
+  max-height: 460px;
+  overflow-y: auto;
+  min-width: 270px;
+}
+
+.nav-dropdown-tall::-webkit-scrollbar {
+  width: 4px;
+}
+
+.nav-dropdown-tall::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.35);
+  border-radius: 10px;
+}
+
+.dropdown-item {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 7px 12px !important;
+  border-radius: 10px;
+  transition: all 0.18s ease !important;
+}
+
+.dropdown-item:hover {
+  background: rgba(2, 132, 199, 0.08) !important;
+}
+
+.dropdown-item-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: block;
+}
+
+.dropdown-item-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+  margin-top: 1px;
+}
+
+/* Right Actions inside Pill */
+.nav-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.admin-portal-pill-icon {
+  color: #475569;
+  font-size: 0.85rem;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 1px 2px rgba(255, 255, 255, 0.9) inset;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.admin-portal-pill-icon:hover {
+  background: #ffffff;
+  color: #0284c7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18);
+}
+
+.mobile-hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--pill-link);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* Mobile Drawer Backdrop */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 25, 47, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+  pointer-events: none;
+}
+
+.drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Mobile Drawer (120Hz Hardware Accelerated GPU Slide-Over) */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(340px, 86vw);
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255, 255, 255, 0.85);
+  z-index: 3000;
+  padding: max(22px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom));
+  box-shadow: -15px 0 45px rgba(2, 44, 84, 0.18);
+  transform: translate3d(105%, 0, 0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  touch-action: pan-y;
+}
+
+.mobile-drawer.open {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+@media (min-width: 1025px) {
+  .mobile-drawer,
+  .drawer-backdrop {
+    display: none !important;
+    pointer-events: none !important;
+  }
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.drawer-close {
+  background: rgba(15, 23, 42, 0.06);
+  border: none;
+  color: var(--text-main);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.drawer-close:hover,
+.drawer-close:active {
+  background: rgba(15, 23, 42, 0.12);
+  transform: scale(0.96);
+}
+
+.drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+  padding: 4px 4px 16px 0;
+}
+
+.drawer-links li {
+  width: 100%;
+}
+
+.drawer-links > li > a {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #0f172a;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-links > li > a:hover,
+.drawer-links > li > a:active {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+}
+
+.drawer-accordion-btn {
+  background: transparent;
+  border: none;
+  color: #0f172a;
+  font-size: 1.02rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.drawer-accordion-btn:hover,
+.drawer-accordion-btn:active {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+}
+
+.drawer-accordion-btn i {
+  font-size: 0.85rem;
+  transition: transform 0.25s ease;
+  opacity: 0.7;
+}
+
+.drawer-dropdown-item.open .drawer-accordion-btn i {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.drawer-accordion-content {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px 0 8px 16px;
+  border-left: 2px solid #0284c7;
+  margin: 4px 0 6px 14px;
+}
+
+.drawer-dropdown-item.open .drawer-accordion-content {
+  display: flex;
+}
+
+.drawer-accordion-content a {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 7px 10px;
+  border-radius: 8px;
+  transition: all 0.18s ease;
+}
+
+.drawer-accordion-content a:hover,
+.drawer-accordion-content a:active {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+}
+
+/* ===================================================================
+   HERO SECTION (WIDER TEXT)
+   =================================================================== */
+.hero-live-container {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 110px 0 75px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  content-visibility: visible !important;
+}
+
+.hero-live-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: linear-gradient(180deg, rgba(6, 18, 36, 0.42) 0%, rgba(6, 18, 36, 0.18) 40%, rgba(6, 18, 36, 0.88) 100%),
+    url('/images/private-pool-hero.webp') center center / cover no-repeat;
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.hero-live-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1180px;
+  padding-top: 50px;
+}
+
+.hero-main-heading {
+  font-family: var(--font-hero);
+  font-size: clamp(3.4rem, 8vw, 6.2rem);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 24px;
+}
+
+.hero-highlight-word {
+  color: var(--brand-yellow);
+  display: inline-block;
+  position: relative;
+  contain: layout style;
+  min-height: 1.1em;
+}
+
+.typing-cursor {
+  display: inline-block;
+  color: var(--brand-yellow);
+  font-weight: 300;
+  margin-left: 2px;
+  animation: blinkCursor 1s infinite;
+  will-change: opacity;
+}
+
+@keyframes blinkCursor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-sub-description {
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  color: #f1f5f9;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+  max-width: 880px;
+  margin-bottom: 38px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-smooth);
+}
+
+.btn-yellow {
+  background: var(--brand-yellow);
+  color: #06101e;
+  box-shadow: 0 10px 25px rgba(255, 183, 3, 0.35);
+}
+
+.btn-yellow:hover {
+  background: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(255, 183, 3, 0.5);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.5);
+}
+
+.btn-outline {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1.5px solid var(--border-subtle);
+}
+
+.btn-outline:hover {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+  transform: translateY(-2px);
+}
+
+.section-tag-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0.85;
+}
+
+.scroll-line {
+  width: 1.5px;
+  height: 28px;
+  background: linear-gradient(180deg, #ffffff, transparent);
+  animation: scrollDrop 2s infinite ease-in-out;
+}
+
+@keyframes scrollDrop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+/* ===================================================================
+   SINGLE FLOATING WHATSAPP PILL BUTTON (THE ONLY ONE ON SITE)
+   =================================================================== */
+.whatsapp-pill-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--whatsapp-green);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+  z-index: 999;
+  transition: var(--transition-smooth);
+}
+
+.whatsapp-pill-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.6);
+  color: #ffffff;
+}
+
+.whatsapp-pill-btn i {
+  font-size: 1.35rem;
+}
+
+/* ===================================================================
+/* ===================================================================
+   SECTION 2: "DIVE INTO EXCELLENCE" - MINIMALIST APPLE LUXURY SHOWCASE
+   Exact Side-by-Side Layout with Frosted Glass Pills & Spacious Elegance
+   =================================================================== */
+.dive-into-excellence-section {
+  padding: 100px 0;
+  background: var(--bg-main);
+  position: relative;
+  z-index: 2;
+}
+
+.dive-apple-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.28fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.dive-apple-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.apple-section-tag {
+  color: #d97706;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.apple-section-tag i {
+  color: var(--brand-sky);
+  font-size: 0.95rem;
+}
+
+.apple-dive-heading {
+  font-family: var(--font-hero);
+  font-size: clamp(3rem, 5.5vw, 4.6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--text-main);
+  margin: 0 0 24px 0;
+}
+
+.apple-dive-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 34px 0;
+  max-width: 520px;
+}
+
+.apple-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.apple-pill-btn {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  color: var(--text-main);
+  padding: 11px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(14, 165, 233, 0.4);
+  color: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.12);
+}
+
+.apple-pill-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.35);
+  transform: translateY(-2px);
+  font-weight: 700;
+}
+
+.apple-link-wrap {
+  margin-top: 4px;
+}
+
+.apple-explore-link {
+  font-size: 0.94rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #d97706;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.apple-explore-link:hover {
+  color: #b45309;
+  transform: translateX(4px);
+}
+
+.apple-explore-link i {
+  transition: transform 0.3s ease;
+}
+
+.apple-explore-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Right Column: Apple Image Card */
+.dive-apple-card-col {
+  position: relative;
+}
+
+.jump-card-stage {
+  perspective: 1200px;
+}
+
+.apple-image-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  height: 510px;
+  background: var(--bg-card-subtle);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 65px rgba(2, 132, 199, 0.12), 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.45s ease;
+  transform-origin: center center;
+}
+
+.apple-image-card.jumping-now {
+  animation: appleCardJumpAndTilt 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes appleCardJumpAndTilt {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  35% {
+    transform: translateY(-35px) rotate(-4.5deg) scale(0.93);
+    box-shadow: 0 40px 85px rgba(6, 19, 37, 0.28);
+  }
+
+  70% {
+    transform: translateY(-8px) rotate(1.5deg) scale(0.98);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    box-shadow: 0 25px 65px rgba(6, 19, 37, 0.18);
+  }
+}
+
+.apple-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-image-card:hover .apple-card-img {
+  transform: scale(1.04);
+}
+
+.apple-card-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  pointer-events: none;
+  transition: all 0.35s ease;
+}
+
+.apple-caption-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #d97706;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.apple-caption-title {
+  font-family: var(--font-hero);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* ===================================================================
+   SECTION 3: "OUR PREMIUM SERVICES" FULL-WIDTH BENTO GRID
+   =================================================================== */
+.premium-services-section {
+  background: var(--bg-card-subtle);
+}
+
+.bento-services-grid-fluid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+}
+
+.bento-card {
+  position: relative;
+  height: 350px;
+  border-radius: var(--radius-bento);
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.bento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.bento-col-2 {
+  grid-column: span 2;
+}
+
+.bento-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .bento-bg-img {
+  transform: scale(1.08);
+}
+
+.bento-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.4) 75%, rgba(15, 23, 42, 0.88) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  color: #fff;
+}
+
+.bento-title {
+  font-family: var(--font-hero);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.bento-sub {
+  font-size: 0.96rem;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+}
+
+.bento-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--brand-yellow);
+  letter-spacing: 1px;
+  transition: transform 0.2s ease;
+}
+
+.bento-link:hover {
+  transform: translateX(6px);
+}
+
+/* ===================================================================
+   STATS STRIP (16+ YEARS)
+   =================================================================== */
+.stats-strip {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border-subtle);
+  padding: 50px 0;
+  position: relative;
+  z-index: 5;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.stat-item {
+  position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: var(--border-subtle);
+}
+
+.stat-number {
+  font-family: var(--font-hero);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--brand-yellow);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ===================================================================
+   QUOTE ESTIMATOR
+   =================================================================== */
+.quote-banner {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(240, 249, 255, 0.9) 50%, rgba(2, 132, 199, 0.08) 100%);
+  border-radius: 28px;
+  padding: 65px 55px;
+  color: var(--text-main);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  box-shadow: 0 20px 50px rgba(2, 132, 199, 0.08);
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.quote-form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 40px;
+  color: var(--text-main);
+  box-shadow: 0 15px 40px rgba(2, 132, 199, 0.1);
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--brand-yellow);
+  box-shadow: 0 0 0 4px rgba(255, 183, 3, 0.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ===================================================================
+   LUXURY LIGHT FOOTER (GLASSMORPHIC & TRANSPARENT PALETTE)
+   =================================================================== */
+.footer {
+  background: #f1f5f9;
+  color: var(--text-muted);
+  padding: 85px 0 35px;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 5;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.1fr 1.2fr 1.4fr;
+  gap: 45px;
+  margin-bottom: 55px;
+}
+
+.footer-col h4 {
+  font-family: var(--font-hero);
+  color: var(--text-main);
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 22px;
+  position: relative;
+  letter-spacing: -0.3px;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 28px;
+  height: 2.5px;
+  background: var(--brand-cyan);
+  border-radius: 2px;
+}
+
+.footer-brand-p {
+  margin-bottom: 22px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 340px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--text-main);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.footer-contact-item i {
+  color: var(--brand-cyan);
+  font-size: 1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.footer-contact-item a {
+  color: var(--text-main);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-item a:hover {
+  color: var(--brand-cyan);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  font-size: 0.94rem;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--brand-cyan);
+  transform: translateX(4px);
+}
+
+.footer-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  color: var(--brand-cyan);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN (100% FLUID RESPONSIVE ACROSS ALL DEVICES)
+   =================================================================== */
+
+/* Filter pills used in catalog and overview bars */
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.filter-pill:hover,
+.filter-pill.active {
+  background: var(--brand-yellow);
+  color: #060d19;
+  border-color: var(--brand-yellow);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ===================================================================
+   HOME PAGE: FEATURED PROJECTS, PROCESS & TESTIMONIALS
+   =================================================================== */
+.portfolio-grid-home {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.portfolio-home-card,
+.portfolio-card {
+  position: relative;
+  height: 380px;
+  border-radius: var(--radius-bento);
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-home-card:hover,
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+}
+
+.portfolio-home-img,
+.portfolio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-home-card:hover .portfolio-home-img,
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.08);
+}
+
+.portfolio-home-overlay,
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.45) 70%, rgba(15, 23, 42, 0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 26px;
+  color: #fff;
+  z-index: 2;
+}
+
+.portfolio-home-tag,
+.portfolio-category {
+  color: var(--brand-yellow);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.portfolio-home-title,
+.portfolio-title {
+  font-family: var(--font-hero);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.portfolio-home-meta,
+.portfolio-meta {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 5-Step Process Timeline */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.process-step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 34px 24px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+.process-step-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.1);
+}
+
+.process-num {
+  font-family: var(--font-hero);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--brand-yellow);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.process-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.process-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Testimonials Grid */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-luxury-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 38px 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-luxury-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 18px 40px rgba(2, 132, 199, 0.1);
+}
+
+.stars-rating {
+  color: #f59e0b;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 4px;
+}
+
+.testimonial-body {
+  font-size: 1rem;
+  color: var(--text-main);
+  line-height: 1.65;
+  margin-bottom: 22px;
+  font-style: italic;
+}
+
+.testimonial-author-name {
+  font-weight: 800;
+  color: var(--text-main);
+  font-size: 1.05rem;
+}
+
+.testimonial-author-role {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ===================================================================
+   ULTRA-PREMIUM ARCHITECTURAL SHOWCASE STYLES
+   =================================================================== */
+.hero-luxury-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Frosted Glass Floating Feature Card */
+.glass-feature-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 25px 60px -15px rgba(2, 44, 84, 0.18), 0 0 0 1px rgba(2, 132, 199, 0.08);
+  border-radius: 26px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.glass-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-yellow) 0%, var(--brand-cyan) 50%, var(--brand-blue) 100%);
+}
+
+.glass-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 70px -12px rgba(2, 44, 84, 0.24), 0 0 0 1px rgba(2, 132, 199, 0.15);
+}
+
+/* Luxury Trust Chips */
+.luxury-trust-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.luxury-trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(2, 132, 199, 0.16);
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.luxury-trust-chip i {
+  color: var(--brand-cyan);
+}
+
+/* Floating Badge on Image */
+.img-luxury-tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(6, 13, 25, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+}
+
+.img-luxury-tag i {
+  color: var(--brand-yellow);
+}
+
+/* ===================================================================
+   ULTRA-PREMIUM ABOUT US PAGE STYLES
+   =================================================================== */
+.about-hero-cinematic {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 155px 0 80px;
+  overflow: hidden;
+  background: #061325;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/resort-pool.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.90;
+  z-index: 1;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 18, 36, 0.65) 0%, rgba(6, 18, 36, 0.40) 45%, rgba(6, 18, 36, 0.90) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-glass-pill {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.about-glass-pill:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.pillar-card-luxury {
+  background: #ffffff;
+  padding: 34px 26px;
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-card-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-sky), var(--brand-cyan));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.pillar-card-luxury:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(2, 132, 199, 0.14);
+  border-color: rgba(2, 132, 199, 0.25);
+}
+
+.pillar-card-luxury:hover::before {
+  opacity: 1;
+}
+
+.comparison-table-luxury {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.comparison-table-luxury th,
+.comparison-table-luxury td {
+  padding: 18px 24px;
+}
+
+.comparison-table-luxury tr:not(:last-child) td {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.comparison-highlight-col {
+  background: linear-gradient(180deg, rgba(2, 132, 199, 0.05) 0%, rgba(2, 132, 199, 0.02) 100%);
+  border-left: 1.5px solid rgba(2, 132, 199, 0.18);
+  border-right: 1.5px solid rgba(2, 132, 199, 0.18);
+}
+
+/* ===================================================================
+   POOL TYPES & PRIVATE POOLS CINEMATIC LUXURY HERO
+   =================================================================== */
+.pool-hero-cinematic {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  padding: 155px 0 85px;
+  overflow: hidden;
+  background: #020914;
+  box-sizing: border-box;
+}
+
+.pool-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/pool-types/vanishing-edge.webp');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.pool-hero-bg-private {
+  background-image: url('/images/private-pool-hero.webp');
+  background-position: center center;
+}
+
+.pool-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 85% 25%, rgba(14, 165, 233, 0.18) 0%, transparent 60%),
+    linear-gradient(90deg, rgba(2, 9, 20, 0.88) 0%, rgba(2, 9, 20, 0.58) 50%, rgba(2, 9, 20, 0.25) 100%),
+    linear-gradient(180deg, rgba(2, 9, 20, 0.35) 0%, transparent 40%, rgba(2, 9, 20, 0.88) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.text-glow-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 50%, #06b6d4 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 16px rgba(56, 189, 248, 0.55));
+}
+
+.badge-delivered-glow {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(2, 132, 199, 0.22);
+  border: 1px solid rgba(56, 189, 248, 0.38);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pulsing-dot-green {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 12px #10b981, 0 0 5px #10b981;
+  margin-right: 8px;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+}
+
+/* Obsidian Frosted Jewel Card */
+.glass-feature-card-ultra {
+  background: linear-gradient(145deg, rgba(7, 18, 38, 0.92) 0%, rgba(3, 10, 22, 0.97) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 35px 85px -15px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 50px rgba(2, 132, 199, 0.22);
+  border-radius: 28px;
+  padding: 34px 30px;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+}
+
+.glass-feature-card-ultra::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b 0%, #38bdf8 50%, #10b981 100%);
+}
+
+.glass-feature-card-ultra:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 45px 100px -12px rgba(0, 0, 0, 0.95),
+    0 0 60px rgba(56, 189, 248, 0.35);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.glass-spec-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.glass-feature-card-ultra:hover .glass-spec-icon-box {
+  transform: scale(1.05);
+}
+
+/* Luxury Metric Stats Strip */
+.luxury-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 36px;
+  padding: 16px 22px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.luxury-stat-box {
+  text-align: center;
+}
+
+.luxury-stat-box .stat-number {
+  font-family: var(--font-hero);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+}
+
+.luxury-stat-box .stat-plus {
+  color: #fbbf24;
+  font-size: 0.85em;
+  margin-left: 2px;
+}
+
+.luxury-stat-box .stat-caption {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+.stat-separator {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ===================================================================
+   PAGE HERO CINEMATIC RESPONSIVE
+   =================================================================== */
+
+.page-hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* ===================================================================
+   APPLE-STYLE LUXURY POOL SHOWCASE & CONFIGURATOR
+   =================================================================== */
+
+/* Segmented Pill Selector Bar */
+.apple-selector-wrap {
+  position: sticky;
+  top: 75px;
+  z-index: 80;
+  padding: 14px 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  margin-bottom: 45px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .apple-selector-wrap {
+  background: rgba(6, 18, 36, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+}
+
+.apple-pill-nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 4px 2px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.apple-pill-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.apple-pill-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-main);
+  font-size: 0.90rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.apple-pill-btn:hover {
+  color: var(--text-main);
+  border-color: rgba(2, 132, 199, 0.4);
+  background: rgba(2, 132, 199, 0.06);
+  transform: translateY(-1px);
+}
+
+.apple-pill-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.38) !important;
+  border-color: #38bdf8 !important;
+  transform: translateY(-1px);
+}
+
+/* ===================================================================
+   APPLE-STYLE ARCHITECTURAL SHOWCASE (CLEAN, SOBER & PREMIUM)
+   =================================================================== */
+
+/* Showcase Stage Container */
+.apple-stage-container {
+  background: var(--bg-card);
+  border-radius: 28px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 60px -15px rgba(2, 44, 84, 0.08);
+  overflow: hidden;
+  margin-bottom: 70px;
+  transition: all 0.35s ease;
+}
+
+.apple-stage-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: stretch;
+  min-height: 540px;
+}
+
+/* Left Image Stage: Clean Dual-Layer Day/Night */
+.apple-stage-visual {
+  position: relative;
+  background: #0b1320;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+}
+
+.stage-layer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stage-layer-day {
+  opacity: 1;
+  z-index: 1;
+}
+
+.stage-layer-night {
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#stageVisualBox.night-active .stage-layer-day {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#stageVisualBox.night-active .stage-layer-night {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.apple-stage-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 25, 47, 0.15) 0%, rgba(10, 25, 47, 0.25) 50%, rgba(10, 25, 47, 0.85) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Minimal Top Bar over visual */
+.stage-top-bar {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  right: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  gap: 12px;
+}
+
+.stage-tag-badge {
+  background: rgba(10, 25, 47, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* Minimal Sober Day/Night Switch */
+.stage-lighting-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(10, 25, 47, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 3px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.s-light-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: none;
+  background: transparent;
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.s-light-btn:hover {
+  color: #ffffff;
+}
+
+.s-light-btn.active {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Clean Bottom Caption */
+.stage-caption-clean {
+  position: absolute;
+  bottom: 22px;
+  left: 24px;
+  right: 24px;
+  color: #ffffff;
+  z-index: 5;
+}
+
+.stage-sub-label {
+  color: var(--brand-yellow);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.stage-location-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+/* Right Content Stage (Clean, Sober & Premium) */
+.apple-stage-content {
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg-card);
+}
+
+.stage-timeline-pill {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--brand-cyan);
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  padding: 4px 12px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.apple-stage-title {
+  font-family: var(--font-hero);
+  font-size: clamp(1.4rem, 4.5vw, 2.4rem);
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1.18;
+  margin: 10px 0 12px;
+  letter-spacing: -0.02em;
+  word-break: break-word;
+}
+
+.apple-stage-desc {
+  font-size: 1.0rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+/* Sober 4-Item Key Specs Grid */
+.apple-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.apple-spec-item {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 12px 16px;
+  transition: all 0.25s ease;
+  word-break: break-word;
+}
+
+.apple-spec-item:hover {
+  border-color: rgba(2, 132, 199, 0.35);
+  background: var(--bg-card);
+}
+
+.apple-spec-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-cyan);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+
+.apple-spec-val {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* Sober Highlights List */
+.apple-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: grid;
+  gap: 10px;
+}
+
+.apple-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.45;
+}
+
+.apple-highlights li i {
+  color: var(--brand-cyan);
+  font-size: 0.92rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Action Buttons within Stage */
+.apple-stage-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+/* Apple Cards Grid (Browse All 8 Formats) */
+.apple-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.apple-pool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.apple-pool-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -12px rgba(2, 132, 199, 0.25);
+  border-color: rgba(2, 132, 199, 0.45);
+}
+
+.apple-pool-card.active-card {
+  border-color: var(--brand-cyan);
+  box-shadow: 0 0 0 2px var(--brand-cyan), 0 20px 40px rgba(2, 132, 199, 0.25);
+}
+
+.apple-pool-card-img-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.apple-pool-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-pool-card:hover .apple-pool-card-img {
+  transform: scale(1.08);
+}
+
+.apple-pool-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* Comparison Table Modern Luxury Glass */
+.table-scroll-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.80rem;
+  font-weight: 700;
+  color: var(--brand-cyan);
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px dashed rgba(2, 132, 199, 0.3);
+  border-radius: 50px;
+  padding: 6px 16px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.luxury-comparison-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 60px -15px rgba(2, 44, 84, 0.1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.luxury-comparison-table {
+  width: 100%;
+  min-width: 840px;
+  border-collapse: collapse;
+}
+
+.luxury-comparison-table th {
+  background: var(--bg-card-subtle);
+  padding: 18px 22px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-main);
+  border-bottom: 2px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.luxury-comparison-table td {
+  padding: 18px 22px;
+  font-size: 0.94rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+}
+
+.luxury-comparison-table tr:hover td {
+  background: rgba(2, 132, 199, 0.04);
+}
+
+/* Quick Anchor Sticky Bar */
+.quick-anchor-sticky-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 0;
+  position: sticky;
+  top: 76px;
+  z-index: 900;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: top 0.25s ease;
+}
+
+/* Contact Page Responsive Box Classes */
+.contact-info-card,
+.contact-form-card {
+  padding: 40px;
+}
+
+/* About Page Credential Card */
+.collage-credential-card {
+  position: absolute;
+  bottom: -25px;
+  right: -10px;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  border: 1px solid var(--border-subtle);
+  max-width: 280px;
+  z-index: 5;
+}
+
+/* ===================================================================
+   120HZ INTERACTIVE TURNKEY POOL ESTIMATOR & CALCULATOR
+   =================================================================== */
+.interactive-calc-box {
+  background: rgba(2, 132, 199, 0.04);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin: 16px 0 20px;
+  transition: border-color 0.25s ease;
+}
+
+.calc-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.calc-box-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calc-box-title i {
+  color: var(--brand-yellow);
+}
+
+.calc-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--brand-cyan);
+  background: rgba(2, 132, 199, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.calc-sliders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.calc-slider-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calc-slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.calc-slider-val {
+  color: var(--brand-blue);
+  font-weight: 800;
+}
+
+.calc-range-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(2, 132, 199, 0.18);
+  outline: none;
+  cursor: pointer;
+}
+
+.calc-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--brand-cyan);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.calc-range-input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.calc-results-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(2, 132, 199, 0.15);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .calc-results-strip {
+  background: rgba(10, 25, 47, 0.7);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.calc-result-stat {
+  text-align: center;
+}
+
+.calc-stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.calc-stat-value {
+  font-family: var(--font-hero);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--brand-blue);
+}
+
+[data-theme="dark"] .calc-stat-value {
+  color: #38bdf8;
+}
+
+/* ===================================================================
+   UNIFIED HIGH-PERFORMANCE RESPONSIVE DESIGN (3 CONSOLIDATED BREAKPOINTS)
+   =================================================================== */
+
+/* Breakpoint 1: Tablets & Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+  .nav-links-list {
+    display: none;
+  }
+
+  .mobile-hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .bento-services-grid-fluid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .bento-col-2 {
+    grid-column: span 2;
+  }
+
+  .portfolio-grid-home {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .hero-luxury-layout,
+  .dive-apple-grid,
+  .apple-stage-grid,
+  .contact-grid,
+  .showcase-row,
+  .showcase-row.reverse,
+  .testimonials-grid,
+  .quote-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  .apple-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .apple-stage-visual {
+    min-height: 330px !important;
+    height: 360px !important;
+  }
+
+  .table-scroll-hint {
+    display: inline-flex;
+  }
+}
+
+/* Breakpoint 2: Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+  .container,
+  .container-wide,
+  .container-hero-wide,
+  .fluid-container {
+    padding: 0 16px !important;
+  }
+
+  /* 120Hz Fast Floating Pill Navbar (Ultra-Lightweight GPU Raster) */
+  .floating-nav-pill {
+    top: 10px;
+    width: calc(100% - 24px);
+    height: 52px;
+    padding: 0 14px 0 16px;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  .floating-nav-pill.scrolled {
+    background: #ffffff !important;
+    box-shadow: 0 8px 24px -4px rgba(2, 44, 84, 0.16) !important;
+  }
+
+  .floating-nav-pill .brand-logo-img {
+    height: 32px;
+  }
+
+  /* Lighten card rasterization for mobile 120Hz scrolling */
+  .glass-feature-card,
+  .glass-feature-card-ultra,
+  .interactive-calc-box {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Full 100vh Hero Container */
+  .hero-live-container {
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    padding: 85px 0 55px !important;
+  }
+
+  .hero-live-bg {
+    height: 100% !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+  }
+
+  .hero-main-heading {
+    font-size: clamp(2.4rem, 7vw, 3.2rem);
+  }
+
+  .hero-sub-description {
+    font-size: 1.02rem;
+  }
+
+  /* 120Hz ProMotion Native Touch Carousel for Pool Styles */
+  .apple-pills-wrap {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding: 6px 16px 14px !important;
+    margin: 0 -16px 20px !important;
+    scroll-snap-type: x mandatory;
+  }
+
+  .apple-pills-wrap::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .apple-pills-wrap .apple-pill-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    scroll-snap-align: center;
+  }
+
+  .apple-image-card {
+    height: 320px;
+  }
+
+  .quick-anchor-sticky-bar {
+    top: 64px !important;
+    padding: 8px 0 !important;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 24px 18px !important;
+  }
+
+  .collage-credential-card {
+    position: static !important;
+    max-width: 100% !important;
+    margin-top: 16px !important;
+  }
+
+  /* Single Column Collapse for Mobile */
+  .grid-4,
+  .grid-3,
+  .grid-2,
+  .bento-services-grid-fluid,
+  .portfolio-grid-home,
+  .process-grid,
+  .footer-grid,
+  .apple-catalog-grid,
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bento-col-2 {
+    grid-column: span 1 !important;
+  }
+
+  .bento-card {
+    height: 270px;
+  }
+
+  .portfolio-home-card {
+    height: 300px;
+  }
+
+  .luxury-stats-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .stat-separator:nth-child(4) {
+    display: none;
+  }
+
+  .quote-banner {
+    padding: 36px 20px;
+  }
+
+  .quote-form-card {
+    padding: 22px 16px;
+  }
+
+  .whatsapp-pill-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  .page-hero-cinematic {
+    min-height: auto;
+    padding: 110px 0 45px;
+  }
+
+  .page-hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    margin-bottom: 12px;
+  }
+
+  .apple-selector-wrap {
+    top: 62px;
+    padding: 8px 0;
+    margin-bottom: 24px;
+  }
+
+  .apple-pill-nav {
+    padding: 4px 8px;
+    gap: 6px;
+  }
+
+  .apple-pill-btn {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+
+  .apple-stage-visual {
+    min-height: 270px !important;
+    height: 290px !important;
+  }
+
+  .apple-stage-content {
+    padding: 24px 16px;
+  }
+
+  .apple-stage-actions,
+  .page-hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .apple-stage-actions .btn,
+  .page-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+    text-align: center;
+  }
+
+  .apple-pool-card-img-wrap {
+    height: 190px;
+  }
+
+  .apple-pool-card-body {
+    padding: 18px 16px;
+  }
+
+  .stage-top-bar {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .stage-tag-badge {
+    padding: 4px 8px;
+    font-size: 0.70rem;
+  }
+
+  .s-light-btn {
+    padding: 4px 8px;
+    font-size: 0.70rem;
+  }
+
+  .stage-caption-clean {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .calc-sliders-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .calc-results-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .calc-results-strip .calc-result-stat:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* Breakpoint 3: Compact Phones (<= 480px) */
+@media (max-width: 480px) {
+  .floating-nav-pill {
+    width: calc(100% - 20px) !important;
+    height: 50px !important;
+    padding: 0 10px 0 12px !important;
+  }
+
+  .floating-nav-pill .brand-logo-img {
+    height: 28px !important;
+    max-width: 110px !important;
+  }
+
+  .admin-portal-pill-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .mobile-hamburger {
+    padding: 4px !important;
+    font-size: 1.25rem !important;
+  }
+
+  .hero-main-heading {
+    font-size: clamp(2.1rem, 8.5vw, 2.6rem) !important;
+  }
+
+  .hero-sub-description {
+    font-size: 0.95rem;
+  }
+
+  .dive-heading,
+  .services-main-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.2rem) !important;
+  }
+
+  .apple-image-card {
+    height: 250px !important;
+  }
+
+  .bento-card {
+    height: 230px !important;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 20px 14px !important;
+  }
+
+  .quote-banner {
+    padding: 28px 14px;
+  }
+
+  .quote-form-card {
+    padding: 20px 14px;
+  }
+
+  .stats-grid {
+    gap: 16px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  .apple-specs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stage-tag-badge {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "crystal-pools-website",
+  "version": "1.0.0",
+  "description": "Swimming Pool Construction & Maintenance Website with Admin Panel",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch-path=app.js --watch-path=controllers --watch-path=routes --watch-path=views --watch-path=models --watch-path=config app.js",
+    "seed": "node utils/seed.js"
+  },
+  "keywords": [
+    "swimming-pool",
+    "express",
+    "nodejs",
+    "mongodb",
+    "admin-panel"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.8.2",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.7.1",
+    "express-session": "^1.18.1",
+    "helmet": "^8.3.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.9.5",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

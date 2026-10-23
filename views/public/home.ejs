@@ -1,0 +1,700 @@
+<%- include('layouts/header') %>
+
+  <!-- ===================================================================
+     HERO SECTION (MATCHING CRYSTAL POOLS REFERENCE)
+     - Live Animated Pool Background
+     - Clean, Bold Typography with Typing Animation ("We build Bespoke Pools|")
+     - Luxury Sub-description
+     - NO Hero Buttons (Removed as requested by user)
+     - Sleek Bottom "SCROLL" Indicator
+     =================================================================== -->
+  <section class="hero-live-container">
+    <!-- Live Animated Background -->
+    <div class="hero-live-bg"></div>
+
+    <div class="container-hero-wide">
+      <div class="hero-live-content">
+        <h1 class="hero-main-heading">
+          We build<br>
+          <span class="hero-highlight-word"><span id="typing-text">Bespoke Pools</span><span
+              class="typing-cursor">|</span></span>
+        </h1>
+
+        <p class="hero-sub-description">
+          Architectural turnkey swimming pools engineered with leakproof monolithic RCC, infinity horizons, and advanced
+          bio-active water filtration. Crafted for luxury villas, penthouses, and 5-star international resorts across
+          India and worldwide.
+        </p>
+
+        <!-- Hero Buttons removed per user request for ultra-clean luxury look -->
+      </div>
+    </div>
+
+    <!-- SCROLL Indicator at bottom center -->
+    <a href="#dive-section" class="hero-scroll-indicator" aria-label="Scroll down">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </a>
+  </section>
+
+  <!-- ===================================================================
+     SECTION 2: "DIVE INTO EXCELLENCE" (MATCHING SCREENSHOT 1 & 2)
+     - Clean Left Typography with Minimalist Pill Tabs
+     - Right Column: 3D Jumping & Tilting Sunset Pool Card
+     - Aquatic SVG Wave Background
+     =================================================================== -->
+  <!-- ===================================================================
+     SECTION 2: "DIVE INTO EXCELLENCE" - MINIMALIST APPLE LUXURY SHOWCASE
+     Exact Side-by-Side Layout with Frosted Glass Pills & Spacious Elegance
+     =================================================================== -->
+  <section class="section dive-into-excellence-section has-svg-water-bg" id="dive-section">
+    <div class="container-wide">
+      <div class="dive-apple-grid">
+
+        <!-- Left Column: Pure Clean Minimalist Apple Typography & Frosted Pills -->
+        <div class="dive-apple-content">
+          <span class="apple-section-tag">
+            <i class="fa-solid fa-water"></i> SWIMMING POOLS
+          </span>
+
+          <h2 class="apple-dive-heading">
+            Dive into<br>Excellence
+          </h2>
+
+          <p class="apple-dive-desc">
+            Discover our diverse range of luxury pools, engineered for beauty, durability, and a pristine swimming
+            experience. Scroll through or tap any style to explore our architectural designs.
+          </p>
+
+          <!-- Sleek Frosted Glass Pills (Apple Style - No dots, Clean Glass Hover & Active) -->
+          <div class="apple-pills-wrap" role="tablist" aria-label="Swimming Pool Styles">
+            <button class="apple-pill-btn active" data-index="0" data-img="/images/infinity-pool.jpg"
+              data-tag="Bespoke Architecture" data-title="Infinity Horizon Pools">
+              Infinity Pools
+            </button>
+            <button class="apple-pill-btn" data-index="1" data-img="/images/resort-pool.jpg"
+              data-tag="Resort & Hospitality" data-title="Resort Lagoons & Club Pools">
+              Resort Pools
+            </button>
+            <button class="apple-pill-btn" data-index="2" data-img="/images/rooftop-pool.jpg"
+              data-tag="Penthouse Living" data-title="Luxury Rooftop Glass Pools">
+              Rooftop Pools
+            </button>
+            <button class="apple-pill-btn" data-index="3" data-img="/images/jacuzzi-spa.jpg"
+              data-tag="Hydrotherapy Spas" data-title="Thermal Heated Jacuzzis">
+              Jacuzzi & Spas
+            </button>
+            <button class="apple-pill-btn" data-index="4" data-img="/images/private-pool-hero.webp"
+              data-tag="Private Villa" data-title="Skimmer & Overflow Villa Pools">
+              Private Pools
+            </button>
+          </div>
+
+          <div class="apple-link-wrap">
+            <a href="/pool-types" class="apple-explore-link">
+              <span>EXPLORE ALL 9 POOL TYPES</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Sunset Ocean Pool Card that Jumps & Tilts (Elevated Apple Style) -->
+        <div class="dive-apple-card-col">
+          <div class="jump-card-stage" id="jumpCardStage">
+            <div class="apple-image-card" id="jumpImageCard">
+              <img src="/images/infinity-pool.jpg" alt="Infinity Horizon Pool" id="jumpCardImg" class="apple-card-img"
+                width="560" height="380" decoding="async" loading="lazy">
+
+              <div class="apple-card-caption">
+                <span class="apple-caption-tag" id="jumpCaptionTag">Bespoke Architecture</span>
+                <h3 class="apple-caption-title" id="jumpCaptionTitle">Infinity Horizon Pools</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+     SECTION 3: "OUR PREMIUM SERVICES" FULL-WIDTH BENTO GRID
+     (MATCHING SCREENSHOT 3 & 4)
+     =================================================================== -->
+  <section class="section-fullwidth premium-services-section has-svg-water-bg" id="premium-services">
+
+
+    <div class="container-wide">
+      <div class="section-head">
+        <span class="section-tag-gold"><i class="fa-solid fa-gem"></i> Turnkey Capability</span>
+        <h2 class="services-main-title">Our Premium Services</h2>
+        <p>
+          Comprehensive turnkey solutions from structural engineering to handcrafted mosaics and water features.
+        </p>
+      </div>
+
+      <!-- Full-Width Bento Grid -->
+      <div class="bento-services-grid-fluid">
+
+        <!-- Card 1: Swimming Pools (Large Highlight Card) -->
+        <div class="bento-card bento-col-2">
+          <img src="/images/private-pool-hero.webp" alt="Turnkey Swimming Pools" class="bento-bg-img" width="680"
+            height="360" loading="lazy" decoding="async">
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <h3 class="bento-title">Swimming pools</h3>
+              <p class="bento-sub">Bespoke turnkey RCC construction, structural leakproofing & FINA engineering</p>
+              <a href="/private-swimming-pools" class="bento-link">
+                EXPLORE DESIGNS <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Waterfall & Fountain (Screenshot 3 Feature Card) -->
+        <div class="bento-card">
+          <img src="/images/pool-types/vanishing-edge.webp" alt="Waterfall & fountain" class="bento-bg-img" width="340"
+            height="360" loading="lazy" decoding="async">
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <h3 class="bento-title">Waterfall & fountain</h3>
+              <p class="bento-sub">Water features, sheer descent curtains & laminars</p>
+              <a href="/services#waterfalls" class="bento-link">
+                LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Pool Tiles (Handcrafted Mosaic Art - Screenshot 4) -->
+        <div class="bento-card">
+          <img src="/images/pool-types/overflow.webp" alt="Pool tiles and mosaics" class="bento-bg-img" width="340"
+            height="360" loading="lazy" decoding="async">
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <h3 class="bento-title">Pool tiles</h3>
+              <p class="bento-sub">Custom glass mosaics, underwater murals & Spanish non-slip porcelain</p>
+              <a href="/products?category=Pool%20Tiles%20%26%20Mosaics" class="bento-link">
+                VIEW MOSAICS <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Accessories & Equipment (Screenshot 4) -->
+        <div class="bento-card">
+          <img src="/images/pool-types/commercial.webp" alt="Accessories and equipment" class="bento-bg-img" width="340"
+            height="360" loading="lazy" decoding="async">
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <h3 class="bento-title">Accessories</h3>
+              <p class="bento-sub">Variable speed inverter pumps, high-rate sand filters, and RGBW LED lighting</p>
+              <a href="/products?category=Pool%20Filtration%20%26%20Pumps" class="bento-link">
+                EQUIPMENT CATALOG <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Readymade FRP pools (Screenshot 4) -->
+        <div class="bento-card">
+          <img src="/images/rooftop-pool.jpg" alt="Readymade FRP pools" class="bento-bg-img" width="340" height="360"
+            loading="lazy" decoding="async">
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <h3 class="bento-title">Readymade FRP pools</h3>
+              <p class="bento-sub">Rapid 7-day install pre-molded fiberglass composite shells</p>
+              <a href="/pool-types#readymade-frp" class="bento-link">
+                FRP MODELS <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Renovation & Waterproofing (Span 2) -->
+        <div class="bento-card bento-col-2">
+          <img src="/images/resort-pool.jpg" alt="Renovation and waterproofing" class="bento-bg-img" width="680"
+            height="360" loading="lazy" decoding="async">
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <h3 class="bento-title">Renovation & Waterproofing</h3>
+              <p class="bento-sub">Structural injection crack repair, crystalline epoxy regrouting & energy retrofit</p>
+              <a href="/services#renovation" class="bento-link">
+                SCHEDULE SURVEY <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Maintenance & AMC (Span 1) -->
+        <div class="bento-card">
+          <img src="/images/jacuzzi-spa.jpg" alt="Maintenance & AMC" class="bento-bg-img" width="340" height="360"
+            loading="lazy" decoding="async">
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <h3 class="bento-title">Maintenance & AMC</h3>
+              <p class="bento-sub">Routine chemical balancing, robotic vacuum cleaning & pump servicing</p>
+              <a href="/services#maintenance" class="bento-link">
+                EXPLORE AMC <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+     SECTION 4: FEATURED MASTERPIECES SHOWCASE (PORTFOLIO PREVIEW)
+     =================================================================== -->
+  <section class="section has-svg-water-bg" id="portfolio-showcase">
+    <div class="container-wide">
+      <div
+        style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 45px; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span class="section-tag-gold"><i class="fa-solid fa-trophy"></i> Masterpiece Portfolio</span>
+          <h2 class="dive-heading" style="margin-bottom: 0;">Featured Completed Projects</h2>
+        </div>
+        <div>
+          <a href="/gallery" class="filter-pill active">
+            View Complete Gallery (<%= projects ? projects.length : 0 %>+) &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="portfolio-grid-home">
+        <% if (projects && projects.length> 0) { %>
+          <% projects.slice(0, 3).forEach(project=> { %>
+            <div class="portfolio-home-card">
+              <img src="<%= project.coverImage || '/images/infinity-pool.jpg' %>"
+                alt="<%= project.title || 'Luxury Swimming Pool' %>" class="portfolio-home-img" width="400" height="280"
+                loading="lazy" decoding="async" onerror="this.src='/images/infinity-pool.jpg'">
+              <div class="portfolio-home-overlay">
+                <span class="portfolio-home-tag">
+                  <%= project.category %>
+                </span>
+                <h3 class="portfolio-home-title">
+                  <%= project.title %>
+                </h3>
+                <div class="portfolio-home-meta">
+                  <i class="fa-solid fa-location-dot" style="color: var(--brand-yellow);"></i>
+                  <%= project.location %> • <%= project.completionYear %>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <div class="portfolio-home-card">
+                  <img src="/images/infinity-pool.jpg" alt="Infinity Villa" class="portfolio-home-img" width="400"
+                    height="280" loading="lazy" decoding="async">
+                  <div class="portfolio-home-overlay">
+                    <span class="portfolio-home-tag">Residential Villa</span>
+                    <h3 class="portfolio-home-title">Katargam Luxury Villa Estate</h3>
+                    <div class="portfolio-home-meta"><i class="fa-solid fa-location-dot"
+                        style="color: var(--brand-yellow);"></i> Surat, Gujarat • 2024</div>
+                  </div>
+                </div>
+                <div class="portfolio-home-card">
+                  <img src="/images/rooftop-pool.jpg" alt="Bodakdev Penthouse" class="portfolio-home-img" width="400"
+                    height="280" loading="lazy" decoding="async">
+                  <div class="portfolio-home-overlay">
+                    <span class="portfolio-home-tag">Penthouse Sky Pool</span>
+                    <h3 class="portfolio-home-title">Bodakdev Horizon Lagoon</h3>
+                    <div class="portfolio-home-meta"><i class="fa-solid fa-location-dot"
+                        style="color: var(--brand-yellow);"></i> Ahmedabad, Gujarat • 2023</div>
+                  </div>
+                </div>
+                <div class="portfolio-home-card">
+                  <img src="/images/resort-pool.jpg" alt="Club Resort" class="portfolio-home-img" width="400"
+                    height="280" loading="lazy" decoding="async">
+                  <div class="portfolio-home-overlay">
+                    <span class="portfolio-home-tag">Commercial Resort</span>
+                    <h3 class="portfolio-home-title">The Grand Palace Oasis</h3>
+                    <div class="portfolio-home-meta"><i class="fa-solid fa-location-dot"
+                        style="color: var(--brand-yellow);"></i> Mumbai, Maharashtra • 2024</div>
+                  </div>
+                </div>
+                <% } %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+     SECTION 4.5: FEATURED POOL HARDWARE & PRODUCTS
+     =================================================================== -->
+  <% if (products && products.length> 0) { %>
+    <section class="section" id="featured-products" style="background: #ffffff;">
+      <div class="container-wide">
+        <div
+          style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 45px; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="section-tag-gold"><i class="fa-solid fa-gears"></i> Hardware & Technology</span>
+            <h2 class="dive-heading" style="margin-bottom: 0;">Featured Equipment & Products</h2>
+          </div>
+          <div>
+            <a href="/products" class="filter-pill active">
+              View All Products &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: clamp(16px, 3vw, 25px);">
+          <% products.forEach(prod=> { %>
+            <div
+              style="background: var(--bg-card); border-radius: var(--radius-md); padding: 22px; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div
+                style="height: 180px; width: 100%; overflow: hidden; border-radius: 8px; margin-bottom: 16px; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                <img src="<%= prod.image || '/images/infinity-pool.jpg' %>"
+                  alt="<%= prod.name || 'Swimming Pool Product' %>" width="280" height="180" loading="lazy"
+                  decoding="async" style="width: 100%; height: 100%; object-fit: cover;"
+                  onerror="this.src='/images/infinity-pool.jpg'">
+              </div>
+              <span
+                style="font-size: 0.75rem; color: var(--primary-cyan); text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">
+                <%= prod.category %>
+              </span>
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">
+                <%= prod.name %>
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px; flex: 1; line-height: 1.5;">
+                <%= prod.shortDescription %>
+              </p>
+              <div
+                style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
+                <% if (prod.price> 0) { %>
+                  <div style="font-weight: 800; font-size: 1.15rem; color: var(--primary-cyan);">₹<%=
+                      prod.price.toLocaleString('en-IN') %>
+                  </div>
+                  <% } else { %>
+                    <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Custom Quote</span>
+                    <% } %>
+                      <a href="/contact?product=<%= encodeURIComponent(prod.name) %>#quote-form" class="btn btn-outline"
+                        style="font-size: 0.8rem; padding: 7px 14px; border-radius: var(--radius-full);">
+                        Inquire Now
+                      </a>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+      </div>
+    </section>
+    <% } %>
+
+      <!-- ===================================================================
+     SECTION 5: 5-STAGE TURNKEY ARCHITECTURAL PROCESS
+     =================================================================== -->
+      <section class="section has-svg-water-bg" style="background: var(--bg-card-subtle);">
+        <div class="container-wide">
+          <div class="section-head" style="text-align: center; margin-bottom: 50px;">
+            <span class="section-tag-gold"><i class="fa-solid fa-compass-drafting"></i> Engineering Precision</span>
+            <h2 class="dive-heading">Our 5-Stage Turnkey Process</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 720px; margin: 0 auto;">
+              From initial topographical soil testing to the crystal-clear first splash, every phase is executed by our
+              in-house civil and hydraulic engineers.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <div class="process-step-card">
+              <span class="process-num">01</span>
+              <h4 class="process-title">3D CAD Modeling</h4>
+              <p class="process-desc">Site laser survey, soil mechanics analysis, hydraulic sizing, and photorealistic
+                3D
+                visualization.</p>
+            </div>
+
+            <div class="process-step-card">
+              <span class="process-num">02</span>
+              <h4 class="process-title">Monolithic RCC</h4>
+              <p class="process-desc">Precision excavation, heavy steel rebar mesh cage, and monolithic concrete pouring
+                with zero cold joints.</p>
+            </div>
+
+            <div class="process-step-card">
+              <span class="process-num">03</span>
+              <h4 class="process-title">Dual Waterproofing</h4>
+              <p class="process-desc">Polymer crystalline barrier injection with rigorous 72-hour static water ponding
+                leakage tests.</p>
+            </div>
+
+            <div class="process-step-card">
+              <span class="process-num">04</span>
+              <h4 class="process-title">Mosaics & MEP</h4>
+              <p class="process-desc">Designer Spanish glass mosaic tiling, filtration manifold, automated pumps & RGBW
+                LED
+                lighting installation.</p>
+            </div>
+
+            <div class="process-step-card">
+              <span class="process-num">05</span>
+              <h4 class="process-title">Handover & Care</h4>
+              <p class="process-desc">Water chemistry balancing, salt chlorination commissioning, owner handover, and
+                warranty issuance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+     SECTION 6: CLIENT TESTIMONIALS (TRUST & REVIEWS)
+     =================================================================== -->
+      <section class="section has-svg-water-bg">
+        <div class="container-wide">
+          <div class="section-head" style="text-align: center; margin-bottom: 50px;">
+            <span class="section-tag-gold"><i class="fa-solid fa-star"></i> Client Testimonials</span>
+            <h2 class="dive-heading">Trusted by Villa & Resort Owners</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+              Discover why high-net-worth homeowners and hospitality leaders choose Bluesky Pools for turnkey execution.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <% if (testimonials && testimonials.length> 0) { %>
+              <% testimonials.slice(0, 3).forEach(item=> { %>
+                <div class="testimonial-luxury-card">
+                  <div>
+                    <div class="stars-rating" role="img" aria-label="<%= item.rating || 5 %> out of 5 stars">
+                      <% for (let i=0; i < (item.rating || 5); i++) { %>
+                        <i class="fa-solid fa-star"></i>
+                        <% } %>
+                    </div>
+                    <p class="testimonial-body">"<%= item.review %>"</p>
+                  </div>
+                  <div>
+                    <div class="testimonial-author-name">
+                      <%= item.clientName %>
+                    </div>
+                    <div class="testimonial-author-role">
+                      <%= item.location || 'Gujarat' %> • <%= item.designation || 'Villa Owner' %>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+                  <% } else { %>
+                    <div class="testimonial-luxury-card">
+                      <div>
+                        <div class="stars-rating" role="img" aria-label="5 out of 5 stars">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-body">"Bluesky International built our Katargam villa infinity pool in
+                          record
+                          time. The leakproof concrete structure and automated saltwater chlorination are flawless!"</p>
+                      </div>
+                      <div>
+                        <div class="testimonial-author-name">Rajesh & Meena Shah</div>
+                        <div class="testimonial-author-role">Katargam, Surat • Private Infinity Villa Pool</div>
+                      </div>
+                    </div>
+
+                    <div class="testimonial-luxury-card">
+                      <div>
+                        <div class="stars-rating" role="img" aria-label="5 out of 5 stars">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-body">"Their 16 years of expertise clearly shows. From 3D CAD modeling to
+                          the
+                          Spanish glass mosaic finish, everything was delivered turnkey with absolute professionalism."
+                        </p>
+                      </div>
+                      <div>
+                        <div class="testimonial-author-name">Harish Patel</div>
+                        <div class="testimonial-author-role">Bodakdev, Ahmedabad • Luxury Courtyard Pool</div>
+                      </div>
+                    </div>
+
+                    <div class="testimonial-luxury-card">
+                      <div>
+                        <div class="stars-rating" role="img" aria-label="5 out of 5 stars">
+                          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-body">"Outstanding commercial resort swimming pool engineering. The
+                          high-rate
+                          sand filtration pumps and zero-edge deck gutters keep the water crystal clear 24/7."</p>
+                      </div>
+                      <div>
+                        <div class="testimonial-author-name">Sanjay Verma</div>
+                        <div class="testimonial-author-role">Verma Heritage Resort • Commercial Lagoon</div>
+                      </div>
+                    </div>
+                    <% } %>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+     STATS STRIP (16+ YEARS EXPERIENCE)
+     =================================================================== -->
+      <div class="stats-strip has-svg-water-bg">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">16+</div>
+              <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">720+</div>
+              <div class="stat-label">Luxury Pools Built</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Leakproof Guarantee</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">Surat</div>
+              <div class="stat-label">Gujarat Head Office</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+     QUOTE / ESTIMATE SECTION WITH SURAT ADDRESS
+     =================================================================== -->
+      <section class="section has-svg-water-bg" id="quote-form">
+        <div class="container-wide">
+          <div class="quote-banner">
+            <div class="quote-grid">
+              <div>
+                <span class="section-tag-gold" style="margin-bottom: 16px;"><i class="fa-solid fa-compass-drafting"></i>
+                  Free 3D Site Survey & Consultation</span>
+                <h2
+                  style="font-family: var(--font-hero); font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 900; margin-top: 10px; margin-bottom: 18px; color: var(--text-main); line-height: 1.15;">
+                  Planning Your Dream Swimming Pool?
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 24px; line-height: 1.65;">
+                  Speak directly with our senior pool architects. We offer complimentary plot inspection, 3D hydraulic
+                  CAD models, and
+                  transparent itemized estimates with 100% leakproof guarantee.
+                </p>
+
+                <div
+                  style="background: var(--bg-card); padding: 22px 24px; border-radius: 16px; border: 1px solid var(--border-subtle); box-shadow: 0 4px 20px rgba(0,0,0,0.04); margin-bottom: 25px;">
+                  <div style="font-weight: 800; color: #b45309; margin-bottom: 6px; font-size: 0.96rem;">
+                    <i class="fa-solid fa-location-dot" style="color: var(--brand-cyan);"></i> Corporate Office &
+                    Studio:
+                  </div>
+                  <div style="color: var(--text-main); font-size: 0.94rem; line-height: 1.6; font-weight: 500;">
+                    <%= settings.address
+                      || 'A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat 395004'
+                      %>
+                  </div>
+
+                  <div style="color: var(--brand-cyan); font-size: 0.86rem; margin-top: 12px; font-weight: 700;">
+                    <i class="fa-solid fa-shield-halved"></i> Over <%= settings.experienceYears || 16 %> Years of
+                      Excellence &bull; <%= settings.poolsBuilt || 650 %>+ Pools Built
+                  </div>
+                </div>
+              </div>
+
+              <div class="quote-form-card" id="quote-form-box">
+                <h3 style="font-family: var(--font-hero); font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">
+                  Request Custom Quotation
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                  Fill out your requirements below. Our pool specialist will call back with a customized estimate.
+                </p>
+
+                <% if (locals.success_msg && success_msg.length> 0) { %>
+                  <div
+                    style="background: #dcfce7; color: #166534; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.92rem; font-weight: 600; border: 1px solid #bbf7d0;">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <%= success_msg %>
+                  </div>
+                  <% } %>
+
+                    <% if (locals.error_msg && error_msg.length> 0) { %>
+                      <div
+                        style="background: #fee2e2; color: #991b1b; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.92rem; font-weight: 600; border: 1px solid #fecaca;">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <%= error_msg %>
+                      </div>
+                      <% } %>
+
+                        <form action="/inquiry" method="POST">
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label for="quote-name">Your Name *</label>
+                              <input type="text" id="quote-name" name="name" class="form-control"
+                                placeholder="Your Name" autocomplete="name" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="quote-phone">Phone / Mobile *</label>
+                              <input type="tel" id="quote-phone" name="phone" class="form-control"
+                                placeholder="Phone Number" autocomplete="tel" required>
+                            </div>
+                          </div>
+
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label for="quote-email">Email Address</label>
+                              <input type="email" id="quote-email" name="email" class="form-control"
+                                placeholder="Email Address" autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                              <label for="quote-city">City / Location</label>
+                              <input type="text" id="quote-city" name="city" class="form-control"
+                                placeholder="City / Location" autocomplete="address-level2">
+                            </div>
+                          </div>
+
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label for="quote-pool-type">Pool Classification</label>
+                              <select id="quote-pool-type" name="poolType" class="form-control">
+                                <option value="Luxury Residential Villa Pool">Luxury Residential Villa Pool</option>
+                                <option value="Vanishing Edge Infinity Pool">Vanishing Edge Infinity Pool</option>
+                                <option value="Commercial / Resort Pool">Commercial & Resort Swimming Pool</option>
+                                <option value="Rooftop / Penthouse Pool">Rooftop / Penthouse Sky Pool</option>
+                                <option value="Deck-Level Overflow Pool">Deck-Level Overflow Pool</option>
+                                <option value="Skimmer Type Swimming Pool">Skimmer Type Pool</option>
+                                <option value="Readymade FRP Swimming Pool">Readymade FRP Fiberglass Pool</option>
+                                <option value="Hydrotherapy Jacuzzi & Spa">Hydrotherapy Jacuzzi & Spa</option>
+                                <option value="Pool Renovation & Repair">Pool Renovation, Leak Repair & Retiling
+                                </option>
+                                <option value="Maintenance & AMC">Maintenance & Cleaning AMC</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="quote-dimensions">Approx. Size (ft / sq.ft)</label>
+                              <input type="text" id="quote-dimensions" name="poolDimensions" class="form-control"
+                                placeholder="Pool or Plot Dimensions">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="quote-budget">Estimated Budget (Optional)</label>
+                            <select id="quote-budget" name="budget" class="form-control">
+                              <option value="">Select Estimated Budget Range (Optional)</option>
+                              <option value="₹5L - ₹15L">₹5 Lakhs - ₹15 Lakhs</option>
+                              <option value="₹15L - ₹30L">₹15 Lakhs - ₹30 Lakhs</option>
+                              <option value="₹30L - ₹60L">₹30 Lakhs - ₹60 Lakhs</option>
+                              <option value="₹60L+">₹60 Lakhs+ (Ultra Luxury / Resort)</option>
+                              <option value="Need Consultation">Need Site Inspection First</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="quote-message">Project Details / Requirements</label>
+                            <textarea id="quote-message" name="message" rows="3" class="form-control"
+                              placeholder="Describe your pool requirements, specifications, or preferred design..."></textarea>
+                          </div>
+
+                          <button type="submit" class="btn btn-yellow"
+                            style="width: 100%; padding: 14px; font-size: 1rem; border-radius: var(--radius-sm); font-weight: 700;">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Quotation Request
+                          </button>
+                        </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <%- include('layouts/footer') %>

@@ -1,0 +1,68 @@
+<%- include('layouts/header') %>
+
+  <section class="page-hero-cinematic">
+    <div class="page-hero-bg" style="background-image: url('/images/infinity-pool.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container" style="position: relative; z-index: 10;">
+      <span class="section-tag-gold" style="margin-bottom: 16px; display: inline-flex;"><i class="fa-solid fa-trophy"></i> Masterpiece Portfolio</span>
+      <h1 class="page-hero-title">
+        Our Completed <span class="text-glow-gradient">Projects</span>
+      </h1>
+      <p class="page-hero-desc">
+        Explore our portfolio of bespoke residential, commercial, luxury resort & infinity pools crafted with precision engineering.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding: 70px 0 100px;">
+    <div class="container">
+      <!-- Category filter buttons -->
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 50px;">
+        <a href="/gallery" class="filter-pill <%= selectedCategory === 'all' ? 'active' : '' %>">All Pools</a>
+        <% categories.forEach(cat=> { %>
+          <a href="/gallery?category=<%= encodeURIComponent(cat) %>"
+            class="filter-pill <%= selectedCategory === cat ? 'active' : '' %>">
+            <%= cat %>
+          </a>
+          <% }) %>
+      </div>
+
+      <div class="grid-3">
+        <% if (projects && projects.length> 0) { %>
+          <% projects.forEach(project=> { %>
+            <div class="portfolio-card">
+              <img src="<%= project.coverImage || '/images/infinity-pool.jpg' %>"
+                alt="<%= project.title || 'Luxury Swimming Pool' %>" class="portfolio-img" loading="lazy"
+                decoding="async" onerror="this.src='/images/infinity-pool.jpg'">
+              <div class="portfolio-overlay">
+                <span class="portfolio-category">
+                  <%= project.category %>
+                </span>
+                <h3 class="portfolio-title">
+                  <%= project.title %>
+                </h3>
+                <div class="portfolio-meta">
+                  <i class="fa-solid fa-location-dot" style="color: var(--brand-yellow);"></i>
+                  <%= project.location %> • <%= project.completionYear %>
+                      <% if (project.dimensions) { %>
+                        <span
+                          style="margin-left: auto; font-size: 0.78rem; opacity: 0.9; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px;">
+                          <%= project.dimensions %>
+                        </span>
+                        <% } %>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <div style="text-align: center; grid-column: 1/-1; padding: 60px 20px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-subtle);">
+                  <i class="fa-solid fa-images" style="font-size: 3rem; color: var(--brand-cyan); opacity: 0.5; margin-bottom: 16px; display: block;"></i>
+                  <h3 style="color: var(--text-main); margin-bottom: 8px;">No projects found</h3>
+                  <p style="color: var(--text-muted); font-size: 0.95rem;">No projects listed under this category at the moment.</p>
+                </div>
+                <% } %>
+      </div>
+    </div>
+  </section>
+
+  <%- include('layouts/footer') %>

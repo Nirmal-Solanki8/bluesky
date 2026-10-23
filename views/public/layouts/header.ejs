@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Bluesky International - Premier turnkey swimming pool construction, luxury infinity pools, rooftop pools, FRP fiberglass pools, and filtration engineering in Surat, Gujarat. 16+ years experience with 100% leakproof guarantee.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0284c7">
+  <link rel="canonical" href="http://localhost:5000<%= typeof path !== 'undefined' ? path : '' %>">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<%= title %>">
+  <meta property="og:description"
+    content="Premier turnkey swimming pool construction, luxury infinity pools, and filtration engineering in Surat, Gujarat.">
+  <meta property="og:image" content="/images/private-pool-hero.webp">
+  <meta property="og:url" content="http://localhost:5000<%= typeof path !== 'undefined' ? path : '' %>">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+  <link rel="shortcut icon" href="/images/logo.svg">
+  <link rel="apple-touch-icon" href="/images/logo.svg">
+
+  <!-- Performance: Critical Preconnect & Font Loading with display=optional -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional">
+  </noscript>
+
+  <!-- Core Stylesheet (Cache-Busted v=8.9) -->
+  <link rel="stylesheet" href="/css/style.css?v=8.9">
+
+  <!-- Guaranteed Zero-Delay Mobile Drawer Fallback Handlers -->
+  <script>
+    window.openMobileDrawer = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var d = document.getElementById('mobile-drawer');
+      var b = document.getElementById('drawer-backdrop');
+      if (d) d.classList.add('open');
+      if (b) b.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    };
+    window.closeMobileDrawer = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var d = document.getElementById('mobile-drawer');
+      var b = document.getElementById('drawer-backdrop');
+      if (d) d.classList.remove('open');
+      if (b) b.classList.remove('active');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+    window.toggleMobileDrawer = function(e) {
+      var d = document.getElementById('mobile-drawer');
+      if (d && d.classList.contains('open')) {
+        window.closeMobileDrawer(e);
+      } else {
+        window.openMobileDrawer(e);
+      }
+    };
+
+    // Load non-critical FontAwesome on user interaction or idle to completely free the initial main thread
+    (function() {
+      var loaded = false;
+      function loadFA() {
+        if (loaded) return;
+        loaded = true;
+        var fa = document.createElement('link');
+        fa.rel = 'stylesheet';
+        fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+        document.head.appendChild(fa);
+        window.removeEventListener('scroll', loadFA);
+        window.removeEventListener('touchstart', loadFA);
+      }
+      window.addEventListener('scroll', loadFA, { passive: true, once: true });
+      window.addEventListener('touchstart', loadFA, { passive: true, once: true });
+      setTimeout(loadFA, 15000);
+    })();
+  </script>
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </noscript>
+</head>
+
+<body>
+
+  <!-- Floating Pill Navbar -->
+  <header class="floating-nav-pill">
+    <!-- Brand Logo matching User Reference Photo (Blue Sky International) -->
+    <a href="/" class="nav-brand" title="Blue Sky International">
+      <img src="/images/logo.svg" alt="Blue Sky International" class="brand-logo-img" width="140" height="38" decoding="async">
+    </a>
+
+    <!-- Nav Links inside Pill -->
+    <ul class="nav-links-list" id="nav-menu-links">
+      <li><a href="/" class="<%= path === '/' ? 'active' : '' %>">Home</a></li>
+      <li><a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a></li>
+
+      <!-- Pool Types Dropdown (All 9 items) -->
+      <li class="has-dropdown">
+        <a href="/pool-types" class="<%= path.includes('pool') ? 'active' : '' %>">
+          Pool Types <i class="fa-solid fa-angle-down nav-arrow"></i>
+        </a>
+        <div class="nav-dropdown-card nav-dropdown-tall">
+          <a href="/pool-types" class="dropdown-item">
+            <span class="dropdown-item-title">Types Overview</span>
+            <span class="dropdown-item-sub">View all designs</span>
+          </a>
+          <a href="/private-swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Private</span>
+            <span class="dropdown-item-sub">Swimming pools</span>
+          </a>
+          <a href="/commercial-swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Commercial</span>
+            <span class="dropdown-item-sub">Swimming pools</span>
+          </a>
+          <a href="/recreational-swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Recreational</span>
+            <span class="dropdown-item-sub">Swimming pools</span>
+          </a>
+          <a href="/competition-swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Competition</span>
+            <span class="dropdown-item-sub">Swimming pools</span>
+          </a>
+          <a href="/vanishing-edge-swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Vanishing Edge</span>
+            <span class="dropdown-item-sub">Swimming pools</span>
+          </a>
+          <a href="/overflow-type-swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Overflow Type</span>
+            <span class="dropdown-item-sub">Swimming pools</span>
+          </a>
+          <a href="/skimmer-type-swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Skimmer Type</span>
+            <span class="dropdown-item-sub">Swimming pools</span>
+          </a>
+          <a href="/readymade-frp-swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Readymade FRP</span>
+            <span class="dropdown-item-sub">Swimming pools</span>
+          </a>
+        </div>
+      </li>
+
+      <!-- Services Dropdown (Real Working Page Links) -->
+      <li class="has-dropdown">
+        <a href="/services" class="<%= path === '/services' ? 'active' : '' %>">
+          Services <i class="fa-solid fa-angle-down nav-arrow"></i>
+        </a>
+        <div class="nav-dropdown-card">
+          <a href="/services#swimming-pools" class="dropdown-item">
+            <span class="dropdown-item-title">Turnkey Pools</span>
+            <span class="dropdown-item-sub">Turnkey RCC construction & MEP</span>
+          </a>
+          <a href="/services#waterfalls" class="dropdown-item">
+            <span class="dropdown-item-title">Waterfall & Fountain</span>
+            <span class="dropdown-item-sub">Water curtains & laminars</span>
+          </a>
+          <a href="/services#renovation" class="dropdown-item">
+            <span class="dropdown-item-title">Pool Renovation</span>
+            <span class="dropdown-item-sub">Structural leak repair & retiling</span>
+          </a>
+          <a href="/services#maintenance" class="dropdown-item">
+            <span class="dropdown-item-title">Maintenance & AMC</span>
+            <span class="dropdown-item-sub">Water testing & pump servicing</span>
+          </a>
+        </div>
+      </li>
+
+      <!-- Products Dropdown (Real Working Page Links) -->
+      <li class="has-dropdown">
+        <a href="/products" class="<%= path === '/products' ? 'active' : '' %>">
+          Products <i class="fa-solid fa-angle-down nav-arrow"></i>
+        </a>
+        <div class="nav-dropdown-card">
+          <a href="/products?category=Pool%20Filtration%20%26%20Pumps" class="dropdown-item">
+            <span class="dropdown-item-title">Equipment Catalog</span>
+            <span class="dropdown-item-sub">Pumps & Accessories</span>
+          </a>
+          <a href="/products" class="dropdown-item">
+            <span class="dropdown-item-title">Bathtubs & Jacuzzis</span>
+            <span class="dropdown-item-sub">Installations</span>
+          </a>
+          <a href="/products?category=Pool%20Tiles%20%26%20Mosaics" class="dropdown-item">
+            <span class="dropdown-item-title">Pool Tiles & Mosaics</span>
+            <span class="dropdown-item-sub">Spanish ceramics & glass art</span>
+          </a>
+          <a href="/products?category=Underwater%20LED%20Lights" class="dropdown-item">
+            <span class="dropdown-item-title">Underwater Lighting</span>
+            <span class="dropdown-item-sub">RGBW multi-color LED lamps</span>
+          </a>
+        </div>
+      </li>
+
+      <li><a href="/gallery" class="<%= path === '/gallery' ? 'active' : '' %>">Gallery</a></li>
+      <li><a href="/contact" class="<%= path === '/contact' ? 'active' : '' %>">Contact</a></li>
+    </ul>
+
+    <!-- Admin Portal Link & Hamburger Menu (Light/Dark button removed per request) -->
+    <div class="nav-right-actions">
+      <a href="/admin/login" class="admin-portal-pill-icon" title="Admin Portal" aria-label="Admin Portal">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </a>
+
+      <button class="mobile-hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu" onclick="window.toggleMobileDrawer(event)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop & Menu -->
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.closeMobileDrawer(event)"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <div class="nav-brand">
+        <img src="/images/logo.svg" alt="Blue Sky International" width="140" height="38"
+          style="height: 38px; width: auto;" decoding="async">
+      </div>
+      <button class="drawer-close" id="drawer-close" aria-label="Close navigation menu" onclick="window.closeMobileDrawer(event)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="/" onclick="window.closeMobileDrawer(event)">Home</a></li>
+      <li><a href="/about" onclick="window.closeMobileDrawer(event)">About Us</a></li>
+
+      <!-- Mobile Pool Types Accordion -->
+      <li class="drawer-dropdown-item">
+        <button class="drawer-accordion-btn" type="button">
+          <span>Pool Types</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-accordion-content">
+          <a href="/pool-types" onclick="window.closeMobileDrawer(event)">&bull; Types Overview</a>
+          <a href="/private-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Private Villa Pools</a>
+          <a href="/commercial-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Commercial Pools</a>
+          <a href="/recreational-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Recreational Pools</a>
+          <a href="/competition-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Competition Pools</a>
+          <a href="/vanishing-edge-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Vanishing Edge Pools</a>
+          <a href="/overflow-type-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Overflow Type Pools</a>
+          <a href="/skimmer-type-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Skimmer Type Pools</a>
+          <a href="/readymade-frp-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Readymade FRP Pools</a>
+        </div>
+      </li>
+
+      <!-- Mobile Services Accordion -->
+      <li class="drawer-dropdown-item">
+        <button class="drawer-accordion-btn" type="button">
+          <span>Services</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-accordion-content">
+          <a href="/services#swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Turnkey Swimming Pools</a>
+          <a href="/services#waterfalls" onclick="window.closeMobileDrawer(event)">&bull; Waterfall & Fountains</a>
+          <a href="/services#renovation" onclick="window.closeMobileDrawer(event)">&bull; Pool Renovation & Leak Repair</a>
+          <a href="/services#maintenance" onclick="window.closeMobileDrawer(event)">&bull; Maintenance & AMC</a>
+        </div>
+      </li>
+
+      <!-- Mobile Products Accordion -->
+      <li class="drawer-dropdown-item">
+        <button class="drawer-accordion-btn" type="button">
+          <span>Products</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-accordion-content">
+          <a href="/products?category=Pool%20Filtration%20%26%20Pumps" onclick="window.closeMobileDrawer(event)">&bull; Equipment & Pumps</a>
+          <a href="/products" onclick="window.closeMobileDrawer(event)">&bull; Bathtubs & Jacuzzis</a>
+          <a href="/products?category=Pool%20Tiles%20%26%20Mosaics" onclick="window.closeMobileDrawer(event)">&bull; Pool Tiles & Mosaics</a>
+          <a href="/products?category=Underwater%20LED%20Lights" onclick="window.closeMobileDrawer(event)">&bull; Underwater Lights</a>
+        </div>
+      </li>
+
+      <li><a href="/gallery" onclick="window.closeMobileDrawer(event)">Project Gallery</a></li>
+      <li><a href="/contact" onclick="window.closeMobileDrawer(event)">Contact & Free Quote</a></li>
+      <li><a href="/admin/login" onclick="window.closeMobileDrawer(event)">Admin Portal</a></li>
+    </ul>
+  </div>
+
+  <!-- Flash Alerts -->
+  <div class="container" id="global-flash-container"
+    style="position: fixed; top: 95px; left: 50%; transform: translateX(-50%); z-index: 9999; width: calc(100% - 48px); max-width: 800px; pointer-events: none;">
+    <% if (locals.success_msg && success_msg.length> 0) { %>
+      <div class="alert flash-alert-item"
+        style="pointer-events: auto; background: #059669; color: #fff; padding: 14px 22px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 600; margin-bottom: 10px; animation: slideDown 0.3s ease;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;"></i>
+          <div>
+            <%= success_msg %>
+          </div>
+        </div>
+        <button onclick="this.closest('.flash-alert-item').remove()"
+          style="background: none; border: none; color: #fff; cursor: pointer; font-size: 1.1rem; padding: 4px; opacity: 0.85;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <% } %>
+        <% if (locals.error_msg && error_msg.length> 0) { %>
+          <div class="alert flash-alert-item"
+            style="pointer-events: auto; background: #dc2626; color: #fff; padding: 14px 22px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 600; margin-bottom: 10px; animation: slideDown 0.3s ease;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <i class="fa-solid fa-circle-exclamation" style="font-size: 1.25rem;"></i>
+              <div>
+                <%= error_msg %>
+              </div>
+            </div>
+            <button onclick="this.closest('.flash-alert-item').remove()"
+              style="background: none; border: none; color: #fff; cursor: pointer; font-size: 1.1rem; padding: 4px; opacity: 0.85;">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <% } %>
+  </div>
+  <script>
+    setTimeout(() => {
+      const items = document.querySelectorAll('.flash-alert-item');
+      items.forEach(el => {
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(-15px)';
+        setTimeout(() => el.remove(), 600);
+      });
+    }, 6000);
+  </script>

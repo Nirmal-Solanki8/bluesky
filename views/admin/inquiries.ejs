@@ -1,0 +1,115 @@
+<%- include('layouts/header') %>
+
+<div class="page-title-box">
+  <div>
+    <h1>Quotations & Lead Management</h1>
+    <p style="color: var(--admin-text-muted); font-size: 0.9rem;">Manage incoming quote requests and villa project leads for Blue Sky International</p>
+  </div>
+  <!-- Filter tabs -->
+  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+    <a href="/admin/inquiries" class="btn-sm <%= statusFilter === 'All' ? 'btn-admin-primary' : '' %>" style="text-decoration: none; border: 1px solid #cbd5e1;">All Leads (<%= inquiries ? inquiries.length : 0 %>)</a>
+    <a href="/admin/inquiries?status=New" class="btn-sm <%= statusFilter === 'New' ? 'btn-admin-primary' : '' %>" style="text-decoration: none; border: 1px solid #cbd5e1;">New Only</a>
+    <a href="/admin/inquiries?status=Contacted" class="btn-sm <%= statusFilter === 'Contacted' ? 'btn-admin-primary' : '' %>" style="text-decoration: none; border: 1px solid #cbd5e1;">Contacted</a>
+    <a href="/admin/inquiries?status=Quotation Sent" class="btn-sm <%= statusFilter === 'Quotation Sent' ? 'btn-admin-primary' : '' %>" style="text-decoration: none; border: 1px solid #cbd5e1;">Quoted</a>
+    <a href="/admin/inquiries?status=Deal Closed" class="btn-sm <%= statusFilter === 'Deal Closed' ? 'btn-admin-primary' : '' %>" style="text-decoration: none; border: 1px solid #cbd5e1;">Closed</a>
+  </div>
+</div>
+
+<div class="card-table">
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Lead Contact</th>
+          <th>Project / Pool Spec</th>
+          <th>Customer Message</th>
+          <th>Status & Notes</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (inquiries && inquiries.length > 0) { %>
+          <% inquiries.forEach(inq => { %>
+            <% const cleanPhone = (inq.phone || '').replace(/[^0-9]/g, ''); %>
+            <tr>
+              <td style="white-space: nowrap;">
+                <strong style="color: #0f172a;"><%= new Date(inq.createdAt).toLocaleDateString() %></strong><br>
+                <small style="color: #64748b;"><%= new Date(inq.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) %></small>
+              </td>
+
+              <td>
+                <div style="font-weight: 800; color: #0f172a; font-size: 1rem;"><%= inq.name %></div>
+                <div style="display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap;">
+                  <a href="tel:<%= inq.phone %>" class="btn-sm" style="background: #e0f2fe; color: #0369a1; text-decoration: none; padding: 4px 8px; border-radius: 6px; font-size: 0.82rem; font-weight: 700;">
+                    <i class="fa-solid fa-phone"></i> <%= inq.phone %>
+                  </a>
+                  <a href="https://wa.me/91<%= cleanPhone %>?text=Hello%20<%= encodeURIComponent(inq.name) %>,%20thank%20you%20for%20contacting%20Blue%20Sky%20International%20regarding%20your%20pool%20project%20(<%= encodeURIComponent(inq.poolType || '') %>)." target="_blank" class="btn-sm" style="background: #25d366; color: #fff; text-decoration: none; padding: 4px 8px; border-radius: 6px; font-size: 0.82rem; font-weight: 700;">
+                    <i class="fa-brands fa-whatsapp"></i> Chat
+                  </a>
+                </div>
+                <% if (inq.email) { %>
+                  <div style="font-size: 0.82rem; color: #64748b; margin-top: 5px;"><i class="fa-solid fa-envelope"></i> <%= inq.email %></div>
+                <% } %>
+                <div style="font-size: 0.82rem; color: #475569; margin-top: 2px;">
+                  <i class="fa-solid fa-location-dot" style="color: #f59e0b;"></i> <%= inq.city || 'Surat / Gujarat' %>
+                </div>
+              </td>
+
+              <td>
+                <span class="badge" style="background: #e0f2fe; color: #0284c7; font-weight: 700; margin-bottom: 5px; display: inline-block;">
+                  <%= inq.poolType || 'Residential Pool' %>
+                </span>
+                <% if (inq.poolDimensions) { %>
+                  <div style="font-size: 0.85rem; color: #334155;"><strong>Plot / Size:</strong> <%= inq.poolDimensions %></div>
+                <% } %>
+              </td>
+
+              <td style="max-width: 280px;">
+                <p style="font-size: 0.88rem; color: #334155; line-height: 1.5;"><%= inq.message %></p>
+                <% if (inq.adminNotes) { %>
+                  <div style="margin-top: 8px; padding: 6px 10px; background: #fef9c3; border-radius: 6px; font-size: 0.8rem; color: #854d0e; border-left: 3px solid #eab308;">
+                    <strong>Admin Note:</strong> <%= inq.adminNotes %>
+                  </div>
+                <% } %>
+              </td>
+
+              <td>
+                <form action="/admin/inquiries/<%= inq._id %>/status" method="POST" style="display: flex; flex-direction: column; gap: 6px;">
+                  <select name="status" class="admin-form-control" style="padding: 6px 8px; font-size: 0.84rem; font-weight: 600;">
+                    <option value="New" <%= inq.status === 'New' ? 'selected' : '' %>>🟡 New Inquiry</option>
+                    <option value="Contacted" <%= inq.status === 'Contacted' ? 'selected' : '' %>>🔵 Contacted</option>
+                    <option value="Quotation Sent" <%= inq.status === 'Quotation Sent' ? 'selected' : '' %>>🟣 Quotation Sent</option>
+                    <option value="Deal Closed" <%= inq.status === 'Deal Closed' ? 'selected' : '' %>>🟢 Deal Closed</option>
+                    <option value="Cancelled" <%= inq.status === 'Cancelled' ? 'selected' : '' %>>⚪ Cancelled</option>
+                  </select>
+                  <input type="text" name="adminNotes" value="<%= inq.adminNotes || '' %>" placeholder="Add note or quote status..." class="admin-form-control" style="padding: 5px 8px; font-size: 0.82rem;">
+                  <button type="submit" class="btn-sm btn-admin-primary" style="padding: 4px 10px; align-self: flex-start; cursor: pointer;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Status
+                  </button>
+                </form>
+              </td>
+
+              <td>
+                <form action="/admin/inquiries/<%= inq._id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete this quotation request?');">
+                  <button type="submit" class="btn-sm btn-admin-danger" style="cursor: pointer;" title="Delete lead">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 50px 20px; color: #64748b;">
+              <i class="fa-solid fa-inbox" style="font-size: 2.5rem; color: #cbd5e1; margin-bottom: 12px; display: block;"></i>
+              No quotation requests found for this filter.
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>

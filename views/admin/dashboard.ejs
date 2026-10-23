@@ -1,0 +1,132 @@
+<%- include('layouts/header') %>
+
+<div class="page-title-box">
+  <div>
+    <h1>Dashboard Overview</h1>
+    <p style="color: var(--admin-text-muted); font-size: 0.9rem;">Welcome to Bluesky International management portal</p>
+  </div>
+  <div>
+    <a href="/admin/inquiries" class="btn-sm btn-admin-primary" style="padding: 10px 18px; text-decoration: none;">
+      <i class="fa-solid fa-list-check"></i> View All Leads
+    </a>
+  </div>
+</div>
+
+<!-- Counter Cards -->
+<div class="stat-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+  <a href="/admin/inquiries" style="text-decoration: none; color: inherit;">
+    <div class="stat-card" style="cursor: pointer;">
+      <div class="stat-info">
+        <p>New Inquiries</p>
+        <h2 style="color: #ef4444;"><%= newInquiries %></h2>
+      </div>
+      <div class="stat-icon icon-orange">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+    </div>
+  </a>
+
+  <a href="/admin/products" style="text-decoration: none; color: inherit;">
+    <div class="stat-card" style="cursor: pointer;">
+      <div class="stat-info">
+        <p>Pool Products</p>
+        <h2 style="color: #0284c7;"><%= totalProducts %></h2>
+      </div>
+      <div class="stat-icon icon-blue">
+        <i class="fa-solid fa-box-open"></i>
+      </div>
+    </div>
+  </a>
+
+  <a href="/admin/projects" style="text-decoration: none; color: inherit;">
+    <div class="stat-card" style="cursor: pointer;">
+      <div class="stat-info">
+        <p>Portfolio Projects</p>
+        <h2 style="color: #9333ea;"><%= totalProjects %></h2>
+      </div>
+      <div class="stat-icon icon-purple">
+        <i class="fa-solid fa-images"></i>
+      </div>
+    </div>
+  </a>
+
+  <a href="/admin/services" style="text-decoration: none; color: inherit;">
+    <div class="stat-card" style="cursor: pointer;">
+      <div class="stat-info">
+        <p>Pool Services</p>
+        <h2 style="color: #16a34a;"><%= totalServices %></h2>
+      </div>
+      <div class="stat-icon icon-green">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+      </div>
+    </div>
+  </a>
+
+  <a href="/admin/testimonials" style="text-decoration: none; color: inherit;">
+    <div class="stat-card" style="cursor: pointer;">
+      <div class="stat-info">
+        <p>Client Reviews</p>
+        <h2 style="color: #ea580c;"><%= totalTestimonials %></h2>
+      </div>
+      <div class="stat-icon icon-orange">
+        <i class="fa-solid fa-star"></i>
+      </div>
+    </div>
+  </a>
+</div>
+
+<!-- Recent Inquiries Table -->
+<div class="card-table">
+  <div class="card-header">
+    <h3><i class="fa-solid fa-clock-rotate-left" style="color: #0284c7; margin-right: 8px;"></i> Recent Quote Requests & Leads</h3>
+    <a href="/admin/inquiries" style="color: #0284c7; font-size: 0.88rem; font-weight: 600; text-decoration: none;">See All →</a>
+  </div>
+
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Customer</th>
+          <th>Phone</th>
+          <th>Pool Type</th>
+          <th>City</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (recentInquiries && recentInquiries.length > 0) { %>
+          <% recentInquiries.forEach(inq => { %>
+            <tr>
+              <td><%= new Date(inq.createdAt).toLocaleDateString() %></td>
+              <td>
+                <strong><%= inq.name %></strong>
+                <% if (inq.email) { %><div style="font-size: 0.8rem; color: #64748b;"><%= inq.email %></div><% } %>
+              </td>
+              <td><a href="tel:<%= inq.phone %>" style="color: #0284c7; font-weight: 600;"><%= inq.phone %></a></td>
+              <td><%= inq.poolType %></td>
+              <td><%= inq.city || 'N/A' %></td>
+              <td>
+                <span class="badge <%= inq.status === 'New' ? 'badge-new' : inq.status === 'Deal Closed' ? 'badge-closed' : 'badge-contacted' %>">
+                  <%= inq.status %>
+                </span>
+              </td>
+              <td>
+                <a href="/admin/inquiries" class="btn-sm btn-admin-primary" style="text-decoration: none;">View</a>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="7" style="text-align: center; padding: 30px; color: #64748b;">
+              No customer inquiries received yet. Submit a test quote on the website!
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>
