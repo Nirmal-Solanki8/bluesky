@@ -40,8 +40,8 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional">
   </noscript>
 
-  <!-- Core Stylesheet (Cache-Busted v=9.2) -->
-  <link rel="stylesheet" href="/css/style.css?v=9.2">
+  <!-- Core Stylesheet (Cache-Busted v=9.3) -->
+  <link rel="stylesheet" href="/css/style.css?v=9.3">
 
   <!-- Guaranteed Zero-Delay Mobile Drawer Fallback Handlers -->
   <script>
@@ -254,58 +254,233 @@
       <!-- Mobile Pool Types Accordion -->
       <li class="drawer-dropdown-item">
         <button class="drawer-accordion-btn" type="button" onclick="window.toggleDrawerAccordion(this, event)">
-          <span>Pool Types</span>
-          <svg class="drawer-chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <div class="drawer-btn-left">
+            <span class="drawer-cat-icon icon-cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            </span>
+            <div class="drawer-cat-meta">
+              <span class="drawer-cat-title">Pool Types</span>
+              <span class="drawer-cat-sub">9 Architectural Formats</span>
+            </div>
+          </div>
+          <div class="drawer-btn-right">
+            <span class="drawer-cat-pill">9 Types</span>
+            <span class="drawer-chevron-badge">
+              <svg class="drawer-chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </div>
         </button>
         <div class="drawer-accordion-content">
-          <a href="/pool-types" class="drawer-sub-featured">
-            <span>✨ All 9 Pool Types (Overview)</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <a href="/pool-types" class="drawer-featured-card pool-featured">
+            <div class="drawer-featured-left">
+              <span class="drawer-featured-tag">Full Portfolio</span>
+              <strong>Explore All 9 Formats</strong>
+              <p>Monolithic RCC, Infinity & FRP Shells</p>
+            </div>
+            <span class="drawer-featured-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
           </a>
-          <a href="/private-swimming-pools">&bull; Private Villa Pools</a>
-          <a href="/commercial-swimming-pools">&bull; Commercial Pools</a>
-          <a href="/recreational-swimming-pools">&bull; Recreational Pools</a>
-          <a href="/competition-swimming-pools">&bull; Competition Pools</a>
-          <a href="/vanishing-edge-swimming-pools">&bull; Vanishing Edge Pools</a>
-          <a href="/overflow-type-swimming-pools">&bull; Overflow Type Pools</a>
-          <a href="/skimmer-type-swimming-pools">&bull; Skimmer Type Pools</a>
-          <a href="/readymade-frp-swimming-pools">&bull; Readymade FRP Pools</a>
+
+          <div class="drawer-sub-grid">
+            <a href="/vanishing-edge-swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Infinity Horizon Pools</span>
+                <span class="drawer-sub-badge">Vanishing Edge</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/private-swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Private Villa Pools</span>
+                <span class="drawer-sub-badge">Bespoke Residential</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/commercial-swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Commercial & Resort Pools</span>
+                <span class="drawer-sub-badge">Hotels & Clubs</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/overflow-type-swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Deck-Level Overflow Pools</span>
+                <span class="drawer-sub-badge">Mirror Water</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/skimmer-type-swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Skimmer Type Pools</span>
+                <span class="drawer-sub-badge">Classic Low-Maintenance</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/readymade-frp-swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Readymade FRP Pools</span>
+                <span class="drawer-sub-badge">Fast 48hr Shell</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/recreational-swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Recreational Pools</span>
+                <span class="drawer-sub-badge">Waterparks & Spas</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/competition-swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Competition Pools</span>
+                <span class="drawer-sub-badge">Olympic / FINA Spec</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
         </div>
       </li>
 
       <!-- Mobile Services Accordion -->
       <li class="drawer-dropdown-item">
         <button class="drawer-accordion-btn" type="button" onclick="window.toggleDrawerAccordion(this, event)">
-          <span>Services</span>
-          <svg class="drawer-chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <div class="drawer-btn-left">
+            <span class="drawer-cat-icon icon-gold">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </span>
+            <div class="drawer-cat-meta">
+              <span class="drawer-cat-title">Turnkey Services</span>
+              <span class="drawer-cat-sub">End-to-End Civil & MEP</span>
+            </div>
+          </div>
+          <div class="drawer-btn-right">
+            <span class="drawer-cat-pill">4 Services</span>
+            <span class="drawer-chevron-badge">
+              <svg class="drawer-chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </div>
         </button>
         <div class="drawer-accordion-content">
-          <a href="/services" class="drawer-sub-featured">
-            <span>✨ All Services Overview</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <a href="/services" class="drawer-featured-card service-featured">
+            <div class="drawer-featured-left">
+              <span class="drawer-featured-tag">Civil & Hydraulic</span>
+              <strong>All Turnkey Solutions</strong>
+              <p>Design, excavation, pouring & commissioning</p>
+            </div>
+            <span class="drawer-featured-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
           </a>
-          <a href="/services#swimming-pools">&bull; Turnkey Swimming Pools</a>
-          <a href="/services#waterfalls">&bull; Waterfall & Fountains</a>
-          <a href="/services#renovation">&bull; Pool Renovation & Leak Repair</a>
-          <a href="/services#maintenance">&bull; Maintenance & AMC</a>
+
+          <div class="drawer-sub-grid">
+            <a href="/services#swimming-pools" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Turnkey Swimming Pools</span>
+                <span class="drawer-sub-badge">Monolithic RCC</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/services#waterfalls" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Waterfalls & Fountains</span>
+                <span class="drawer-sub-badge">Architectural Sheers</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/services#renovation" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Pool Renovation & Repair</span>
+                <span class="drawer-sub-badge">Leakproofing & Retiling</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/services#maintenance" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Maintenance & AMC</span>
+                <span class="drawer-sub-badge">Water Testing & Filter Service</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
         </div>
       </li>
 
       <!-- Mobile Products Accordion -->
       <li class="drawer-dropdown-item">
         <button class="drawer-accordion-btn" type="button" onclick="window.toggleDrawerAccordion(this, event)">
-          <span>Products</span>
-          <svg class="drawer-chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <div class="drawer-btn-left">
+            <span class="drawer-cat-icon icon-emerald">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </span>
+            <div class="drawer-cat-meta">
+              <span class="drawer-cat-title">Pool Products</span>
+              <span class="drawer-cat-sub">Pumps, Filters & Lights</span>
+            </div>
+          </div>
+          <div class="drawer-btn-right">
+            <span class="drawer-cat-pill">Catalog</span>
+            <span class="drawer-chevron-badge">
+              <svg class="drawer-chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </div>
         </button>
         <div class="drawer-accordion-content">
-          <a href="/products" class="drawer-sub-featured">
-            <span>✨ All Products Catalog</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <a href="/products" class="drawer-featured-card product-featured">
+            <div class="drawer-featured-left">
+              <span class="drawer-featured-tag">Hardware & MEP</span>
+              <strong>All Equipment Catalog</strong>
+              <p>Certified filtration, suction & LED gear</p>
+            </div>
+            <span class="drawer-featured-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
           </a>
-          <a href="/products?category=Pool%20Filtration%20%26%20Pumps">&bull; Equipment & Pumps</a>
-          <a href="/products">&bull; Bathtubs & Jacuzzis</a>
-          <a href="/products?category=Pool%20Tiles%20%26%20Mosaics">&bull; Pool Tiles & Mosaics</a>
-          <a href="/products?category=Underwater%20LED%20Lights">&bull; Underwater Lights</a>
+
+          <div class="drawer-sub-grid">
+            <a href="/products?category=Pool%20Filtration%20%26%20Pumps" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Equipment & Pumps</span>
+                <span class="drawer-sub-badge">Sand Filters & Inverters</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/products" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Bathtubs & Jacuzzis</span>
+                <span class="drawer-sub-badge">Hydrotherapy Jets</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/products?category=Pool%20Tiles%20%26%20Mosaics" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Pool Tiles & Mosaics</span>
+                <span class="drawer-sub-badge">Spanish Ceramic Art</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+
+            <a href="/products?category=Underwater%20LED%20Lights" class="drawer-sub-tile">
+              <div class="drawer-sub-info">
+                <span class="drawer-sub-title">Underwater Lights</span>
+                <span class="drawer-sub-badge">RGBW Multi-Color</span>
+              </div>
+              <svg class="drawer-sub-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          </div>
         </div>
       </li>
 
