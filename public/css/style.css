@@ -1041,18 +1041,24 @@ img {
   background: var(--bg-main);
   position: relative;
   z-index: 2;
+  overflow: hidden;
 }
 
 .dive-apple-grid {
   display: grid;
-  grid-template-columns: 1fr 1.28fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.28fr);
   gap: 65px;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .dive-apple-content {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .apple-section-tag {
@@ -1165,10 +1171,18 @@ img {
 /* Right Column: Apple Image Card */
 .dive-apple-card-col {
   position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .jump-card-stage {
   perspective: 1200px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .apple-image-card {
@@ -1176,6 +1190,9 @@ img {
   border-radius: 28px;
   overflow: hidden;
   height: 510px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background: var(--bg-card-subtle);
   border: 1.5px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 25px 65px rgba(2, 132, 199, 0.12), 0 6px 18px rgba(0, 0, 0, 0.05);
@@ -2877,7 +2894,6 @@ img {
   }
 
   .hero-luxury-layout,
-  .dive-apple-grid,
   .apple-stage-grid,
   .contact-grid,
   .showcase-row,
@@ -2885,6 +2901,14 @@ img {
   .testimonials-grid,
   .quote-grid {
     grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  .dive-apple-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
     gap: 28px;
   }
 
@@ -2969,6 +2993,34 @@ img {
     font-size: 1.02rem;
   }
 
+  /* Section 2: Mobile Strict Containment & Zero Overflow */
+  .dive-apple-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .dive-apple-content {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .apple-dive-heading {
+    font-size: clamp(2.2rem, 7.5vw, 3rem) !important;
+    margin-bottom: 16px !important;
+  }
+
+  .apple-dive-desc {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 22px !important;
+    max-width: 100% !important;
+  }
+
   /* 120Hz ProMotion Native Touch Carousel for Pool Styles */
   .apple-pills-wrap {
     display: flex !important;
@@ -2978,6 +3030,10 @@ img {
     scrollbar-width: none !important;
     padding: 6px 16px 14px !important;
     margin: 0 -16px 20px !important;
+    width: calc(100% + 32px) !important;
+    max-width: calc(100% + 32px) !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
     scroll-snap-type: x mandatory;
   }
 
@@ -2991,8 +3047,62 @@ img {
     scroll-snap-align: center;
   }
 
+  .dive-apple-card-col {
+    position: relative !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border-radius: 24px !important;
+  }
+
+  .jump-card-stage {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
   .apple-image-card {
-    height: 320px;
+    height: 280px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .apple-card-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .apple-card-caption {
+    left: 14px !important;
+    right: 14px !important;
+    bottom: 14px !important;
+    padding: 12px 16px !important;
+    max-width: calc(100% - 28px) !important;
+    width: auto !important;
+    box-sizing: border-box !important;
+    border-radius: 16px !important;
+  }
+
+  .apple-caption-title {
+    font-size: 1.25rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  .apple-caption-tag {
+    font-size: 0.72rem !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 2px !important;
   }
 
   .quick-anchor-sticky-bar {
@@ -3189,12 +3299,32 @@ img {
   }
 
   .dive-heading,
+  .apple-dive-heading,
   .services-main-title {
     font-size: clamp(1.8rem, 6.5vw, 2.2rem) !important;
   }
 
   .apple-image-card {
     height: 250px !important;
+    border-radius: 20px !important;
+  }
+
+  .apple-card-caption {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    padding: 10px 14px !important;
+    max-width: calc(100% - 20px) !important;
+    border-radius: 14px !important;
+  }
+
+  .apple-caption-title {
+    font-size: 1.12rem !important;
+  }
+
+  .apple-caption-tag {
+    font-size: 0.68rem !important;
+    letter-spacing: 1px !important;
   }
 
   .bento-card {
