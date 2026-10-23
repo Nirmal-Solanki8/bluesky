@@ -1,0 +1,2755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azure Lagoon | Bespoke Aquatic Architecture & Luxury Resort Engineering</title>
+  <meta name="description" content="Ultra-premium swimming pool design, hydraulic civil construction, smart heating automation, and luxury resort maintenance.">
+  <meta name="keywords" content="Luxury swimming pools, infinity pools, resort pools, pool maintenance, custom pool builder, Gujarat, Mumbai">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ===================================================================
+       1. DESIGN SYSTEM & TOKENS: DEEP OCEAN LUXURY & GLASSMORPHISM
+       =================================================================== */
+    :root {
+      --bg-deep: #060b17;
+      --bg-ocean: #0a1428;
+      --bg-card: rgba(14, 26, 48, 0.75);
+      --bg-card-hover: rgba(22, 40, 72, 0.88);
+      --bg-glass: rgba(255, 255, 255, 0.05);
+      --bg-glass-strong: rgba(10, 20, 40, 0.82);
+      
+      --accent-cyan: #00f5d4;
+      --accent-cyan-glow: rgba(0, 245, 212, 0.35);
+      --accent-blue: #00b4d8;
+      --accent-aqua: #90e0ef;
+      --accent-gold: #f59e0b;
+      --accent-gold-glow: rgba(245, 158, 11, 0.35);
+
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-cyan: rgba(0, 245, 212, 0.28);
+      --border-gold: rgba(245, 158, 11, 0.28);
+
+      --text-pure: #ffffff;
+      --text-soft: #e2e8f0;
+      --text-muted: #94a3b8;
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-full: 9999px;
+
+      --shadow-glass: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      --shadow-cyan: 0 10px 30px rgba(0, 245, 212, 0.25);
+      --shadow-gold: 0 10px 30px rgba(245, 158, 11, 0.25);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background: var(--bg-deep);
+      color: var(--text-pure);
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at 50% 0%, #0d1e3d 0%, #060b17 75%);
+      min-height: 100vh;
+      color: var(--text-soft);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Interactive Fluid Water Canvas */
+    #water-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.45;
+    }
+
+    /* App Mode Bar (Client Experience vs Admin Dashboard Switcher) */
+    .app-mode-bar {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(6, 11, 23, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-cyan);
+      border-radius: var(--radius-full);
+      padding: 5px 8px;
+      display: flex;
+      gap: 6px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), var(--shadow-cyan);
+    }
+
+    .mode-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mode-tab-btn.active {
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+      color: #060b17;
+      box-shadow: 0 4px 18px rgba(0, 245, 212, 0.4);
+    }
+
+    .mode-tab-btn:hover:not(.active) {
+      color: var(--text-pure);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Layout Container */
+    .container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Typography & Utilities */
+    .serif-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text-pure);
+    }
+
+    .gradient-text-cyan {
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent-aqua) 40%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-text-gold {
+      background: linear-gradient(135deg, #ffffff 0%, #fde68a 50%, var(--accent-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: rgba(0, 245, 212, 0.08);
+      border: 1px solid var(--border-cyan);
+      color: var(--accent-cyan);
+      margin-bottom: 18px;
+    }
+
+    /* Liquid Gradient Button */
+    .btn-liquid {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 30px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #060b17;
+      background: linear-gradient(135deg, #00f5d4 0%, #00b4d8 50%, #0077b6 100%);
+      background-size: 200% 200%;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(0, 245, 212, 0.35);
+      transition: all 0.4s ease;
+      overflow: hidden;
+    }
+
+    .btn-liquid:hover {
+      background-position: 100% 100%;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 245, 212, 0.5);
+    }
+
+    .btn-glass {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-pure);
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* ===================================================================
+       2. STICKY GLASS HEADER & MOBILE DRAWER
+       =================================================================== */
+    .site-header {
+      position: sticky;
+      top: 60px;
+      z-index: 900;
+      margin: 0 auto;
+      max-width: 1320px;
+      padding: 0 24px;
+    }
+
+    .nav-glass-container {
+      background: rgba(10, 20, 40, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-full);
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-symbol {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #060b17;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 15px rgba(0, 245, 212, 0.35);
+    }
+
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-name span {
+      color: var(--accent-cyan);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 600;
+      transition: color 0.25s ease;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+      transition: width 0.3s ease;
+      border-radius: var(--radius-full);
+    }
+
+    .nav-menu a:hover {
+      color: var(--text-pure);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-toggle-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .mobile-toggle-btn:hover {
+      background: rgba(0, 245, 212, 0.2);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 11, 23, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .mobile-drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 320px;
+      max-width: 85vw;
+      height: 100%;
+      background: #091224;
+      border-left: 1px solid var(--border-cyan);
+      z-index: 1501;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -15px 0 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .mobile-drawer.active {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #ffffff;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .drawer-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: auto;
+    }
+
+    .drawer-nav-list a {
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.25s ease;
+    }
+
+    .drawer-nav-list a:hover {
+      background: rgba(0, 245, 212, 0.12);
+      color: var(--accent-cyan);
+      transform: translateX(6px);
+    }
+
+    /* ===================================================================
+       3. HERO SECTION & FLOATING WIDGETS
+       =================================================================== */
+    .hero-section {
+      min-height: 90vh;
+      padding: 80px 0 100px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-headline {
+      font-size: clamp(3.2rem, 6vw, 5.2rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtext {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .hero-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 35px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .hero-stat-item h3 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    /* Hero Showcase Card */
+    .hero-visual-col {
+      position: relative;
+    }
+
+    .hero-main-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+      background: var(--bg-card);
+      aspect-ratio: 4/5;
+    }
+
+    .hero-main-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .hero-main-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .floating-pill-badge {
+      position: absolute;
+      background: rgba(10, 20, 40, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-cyan);
+      border-radius: var(--radius-full);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      animation: floatWidget 4s ease-in-out infinite alternate;
+    }
+
+    .pill-top-right {
+      top: 30px;
+      right: -25px;
+    }
+
+    .pill-bottom-left {
+      bottom: 40px;
+      left: -25px;
+      animation-delay: -2s;
+    }
+
+    @keyframes floatWidget {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-12px); }
+    }
+
+    /* ===================================================================
+       4. SERVICES & BEFORE/AFTER RENOVATION SLIDER
+       =================================================================== */
+    .section-wrap {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 65px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+    }
+
+    .services-grid-3d {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+
+    .service-glass-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-glass-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-cyan);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0, 245, 212, 0.15);
+    }
+
+    .service-glass-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: rgba(0, 245, 212, 0.1);
+      border: 1px solid var(--border-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .service-glass-card:hover .service-icon-box {
+      background: var(--accent-cyan);
+      color: #060b17;
+      box-shadow: 0 0 20px var(--accent-cyan);
+    }
+
+    .service-glass-card h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .service-glass-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    /* Before / After Slider Widget */
+    .before-after-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 35px;
+      box-shadow: var(--shadow-glass);
+      margin-top: 40px;
+    }
+
+    .ba-slider-container {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      user-select: none;
+      border: 1px solid var(--border-subtle);
+      cursor: ew-resize;
+    }
+
+    .ba-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ba-after-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      border-right: 3px solid var(--accent-cyan);
+    }
+
+    .ba-after-layer img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      max-width: none;
+      object-fit: cover;
+    }
+
+    .ba-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: var(--accent-cyan);
+      color: #060b17;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: ew-resize;
+      box-shadow: 0 0 25px var(--accent-cyan);
+      z-index: 10;
+    }
+
+    .ba-label-pill {
+      position: absolute;
+      bottom: 20px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    /* ===================================================================
+       5. CUSTOM POOL COST ESTIMATOR & CONFIGURATOR
+       =================================================================== */
+    .configurator-card {
+      background: linear-gradient(145deg, rgba(14, 26, 48, 0.9) 0%, rgba(8, 16, 32, 0.95) 100%);
+      border: 1px solid var(--border-cyan);
+      border-radius: var(--radius-lg);
+      padding: 50px 40px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), var(--shadow-cyan);
+      position: relative;
+    }
+
+    .config-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-bottom: 35px;
+    }
+
+    .config-choice-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.28s ease;
+    }
+
+    .config-choice-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(0, 245, 212, 0.4);
+    }
+
+    .config-choice-card.selected {
+      background: rgba(0, 245, 212, 0.1);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 10px 25px rgba(0, 245, 212, 0.25);
+    }
+
+    .config-choice-card i {
+      font-size: 2rem;
+      color: var(--accent-cyan);
+      margin-bottom: 12px;
+    }
+
+    .config-choice-card h4 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .config-choice-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .slider-wrap {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      margin-bottom: 35px;
+    }
+
+    .range-input {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-full);
+      outline: none;
+      -webkit-appearance: none;
+      margin: 18px 0 10px;
+    }
+
+    .range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--accent-cyan);
+    }
+
+    .estimator-price-bar {
+      background: rgba(0, 245, 212, 0.08);
+      border: 1px solid var(--border-cyan);
+      border-radius: var(--radius-md);
+      padding: 24px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .est-price-box p {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .est-price-box h2 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      color: var(--accent-cyan);
+      line-height: 1;
+    }
+
+    /* ===================================================================
+       6. GALLERY / PORTFOLIO WITH MASONRY & LIGHTBOX
+       =================================================================== */
+    .filter-pills-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 45px;
+    }
+
+    .gallery-filter-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-soft);
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.90rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .gallery-filter-btn.active, .gallery-filter-btn:hover {
+      background: var(--accent-cyan);
+      color: #060b17;
+      border-color: var(--accent-cyan);
+      box-shadow: 0 4px 18px rgba(0, 245, 212, 0.3);
+    }
+
+    .masonry-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-item-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 340px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gallery-item-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6, 11, 23, 0.95) 0%, transparent 60%);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      transition: opacity 0.35s ease;
+    }
+
+    .gallery-item-card:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(4, 8, 16, 0.96);
+      backdrop-filter: blur(20px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .lightbox-modal.open {
+      display: flex;
+      animation: modalFadeIn 0.3s ease forwards;
+    }
+
+    .lightbox-img-wrap {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-cyan);
+      box-shadow: 0 25px 60px rgba(0, 245, 212, 0.3);
+    }
+
+    .lightbox-img-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #ffffff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ===================================================================
+       7. INTERACTIVE BOOKING & INQUIRY MODAL
+       =================================================================== */
+    .booking-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2100;
+      background: rgba(4, 8, 16, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .booking-modal-overlay.open {
+      display: flex;
+      animation: modalFadeIn 0.3s ease forwards;
+    }
+
+    .booking-modal-box {
+      background: linear-gradient(145deg, #0b1528 0%, #060b17 100%);
+      border: 1px solid var(--border-cyan);
+      border-radius: var(--radius-lg);
+      max-width: 640px;
+      width: 100%;
+      padding: 40px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), var(--shadow-cyan);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .booking-form-group {
+      margin-bottom: 20px;
+    }
+
+    .booking-form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .booking-input, .booking-select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .booking-input:focus, .booking-select:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(0, 245, 212, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .booking-select option {
+      background: #0b1528;
+      color: #ffffff;
+    }
+
+    /* Wave SVG Divider */
+    .wave-divider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      margin-top: 40px;
+    }
+
+    .wave-divider svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 80px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #03060d;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 60px 0 35px;
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.25s ease;
+      font-size: 0.92rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .newsletter-input {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-full);
+      padding: 10px 18px;
+      color: #ffffff;
+      font-size: 0.9rem;
+      outline: none;
+      flex: 1;
+    }
+
+    /* ===================================================================
+       8. ADMIN DASHBOARD OPERATIONS PORTAL (DARK EXECUTIVE)
+       =================================================================== */
+    .admin-dashboard-wrap {
+      display: none;
+      padding-top: 80px;
+      min-height: 100vh;
+    }
+
+    .admin-dashboard-wrap.active {
+      display: block;
+    }
+
+    .admin-layout-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    /* Admin Sidebar */
+    .admin-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+    }
+
+    .admin-menu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .admin-menu-btn {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .admin-menu-btn.active, .admin-menu-btn:hover {
+      background: rgba(0, 245, 212, 0.12);
+      color: var(--accent-cyan);
+      border-left: 3px solid var(--accent-cyan);
+    }
+
+    /* Admin Stats Cards */
+    .admin-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .admin-kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+
+    .admin-kpi-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-cyan);
+    }
+
+    .admin-kpi-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .admin-kpi-info h3 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .kpi-icon-circ {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    /* Progress bar in KPI */
+    .kpi-progress {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-full);
+      margin-top: 12px;
+      overflow: hidden;
+    }
+
+    .kpi-progress-bar {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+    }
+
+    /* Admin Sub-Panels (Overview, Calendar, Leads Drawer, Pricing) */
+    .admin-sub-panel {
+      display: none;
+    }
+
+    .admin-sub-panel.active {
+      display: block;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .admin-table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      overflow-x: auto;
+    }
+
+    .table-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .admin-search-input {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      color: #ffffff;
+      font-size: 0.88rem;
+      outline: none;
+      width: 260px;
+    }
+
+    .admin-search-input:focus {
+      border-color: var(--accent-cyan);
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .admin-table th {
+      padding: 14px 18px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .admin-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.92rem;
+    }
+
+    .status-chip {
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .status-confirmed { background: rgba(0, 245, 212, 0.15); color: var(--accent-cyan); }
+    .status-pending { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); }
+    .status-progress { background: rgba(0, 180, 216, 0.15); color: var(--accent-blue); }
+
+    /* Expandable Quote Drawer in Admin */
+    .quote-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 8, 16, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 2200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .quote-drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .quote-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 460px;
+      max-width: 90vw;
+      height: 100%;
+      background: #0a1428;
+      border-left: 1px solid var(--border-cyan);
+      z-index: 2201;
+      padding: 35px 30px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -15px 0 45px rgba(0, 0, 0, 0.8);
+      overflow-y: auto;
+    }
+
+    .quote-drawer.active {
+      transform: translateX(0);
+    }
+
+    /* Calendar Grid for Service Schedule Module */
+    .calendar-week-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .calendar-day-col {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      min-height: 280px;
+    }
+
+    .calendar-day-header {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .calendar-event-card {
+      background: rgba(0, 180, 216, 0.12);
+      border-left: 3px solid var(--accent-blue);
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .calendar-event-card:hover {
+      transform: scale(1.02);
+      background: rgba(0, 180, 216, 0.22);
+    }
+
+    .calendar-event-card strong {
+      font-size: 0.8rem;
+      color: #ffffff;
+      display: block;
+    }
+
+    .calendar-event-card span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Pricing CRUD Cards */
+    .pricing-crud-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .crud-pkg-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .crud-pkg-card h4 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+
+    .crud-input-group {
+      margin-bottom: 14px;
+    }
+
+    .crud-input-group label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .crud-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      color: var(--accent-cyan);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* Keyframe Animations */
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+      .admin-layout-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .mobile-toggle-btn {
+        display: flex;
+      }
+      .calendar-week-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+      .ba-slider-container {
+        height: 320px;
+      }
+      .calendar-week-grid {
+        grid-template-columns: 1fr;
+      }
+      .app-mode-bar {
+        width: 92%;
+        justify-content: center;
+      }
+      .mode-tab-btn {
+        font-size: 0.76rem;
+        padding: 7px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 60FPS Interactive Fluid Water Ripple Simulation -->
+  <canvas id="water-canvas"></canvas>
+
+  <!-- Dual App Switcher (Client Experience vs Admin Dashboard) -->
+  <div class="app-mode-bar">
+    <button class="mode-tab-btn active" id="btn-client-mode" onclick="switchAppMode('client')">
+      <i class="fa-solid fa-hotel"></i> Client Resort View
+    </button>
+    <button class="mode-tab-btn" id="btn-admin-mode" onclick="switchAppMode('admin')">
+      <i class="fa-solid fa-chart-line"></i> Admin Operations
+    </button>
+  </div>
+
+  <!-- Mobile Slide-In Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="closeMobileDrawer()"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="nav-brand">
+        <div class="brand-symbol"><i class="fa-solid fa-water"></i></div>
+        <span class="brand-name">AZURE <span>LAGOON</span></span>
+      </div>
+      <button class="drawer-close-btn" onclick="closeMobileDrawer()" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="drawer-nav-list">
+      <li><a href="#hero" onclick="closeMobileDrawer()"><i class="fa-solid fa-house"></i> Overview</a></li>
+      <li><a href="#services" onclick="closeMobileDrawer()"><i class="fa-solid fa-cubes"></i> Services & MEP</a></li>
+      <li><a href="#before-after" onclick="closeMobileDrawer()"><i class="fa-solid fa-wand-magic-sparkles"></i> Renovation Slider</a></li>
+      <li><a href="#estimator" onclick="closeMobileDrawer()"><i class="fa-solid fa-calculator"></i> Pool Configurator</a></li>
+      <li><a href="#gallery" onclick="closeMobileDrawer()"><i class="fa-solid fa-images"></i> 2026 Portfolio</a></li>
+      <li><a href="javascript:void(0)" onclick="closeMobileDrawer(); switchAppMode('admin')"><i class="fa-solid fa-gauge"></i> Admin Dashboard</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+      <button class="btn-liquid" style="width: 100%;" onclick="closeMobileDrawer(); openBookingModal('Mobile Inquirer')">
+        <i class="fa-solid fa-calendar-check"></i> Book Consultation
+      </button>
+      <div style="margin-top: 15px; text-align: center; font-size: 0.85rem; color: var(--accent-cyan);">
+        <i class="fa-solid fa-phone"></i> +91 81289 20702
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+     CLIENT-FACING LUXURY RESORT EXPERIENCE
+     =================================================================== -->
+  <div id="client-experience-view">
+
+    <!-- Sticky Glassmorphism Header -->
+    <header class="site-header">
+      <div class="nav-glass-container">
+        <a href="#" class="nav-brand">
+          <div class="brand-symbol"><i class="fa-solid fa-water"></i></div>
+          <span class="brand-name">AZURE <span>LAGOON</span></span>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="#hero">Overview</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#before-after">Renovation</a></li>
+          <li><a href="#estimator">Pool Configurator</a></li>
+          <li><a href="#gallery">Portfolio</a></li>
+        </ul>
+
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <button class="btn-liquid" onclick="openBookingModal('General Pool Inquiry')">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Book Pool Service
+          </button>
+          <button class="mobile-toggle-btn" onclick="openMobileDrawer()" aria-label="Open mobile menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="tag-badge">
+              <i class="fa-solid fa-gem"></i> Bespoke Architectural Luxury
+            </span>
+            <h1 class="serif-title hero-headline">
+              Sculpting Water <br><span class="gradient-text-cyan">Into Living Art.</span>
+            </h1>
+            <p class="hero-subtext">
+              Precision monolithic RCC infinity pools, commercial resort lagoons, and smart heating automation engineered with zero compromise.
+            </p>
+            <div class="hero-actions">
+              <a href="#estimator" class="btn-liquid">
+                <i class="fa-solid fa-calculator"></i> Design Your Pool
+              </a>
+              <a href="#gallery" class="btn-glass">
+                <i class="fa-solid fa-camera"></i> Explore 2026 Showcase
+              </a>
+            </div>
+
+            <div class="hero-stats-strip">
+              <div class="hero-stat-item">
+                <h3 class="gradient-text-cyan">540+</h3>
+                <p>Pools Designed</p>
+              </div>
+              <div class="hero-stat-item">
+                <h3 class="gradient-text-cyan">4.9 / 5</h3>
+                <p>Client Satisfaction</p>
+              </div>
+              <div class="hero-stat-item">
+                <h3 class="gradient-text-gold">100%</h3>
+                <p>Leakproof Guarantee</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual-col">
+            <div class="hero-main-card">
+              <img src="/images/infinity-pool.jpg" alt="Luxury Infinity Horizon Pool" onerror="this.src='/images/resort-pool.jpg'">
+              
+              <div class="floating-pill-badge pill-top-right">
+                <i class="fa-solid fa-trophy" style="color: var(--accent-gold); font-size: 1.3rem;"></i>
+                <div>
+                  <strong style="color: #ffffff; font-size: 0.9rem; display: block;">Design Excellence 2026</strong>
+                  <span style="font-size: 0.75rem; color: var(--accent-cyan);">Premier Gujarat Aquatic Architect</span>
+                </div>
+              </div>
+
+              <div class="floating-pill-badge pill-bottom-left">
+                <i class="fa-solid fa-temperature-arrow-up" style="color: var(--accent-cyan); font-size: 1.3rem;"></i>
+                <div>
+                  <strong style="color: #ffffff; font-size: 0.9rem; display: block;">Smart Hydrothermal</strong>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Automated 28°C Thermal Control</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section & Before/After Slider -->
+    <section class="section-wrap" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag-badge"><i class="fa-solid fa-cubes"></i> Turnkey Engineering</span>
+          <h2 class="serif-title">Services & Maintenance</h2>
+          <p>End-to-end hydraulic civil engineering, automated robotic cleaning, and smart RGBW water features.</p>
+        </div>
+
+        <div class="services-grid-3d">
+          <div class="service-glass-card">
+            <div class="service-icon-box"><i class="fa-solid fa-water"></i></div>
+            <h3>Pool Design & Construction</h3>
+            <p>Vanishing perimeter edges engineered with mirror overflow surge tanks and monolithic RCC pouring with leakproof testing.</p>
+            <button onclick="openBookingModal('Pool Design & Construction')" class="btn-glass" style="padding: 10px 20px; font-size: 0.85rem;">Book Consultation</button>
+          </div>
+
+          <div class="service-glass-card">
+            <div class="service-icon-box"><i class="fa-solid fa-pump-soap"></i></div>
+            <h3>Cleaning & Maintenance</h3>
+            <p>High-capacity commercial filtration, robotic suction vacuums, chemical balancer AMC contracts, and water salinity control.</p>
+            <button onclick="openBookingModal('Cleaning & Maintenance AMC')" class="btn-glass" style="padding: 10px 20px; font-size: 0.85rem;">Explore AMC Plans</button>
+          </div>
+
+          <div class="service-glass-card">
+            <div class="service-icon-box"><i class="fa-solid fa-temperature-high"></i></div>
+            <h3>Heating & Automation</h3>
+            <p>Inverter heat-pump technology, hydrotherapy jets, and smartphone app-controlled temperature and RGBW ambient lighting.</p>
+            <button onclick="openBookingModal('Heating & Smart Automation')" class="btn-glass" style="padding: 10px 20px; font-size: 0.85rem;">Learn Smart MEP</button>
+          </div>
+
+          <div class="service-glass-card">
+            <div class="service-icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>Luxury Renovation</h3>
+            <p>Total rejuvenation of degraded civil shells into modern glass mosaic infinity decks with polymer waterproofing membranes.</p>
+            <button onclick="openBookingModal('Luxury Pool Renovation')" class="btn-glass" style="padding: 10px 20px; font-size: 0.85rem;">Request Survey</button>
+          </div>
+        </div>
+
+        <!-- Before & After Renovation Interactive Widget -->
+        <div class="before-after-box" id="before-after">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <span class="tag-badge" style="margin-bottom: 8px;"><i class="fa-solid fa-wand-magic-sparkles"></i> Precision Overhaul</span>
+              <h3 class="serif-title" style="font-size: 2rem;">Surat Villa Renovation & Leakproofing</h3>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.92rem;"><i class="fa-solid fa-arrows-left-right"></i> Drag slider to compare Old Degraded Shell vs Azure Monolithic RCC</p>
+          </div>
+
+          <div class="ba-slider-container" id="baSliderContainer">
+            <img src="/images/infinity-pool.jpg" class="ba-img" alt="After Renovation">
+            <span class="ba-label-pill" style="right: 20px; color: var(--accent-cyan);">AFTER: Azure Monolithic</span>
+
+            <div class="ba-after-layer" id="baAfterLayer">
+              <img src="/images/resort-pool.jpg" alt="Before Renovation">
+              <span class="ba-label-pill" style="left: 20px; color: var(--accent-gold);">BEFORE: Degraded Shell</span>
+            </div>
+
+            <div class="ba-handle" id="baHandle">
+              <i class="fa-solid fa-arrows-left-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Pool Cost Estimator / Configurator -->
+    <section class="section-wrap" id="estimator" style="background: radial-gradient(circle at 50% 50%, rgba(0, 180, 216, 0.08) 0%, transparent 70%);">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag-badge"><i class="fa-solid fa-calculator"></i> Step-by-Step Interactive Wizard</span>
+          <h2 class="serif-title">Custom Pool Cost Estimator</h2>
+          <p>Configure pool archetype, surface dimensions, and luxury hardware for instant investment pricing.</p>
+        </div>
+
+        <div class="configurator-card">
+          <!-- Step 1: Shape / Archetype Selection -->
+          <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 18px;">
+            <i class="fa-solid fa-shapes" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+            Step 1: Select Architectural Shape & Archetype
+          </h4>
+          <div class="config-options-grid">
+            <div class="config-choice-card selected" onclick="selectPoolType(this, 1800000, 'Infinity Horizon')">
+              <i class="fa-solid fa-water"></i>
+              <h4>Infinity Horizon</h4>
+              <p>Vanishing Edge Monolith</p>
+            </div>
+            <div class="config-choice-card" onclick="selectPoolType(this, 1200000, 'Deck-Level Overflow')">
+              <i class="fa-solid fa-border-all"></i>
+              <h4>Deck Overflow</h4>
+              <p>Mirror Water Decks</p>
+            </div>
+            <div class="config-choice-card" onclick="selectPoolType(this, 950000, 'Private Skimmer')">
+              <i class="fa-solid fa-square"></i>
+              <h4>Private Skimmer</h4>
+              <p>Bespoke Villa Pool</p>
+            </div>
+            <div class="config-choice-card" onclick="selectPoolType(this, 650000, 'Readymade FRP')">
+              <i class="fa-solid fa-bolt"></i>
+              <h4>Readymade FRP</h4>
+              <p>48-Hour Rapid Shell</p>
+            </div>
+          </div>
+
+          <!-- Step 2: Pool Size Slider -->
+          <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 14px;">
+            <i class="fa-solid fa-ruler-combined" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+            Step 2: Select Surface Size & Dimensions
+          </h4>
+          <div class="slider-wrap">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 600; color: var(--text-soft);">Surface Area:</span>
+              <strong id="dim-display" style="font-size: 1.3rem; color: var(--accent-cyan);">600 sq.ft (30ft x 20ft)</strong>
+            </div>
+            <input type="range" min="300" max="1800" step="50" value="600" class="range-input" id="size-slider" oninput="updatePoolSize(this.value)">
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
+              <span>300 sq.ft (Plunge Pool)</span>
+              <span>1800 sq.ft (Semi-Olympic)</span>
+            </div>
+          </div>
+
+          <!-- Step 3: Luxury Add-ons Selection -->
+          <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 18px;">
+            <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-cyan); margin-right: 8px;"></i>
+            Step 3: Select Luxury Inclusions & Hardware
+          </h4>
+          <div class="config-options-grid">
+            <div class="config-choice-card" id="addon-heat" onclick="toggleAddon(this, 280000, 'Thermal Heat Pump')">
+              <i class="fa-solid fa-temperature-high"></i>
+              <h4>Thermal Heat Pump</h4>
+              <p>+₹2.8 Lakhs (Year-Round)</p>
+            </div>
+            <div class="config-choice-card" id="addon-jacuzzi" onclick="toggleAddon(this, 350000, 'Integrated Jacuzzi')">
+              <i class="fa-solid fa-hot-tub-person"></i>
+              <h4>Integrated Jacuzzi</h4>
+              <p>+₹3.5 Lakhs (8 Air Jets)</p>
+            </div>
+            <div class="config-choice-card" id="addon-light" onclick="toggleAddon(this, 120000, 'RGBW Smart Lights')">
+              <i class="fa-solid fa-lightbulb"></i>
+              <h4>RGBW Smart Lights</h4>
+              <p>+₹1.2 Lakhs (App Control)</p>
+            </div>
+            <div class="config-choice-card" id="addon-salt" onclick="toggleAddon(this, 180000, 'Saltwater Chlorinator')">
+              <i class="fa-solid fa-shield-virus"></i>
+              <h4>Saltwater Chlorinator</h4>
+              <p>+₹1.8 Lakhs (Eco Saline)</p>
+            </div>
+          </div>
+
+          <!-- Price Output Bar -->
+          <div class="estimator-price-bar">
+            <div class="est-price-box">
+              <p>Estimated Turnkey Investment</p>
+              <h2 id="total-price-display">₹24,80,000</h2>
+            </div>
+            <div style="display: flex; gap: 14px;">
+              <button class="btn-liquid" onclick="openBookingFromEstimator()">
+                <i class="fa-solid fa-paper-plane"></i> Lock In Quote & Schedule Survey
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery / Portfolio Masonry Grid -->
+    <section class="section-wrap" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag-badge"><i class="fa-solid fa-images"></i> Architectural Archives</span>
+          <h2 class="serif-title">Curated Gallery & Portfolio</h2>
+          <p>Filter through bespoke private villas, luxury resort lagoons, and wellness spas.</p>
+        </div>
+
+        <div class="filter-pills-bar">
+          <button class="gallery-filter-btn active" onclick="filterGallery('all', this)">All</button>
+          <button class="gallery-filter-btn" onclick="filterGallery('infinity', this)">Infinity Pools</button>
+          <button class="gallery-filter-btn" onclick="filterGallery('resort', this)">Resort Lagoons</button>
+          <button class="gallery-filter-btn" onclick="filterGallery('spas', this)">Luxury Spas</button>
+        </div>
+
+        <div class="masonry-gallery-grid">
+          <div class="gallery-item-card" data-cat="infinity" onclick="openLightbox('/images/infinity-pool.jpg', 'Surat Cliffside Horizon Infinity')">
+            <img src="/images/infinity-pool.jpg" alt="Infinity Pool" onerror="this.src='/images/resort-pool.jpg'">
+            <div class="gallery-overlay">
+              <span class="tag-badge" style="width: fit-content; margin-bottom: 6px;">Infinity Pools</span>
+              <h4 style="color: #ffffff; font-size: 1.25rem;">Surat Cliffside Horizon Infinity</h4>
+              <p style="font-size: 0.85rem; color: var(--accent-cyan);"><i class="fa-solid fa-location-dot"></i> Dumas Road, Surat</p>
+            </div>
+          </div>
+
+          <div class="gallery-item-card" data-cat="resort" onclick="openLightbox('/images/resort-pool.jpg', 'Imperial Palace 5-Star Resort Lagoon')">
+            <img src="/images/resort-pool.jpg" alt="Resort Pool" onerror="this.src='/images/infinity-pool.jpg'">
+            <div class="gallery-overlay">
+              <span class="tag-badge" style="width: fit-content; margin-bottom: 6px;">Resort Lagoons</span>
+              <h4 style="color: #ffffff; font-size: 1.25rem;">Imperial Palace 5-Star Resort Lagoon</h4>
+              <p style="font-size: 0.85rem; color: var(--accent-cyan);"><i class="fa-solid fa-location-dot"></i> Navsari Highway</p>
+            </div>
+          </div>
+
+          <div class="gallery-item-card" data-cat="spas" onclick="openLightbox('/images/private-pool-hero.webp', 'Minimalist Glass Hydrotherapy Spa')">
+            <img src="/images/private-pool-hero.webp" alt="Luxury Spa" onerror="this.src='/images/resort-pool.jpg'">
+            <div class="gallery-overlay">
+              <span class="tag-badge" style="width: fit-content; margin-bottom: 6px;">Luxury Spas</span>
+              <h4 style="color: #ffffff; font-size: 1.25rem;">Minimalist Glass Hydrotherapy Spa</h4>
+              <p style="font-size: 0.85rem; color: var(--accent-cyan);"><i class="fa-solid fa-location-dot"></i> Vesu VIP Road, Surat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Water Wave SVG Divider -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z" fill="#03060d"></path>
+      </svg>
+    </div>
+
+    <!-- Luxury Dark Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="nav-brand" style="margin-bottom: 20px;">
+              <div class="brand-symbol"><i class="fa-solid fa-water"></i></div>
+              <span class="brand-name">AZURE <span>LAGOON</span></span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; max-width: 320px; margin-bottom: 24px;">
+              Premier turnkey aquatic architecture, hydraulic filtration systems, and luxury resort maintenance throughout Gujarat & Mumbai.
+            </p>
+            <div style="display: flex; gap: 12px;">
+              <span class="tag-badge" style="color: var(--accent-gold); border-color: var(--border-gold);"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
+              <span class="tag-badge" style="color: var(--accent-cyan); border-color: var(--border-cyan);"><i class="fa-solid fa-award"></i> Gujarat Luxury Award</span>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Aquatic Architecture</h4>
+            <ul>
+              <li><a href="#estimator">Vanishing Infinity Pools</a></li>
+              <li><a href="#estimator">Deck-Level Mirror Overflow</a></li>
+              <li><a href="#estimator">Hydrotherapy Thermal Spas</a></li>
+              <li><a href="#estimator">Commercial Resort Lagoons</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Engineering & MEP</h4>
+            <ul>
+              <li><a href="#services">Monolithic RCC Waterproofing</a></li>
+              <li><a href="#services">Variable Inverter Pumps</a></li>
+              <li><a href="#services">Spanish Glass Mosaic Art</a></li>
+              <li><a href="#services">Chemical Automation AMC</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Newsletter & Inquiries</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+              Subscribe to our monthly architectural digest for private resort case studies.
+            </p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('🎉 Thank you for subscribing to Azure Lagoon Architectural Digest!');">
+              <input type="email" required placeholder="Enter your email" class="newsletter-input">
+              <button type="submit" class="btn-liquid" style="padding: 10px 18px; font-size: 0.85rem;"><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <div style="margin-top: 18px; color: var(--accent-cyan); font-weight: 700;">
+              <i class="fa-solid fa-phone"></i> +91 81289 20702
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 30px; font-size: 0.85rem; color: var(--text-muted);">
+          © 2026 Azure Lagoon & Bluesky International. Crafted for Ultra-Luxury Resorts and Bespoke Architectural Living.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================================================================
+     INTEGRATED ADMIN DASHBOARD OVERVIEW & OPERATIONS
+     =================================================================== -->
+  <div id="admin-dashboard-view" class="admin-dashboard-wrap">
+    <div class="container">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <span class="tag-badge" style="color: var(--accent-gold); border-color: var(--border-gold);"><i class="fa-solid fa-crown"></i> Executive Management Suite</span>
+          <h1 class="serif-title" style="font-size: 2.8rem;">Operations Control Center</h1>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <button class="btn-glass" onclick="switchAppMode('client')"><i class="fa-solid fa-arrow-left"></i> Public Website</button>
+          <button class="btn-liquid" onclick="openNewLeadModal()"><i class="fa-solid fa-plus"></i> New Site Lead</button>
+        </div>
+      </div>
+
+      <!-- Top KPI Overview Cards -->
+      <div class="admin-kpi-grid">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-info">
+            <p>Total Revenue (Monthly)</p>
+            <h3>₹1.48 Cr</h3>
+            <span style="font-size: 0.78rem; color: var(--accent-cyan); font-weight: 700;"><i class="fa-solid fa-arrow-trend-up"></i> +24.8% vs last month</span>
+            <div class="kpi-progress"><div class="kpi-progress-bar" style="width: 82%;"></div></div>
+          </div>
+          <div class="kpi-icon-circ" style="background: rgba(0, 245, 212, 0.15); color: var(--accent-cyan);">
+            <i class="fa-solid fa-sack-dollar"></i>
+          </div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-info">
+            <p>Active Maintenance AMC</p>
+            <h3>82</h3>
+            <span style="font-size: 0.78rem; color: #10b981; font-weight: 700;"><i class="fa-solid fa-check"></i> 99.4% Uptime</span>
+            <div class="kpi-progress"><div class="kpi-progress-bar" style="width: 92%; background: #10b981;"></div></div>
+          </div>
+          <div class="kpi-icon-circ" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-info">
+            <p>Pending Inquiries / Leads</p>
+            <h3>28</h3>
+            <span style="font-size: 0.78rem; color: var(--accent-gold); font-weight: 700;"><i class="fa-solid fa-clock"></i> 6 Surveys Today</span>
+            <div class="kpi-progress"><div class="kpi-progress-bar" style="width: 65%; background: var(--accent-gold);"></div></div>
+          </div>
+          <div class="kpi-icon-circ" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-gold);">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-info">
+            <p>Active Civil Projects</p>
+            <h3>14</h3>
+            <span style="font-size: 0.78rem; color: var(--accent-blue); font-weight: 700;"><i class="fa-solid fa-hammer"></i> 8 Monolithic Pouring</span>
+            <div class="kpi-progress"><div class="kpi-progress-bar" style="width: 74%; background: var(--accent-blue);"></div></div>
+          </div>
+          <div class="kpi-icon-circ" style="background: rgba(0, 180, 216, 0.15); color: var(--accent-blue);">
+            <i class="fa-solid fa-water-ladder"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Layout: Sidebar & Sub-Panels -->
+      <div class="admin-layout-grid">
+        <aside class="admin-sidebar">
+          <ul class="admin-menu-list">
+            <li><button class="admin-menu-btn active" id="menu-btn-overview" onclick="switchAdminTab('overview')"><i class="fa-solid fa-table-cells-large"></i> Dashboard Overview</button></li>
+            <li><button class="admin-menu-btn" id="menu-btn-calendar" onclick="switchAdminTab('calendar')"><i class="fa-solid fa-calendar-days"></i> Service Schedule</button></li>
+            <li><button class="admin-menu-btn" id="menu-btn-leads" onclick="switchAdminTab('leads')"><i class="fa-solid fa-users"></i> Customer Leads & Inquiries</button></li>
+            <li><button class="admin-menu-btn" id="menu-btn-pricing" onclick="switchAdminTab('pricing')"><i class="fa-solid fa-tags"></i> Services & Pricing Manager</button></li>
+          </ul>
+        </aside>
+
+        <div>
+          <!-- Sub-Panel 1: Overview & Recent Bookings -->
+          <div class="admin-sub-panel active" id="admin-panel-overview">
+            <div class="admin-table-card">
+              <div class="table-top-bar">
+                <div>
+                  <h3 class="serif-title" style="font-size: 1.6rem; color: #ffffff;">Recent Bookings & Estimator Inquiries</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Real-time inquiries captured from the Public Pool Configurator Wizard.</p>
+                </div>
+                <input type="text" class="admin-search-input" placeholder="Search client, location..." onkeyup="filterAdminTable(this.value, 'adminLeadsTable')">
+              </div>
+
+              <table class="admin-table" id="adminLeadsTable">
+                <thead>
+                  <tr>
+                    <th>Client / Location</th>
+                    <th>Archetype</th>
+                    <th>Size & Scope</th>
+                    <th>Est. Budget</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong style="color: #ffffff; display: block;">Rajesh Patel</strong>
+                      <span style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> VIP Road, Vesu Surat</span>
+                    </td>
+                    <td><span style="color: var(--accent-cyan); font-weight: 700;">Infinity Horizon RCC</span></td>
+                    <td>600 sq.ft + Jacuzzi</td>
+                    <td><strong style="color: #ffffff;">₹28.3 Lakhs</strong></td>
+                    <td><span class="status-chip status-pending">Site Survey Booked</span></td>
+                    <td>
+                      <button class="btn-glass" style="padding: 6px 14px; font-size: 0.8rem;" onclick="inspectLeadDrawer('Rajesh Patel', 'Vesu VIP Road, Surat', '+91 98251 04928', 'Infinity Horizon RCC', '600 sq.ft', '₹28,30,000', 'Integrated Jacuzzi, Thermal Heat Pump', 'Pending Survey')">Inspect Dossier</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong style="color: #ffffff; display: block;">Sunil Agrawal (MD)</strong>
+                      <span style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Daman Beachfront Resort</span>
+                    </td>
+                    <td><span style="color: var(--accent-blue); font-weight: 700;">Commercial Lagoon</span></td>
+                    <td>1,400 sq.ft + Heat Pump</td>
+                    <td><strong style="color: #ffffff;">₹64.5 Lakhs</strong></td>
+                    <td><span class="status-chip status-confirmed">Contract Executed</span></td>
+                    <td>
+                      <button class="btn-glass" style="padding: 6px 14px; font-size: 0.8rem;" onclick="inspectLeadDrawer('Sunil Agrawal', 'Daman Beachfront Resort', '+91 98980 11223', 'Commercial Lagoon', '1,400 sq.ft', '₹64,50,000', 'Commercial Heat Pump, 20 RGBW Curtains', 'Contract Executed')">Inspect Dossier</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong style="color: #ffffff; display: block;">Dr. Meera Shah</strong>
+                      <span style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Althan Dream City</span>
+                    </td>
+                    <td><span style="color: var(--accent-gold); font-weight: 700;">Readymade FRP Shell</span></td>
+                    <td>450 sq.ft + LED Jets</td>
+                    <td><strong style="color: #ffffff;">₹9.8 Lakhs</strong></td>
+                    <td><span class="status-chip status-progress">Crane Delivery Today</span></td>
+                    <td>
+                      <button class="btn-glass" style="padding: 6px 14px; font-size: 0.8rem;" onclick="inspectLeadDrawer('Dr. Meera Shah', 'Althan Dream City, Surat', '+91 97123 44556', 'Readymade FRP Shell', '450 sq.ft', '₹9,80,000', 'LED Jets, Saltwater Chlorinator', 'In Delivery')">Inspect Dossier</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sub-Panel 2: Service Schedule / Visual Calendar -->
+          <div class="admin-sub-panel" id="admin-panel-calendar">
+            <div class="admin-table-card">
+              <div class="table-top-bar">
+                <div>
+                  <h3 class="serif-title" style="font-size: 1.6rem; color: #ffffff;">Weekly Service Schedule & Crew Dispatch</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Drag-and-drop style roster for hydraulic technicians, chemical engineers & maintenance teams.</p>
+                </div>
+                <button class="btn-liquid" style="padding: 8px 18px; font-size: 0.85rem;" onclick="alert('Slot Created! Technicians Vikram & Ramesh notified via SMS.')"><i class="fa-solid fa-plus"></i> Add Service Slot</button>
+              </div>
+
+              <div class="calendar-week-grid">
+                <!-- Mon -->
+                <div class="calendar-day-col">
+                  <div class="calendar-day-header">MON (OCT 27)</div>
+                  <div class="calendar-event-card">
+                    <strong>Vesu Horizon Villa</strong>
+                    <span>10:00 AM • Vikram Shah</span>
+                    <span class="status-chip status-confirmed" style="display: inline-block; margin-top: 4px;">Chemical AMC</span>
+                  </div>
+                </div>
+
+                <!-- Tue -->
+                <div class="calendar-day-col">
+                  <div class="calendar-day-header">TUE (OCT 28)</div>
+                  <div class="calendar-event-card">
+                    <strong>Imperial Resort</strong>
+                    <span>02:30 PM • Team Alpha</span>
+                    <span class="status-chip status-progress" style="display: inline-block; margin-top: 4px;">Backwash Filtration</span>
+                  </div>
+                </div>
+
+                <!-- Wed -->
+                <div class="calendar-day-col">
+                  <div class="calendar-day-header">WED (OCT 29)</div>
+                  <div class="calendar-event-card">
+                    <strong>Althan Penthouse</strong>
+                    <span>11:00 AM • Ramesh P.</span>
+                    <span class="status-chip status-pending" style="display: inline-block; margin-top: 4px;">Heat Pump Check</span>
+                  </div>
+                </div>
+
+                <!-- Thu -->
+                <div class="calendar-day-col">
+                  <div class="calendar-day-header">THU (OCT 30)</div>
+                  <div class="calendar-event-card">
+                    <strong>Dumas Cliff Pool</strong>
+                    <span>09:30 AM • Senior Civil</span>
+                    <span class="status-chip status-confirmed" style="display: inline-block; margin-top: 4px;">Leakproof Sensor Audit</span>
+                  </div>
+                </div>
+
+                <!-- Fri -->
+                <div class="calendar-day-col">
+                  <div class="calendar-day-header">FRI (OCT 31)</div>
+                  <div class="calendar-event-card">
+                    <strong>Navsari Club</strong>
+                    <span>04:00 PM • Arjun S.</span>
+                    <span class="status-chip status-confirmed" style="display: inline-block; margin-top: 4px;">Salinity & Ozone</span>
+                  </div>
+                </div>
+
+                <!-- Sat -->
+                <div class="calendar-day-col">
+                  <div class="calendar-day-header">SAT (NOV 01)</div>
+                  <div class="calendar-event-card">
+                    <strong>Pal Club House</strong>
+                    <span>10:30 AM • Team Beta</span>
+                    <span class="status-chip status-progress" style="display: inline-block; margin-top: 4px;">Robotic Vacuum Scrub</span>
+                  </div>
+                </div>
+
+                <!-- Sun -->
+                <div class="calendar-day-col">
+                  <div class="calendar-day-header">SUN (NOV 02)</div>
+                  <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 20px;">Emergency On-Call Support Only</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sub-Panel 3: Customer Leads & Inquiries Module -->
+          <div class="admin-sub-panel" id="admin-panel-leads">
+            <div class="admin-table-card">
+              <div class="table-top-bar">
+                <div>
+                  <h3 class="serif-title" style="font-size: 1.6rem; color: #ffffff;">Customer CRM & Estimator Quotes</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Click any row to open the full quote dossier and dispatch engineers.</p>
+                </div>
+                <input type="text" class="admin-search-input" placeholder="Filter CRM database..." onkeyup="filterAdminTable(this.value, 'crmLeadsTable')">
+              </div>
+
+              <table class="admin-table" id="crmLeadsTable">
+                <thead>
+                  <tr>
+                    <th>Lead Name</th>
+                    <th>Phone / City</th>
+                    <th>Pool Specification</th>
+                    <th>Quoted Total</th>
+                    <th>Stage</th>
+                    <th>Dossier</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong style="color: #ffffff;">Rajesh Patel</strong></td>
+                    <td>+91 98251 04928 • Surat</td>
+                    <td>Infinity Horizon (600 sq.ft + Jacuzzi)</td>
+                    <td><strong style="color: var(--accent-cyan);">₹28,30,000</strong></td>
+                    <td><span class="status-chip status-pending">Initial Review</span></td>
+                    <td>
+                      <button class="btn-liquid" style="padding: 5px 12px; font-size: 0.78rem;" onclick="inspectLeadDrawer('Rajesh Patel', 'Vesu VIP Road, Surat', '+91 98251 04928', 'Infinity Horizon RCC', '600 sq.ft', '₹28,30,000', 'Integrated Jacuzzi, Thermal Heat Pump', 'Pending Survey')">Open Drawer</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><strong style="color: #ffffff;">Sunil Agrawal</strong></td>
+                    <td>+91 98980 11223 • Daman</td>
+                    <td>Commercial Lagoon (1,400 sq.ft)</td>
+                    <td><strong style="color: var(--accent-blue);">₹64,50,000</strong></td>
+                    <td><span class="status-chip status-confirmed">Contract Won</span></td>
+                    <td>
+                      <button class="btn-liquid" style="padding: 5px 12px; font-size: 0.78rem;" onclick="inspectLeadDrawer('Sunil Agrawal', 'Daman Beachfront Resort', '+91 98980 11223', 'Commercial Lagoon', '1,400 sq.ft', '₹64,50,000', 'Commercial Heat Pump, 20 RGBW Curtains', 'Contract Executed')">Open Drawer</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><strong style="color: #ffffff;">Kavita Parekh</strong></td>
+                    <td>+91 99090 33441 • Ahmedabad</td>
+                    <td>Deck Overflow (800 sq.ft)</td>
+                    <td><strong style="color: var(--accent-gold);">₹36,70,000</strong></td>
+                    <td><span class="status-chip status-pending">Quotation Sent</span></td>
+                    <td>
+                      <button class="btn-liquid" style="padding: 5px 12px; font-size: 0.78rem;" onclick="inspectLeadDrawer('Kavita Parekh', 'Bodakdev, Ahmedabad', '+91 99090 33441', 'Deck-Level Overflow', '800 sq.ft', '₹36,70,000', 'Saltwater Chlorinator, RGBW Lights', 'Quotation Sent')">Open Drawer</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sub-Panel 4: Services & Pricing Manager (CRUD) -->
+          <div class="admin-sub-panel" id="admin-panel-pricing">
+            <div class="admin-table-card">
+              <div class="table-top-bar">
+                <div>
+                  <h3 class="serif-title" style="font-size: 1.6rem; color: #ffffff;">Services & Turnkey Pricing Manager</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Directly update base rates and square-footage multipliers for the live website configurator.</p>
+                </div>
+                <button class="btn-liquid" onclick="savePricingUpdates()"><i class="fa-solid fa-floppy-disk"></i> Save & Publish Rates</button>
+              </div>
+
+              <div class="pricing-crud-grid">
+                <div class="crud-pkg-card">
+                  <h4>Infinity Horizon RCC</h4>
+                  <div class="crud-input-group">
+                    <label>Base Price (₹ INR)</label>
+                    <input type="number" class="crud-input" id="rate-infinity-base" value="1800000">
+                  </div>
+                  <div class="crud-input-group">
+                    <label>Sq.Ft Variable Rate (₹/sqft)</label>
+                    <input type="number" class="crud-input" id="rate-infinity-sqft" value="1100">
+                  </div>
+                </div>
+
+                <div class="crud-pkg-card">
+                  <h4>Deck-Level Overflow</h4>
+                  <div class="crud-input-group">
+                    <label>Base Price (₹ INR)</label>
+                    <input type="number" class="crud-input" id="rate-deck-base" value="1200000">
+                  </div>
+                  <div class="crud-input-group">
+                    <label>Sq.Ft Variable Rate (₹/sqft)</label>
+                    <input type="number" class="crud-input" id="rate-deck-sqft" value="950">
+                  </div>
+                </div>
+
+                <div class="crud-pkg-card">
+                  <h4>Private Skimmer Villa</h4>
+                  <div class="crud-input-group">
+                    <label>Base Price (₹ INR)</label>
+                    <input type="number" class="crud-input" id="rate-skimmer-base" value="950000">
+                  </div>
+                  <div class="crud-input-group">
+                    <label>Sq.Ft Variable Rate (₹/sqft)</label>
+                    <input type="number" class="crud-input" id="rate-skimmer-sqft" value="800">
+                  </div>
+                </div>
+
+                <div class="crud-pkg-card">
+                  <h4>Readymade FRP Shell</h4>
+                  <div class="crud-input-group">
+                    <label>Base Price (₹ INR)</label>
+                    <input type="number" class="crud-input" id="rate-frp-base" value="650000">
+                  </div>
+                  <div class="crud-input-group">
+                    <label>Sq.Ft Variable Rate (₹/sqft)</label>
+                    <input type="number" class="crud-input" id="rate-frp-sqft" value="650">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Expandable Right Drawer for Leads / Quotes -->
+  <div class="quote-drawer-overlay" id="quoteDrawerOverlay" onclick="closeLeadDrawer()"></div>
+  <div class="quote-drawer" id="quoteDrawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+      <h3 class="serif-title" style="font-size: 1.8rem; color: #ffffff;">Quote Dossier</h3>
+      <button class="drawer-close-btn" onclick="closeLeadDrawer()">&times;</button>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <span class="tag-badge" id="dossier-stage" style="margin-bottom: 10px;">Pending Survey</span>
+      <h2 id="dossier-name" style="color: #ffffff; font-size: 1.5rem; margin-bottom: 4px;">Rajesh Patel</h2>
+      <p id="dossier-location" style="color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-location-dot"></i> VIP Road, Vesu Surat</p>
+      <p id="dossier-phone" style="color: var(--accent-cyan); font-size: 0.95rem; font-weight: 700; margin-top: 4px;"><i class="fa-solid fa-phone"></i> +91 98251 04928</p>
+    </div>
+
+    <div style="background: rgba(255, 255, 255, 0.04); border-radius: var(--radius-sm); padding: 18px; margin-bottom: 24px;">
+      <h4 style="color: #ffffff; font-size: 1rem; margin-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 6px;">Architectural Breakdown</h4>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+        <span style="color: var(--text-muted);">Archetype:</span>
+        <strong id="dossier-archetype" style="color: #ffffff;">Infinity Horizon RCC</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+        <span style="color: var(--text-muted);">Surface Area:</span>
+        <strong id="dossier-size" style="color: #ffffff;">600 sq.ft</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+        <span style="color: var(--text-muted);">Luxury Addons:</span>
+        <strong id="dossier-addons" style="color: var(--accent-cyan); text-align: right; max-width: 200px;">Jacuzzi + Heat Pump</strong>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 1.1rem;">
+        <span style="color: var(--text-soft); font-weight: 700;">Calculated Quote:</span>
+        <strong id="dossier-price" style="color: var(--accent-cyan);">₹28,30,000</strong>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
+      <button class="btn-liquid" onclick="alert('✅ Site Survey Scheduled! Dispatching Senior Engineer.')">
+        <i class="fa-solid fa-calendar-check"></i> Dispatch Senior Civil Engineer
+      </button>
+      <button class="btn-glass" onclick="alert('📄 Generating Official PDF Proforma Invoice...')">
+        <i class="fa-solid fa-file-pdf"></i> Download CAD & Cost Sheet
+      </button>
+    </div>
+  </div>
+
+  <!-- Interactive Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <button class="modal-close-btn" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox-img-wrap" onclick="event.stopPropagation()">
+      <img id="lightboxImg" src="" alt="Enlarged Project">
+      <div style="padding: 16px; background: #060b17; color: #ffffff;">
+        <h4 id="lightboxCaption" style="font-size: 1.15rem;"></h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Client Booking / Contact Modal -->
+  <div class="booking-modal-overlay" id="bookingModalOverlay" onclick="closeBookingModal(event)">
+    <div class="booking-modal-box" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+        <div>
+          <span class="tag-badge" style="margin-bottom: 4px;"><i class="fa-solid fa-calendar-plus"></i> Priority Consultation</span>
+          <h3 class="serif-title" style="font-size: 2rem;">Book Pool Service or Survey</h3>
+        </div>
+        <button class="modal-close-btn" style="position: static;" onclick="closeBookingModal()">&times;</button>
+      </div>
+
+      <form id="publicBookingForm" onsubmit="handleBookingSubmit(event)">
+        <div class="booking-form-group">
+          <label>Service Category</label>
+          <select class="booking-select" id="modalServiceType">
+            <option value="New Architectural Infinity Pool">New Architectural Infinity Pool</option>
+            <option value="Commercial Resort Lagoon Construction">Commercial Resort Lagoon Construction</option>
+            <option value="Pool Rejuvenation & Leakproof Renovation">Pool Rejuvenation & Leakproof Renovation</option>
+            <option value="Smart Heat Pump & Automation Setup">Smart Heat Pump & Automation Setup</option>
+            <option value="Annual Maintenance Contract (AMC)">Annual Maintenance Contract (AMC)</option>
+          </select>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="booking-form-group">
+            <label>Full Name</label>
+            <input type="text" class="booking-input" required placeholder="e.g. Rajesh Shah" id="modalName">
+          </div>
+          <div class="booking-form-group">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" class="booking-input" required placeholder="+91 98250 XXXXX" id="modalPhone">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="booking-form-group">
+            <label>Preferred Survey Date</label>
+            <input type="date" class="booking-input" required id="modalDate">
+          </div>
+          <div class="booking-form-group">
+            <label>Preferred Time Slot</label>
+            <select class="booking-select" id="modalTime">
+              <option value="10:00 AM - 12:00 PM">Morning (10:00 AM - 12:00 PM)</option>
+              <option value="02:00 PM - 04:00 PM">Afternoon (02:00 PM - 04:00 PM)</option>
+              <option value="05:00 PM - 07:00 PM">Evening (05:00 PM - 07:00 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="booking-form-group">
+          <label>Project City / Location Details</label>
+          <input type="text" class="booking-input" required placeholder="e.g. VIP Road, Surat or Alibaug Villa" id="modalLocation">
+        </div>
+
+        <button type="submit" class="btn-liquid" style="width: 100%; margin-top: 10px;">
+          <i class="fa-solid fa-check"></i> Confirm Priority Site Survey
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+     HIGH-PERFORMANCE INTERACTIVE CONTROLLERS & ENGINE
+     =================================================================== -->
+  <script>
+    // 1. Dual Mode Switcher (Client View vs Admin View)
+    function switchAppMode(mode) {
+      const clientView = document.getElementById('client-experience-view');
+      const adminView = document.getElementById('admin-dashboard-view');
+      const btnClient = document.getElementById('btn-client-mode');
+      const btnAdmin = document.getElementById('btn-admin-mode');
+
+      if (mode === 'admin') {
+        clientView.style.display = 'none';
+        adminView.classList.add('active');
+        btnAdmin.classList.add('active');
+        btnClient.classList.remove('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        clientView.style.display = 'block';
+        adminView.classList.remove('active');
+        btnClient.classList.add('active');
+        btnAdmin.classList.remove('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // 2. Mobile Drawer Navigation Controls
+    function openMobileDrawer() {
+      document.getElementById('mobileDrawerOverlay').classList.add('active');
+      document.getElementById('mobileDrawer').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileDrawer() {
+      document.getElementById('mobileDrawerOverlay').classList.remove('active');
+      document.getElementById('mobileDrawer').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // 3. Interactive Before & After Renovation Slider
+    const baContainer = document.getElementById('baSliderContainer');
+    const baAfterLayer = document.getElementById('baAfterLayer');
+    const baHandle = document.getElementById('baHandle');
+    let isSliding = false;
+
+    function moveSlider(x) {
+      if (!baContainer) return;
+      const rect = baContainer.getBoundingClientRect();
+      let pos = (x - rect.left) / rect.width;
+      pos = Math.max(0.05, Math.min(0.95, pos));
+      const pct = pos * 100;
+      baAfterLayer.style.width = pct + '%';
+      baHandle.style.left = pct + '%';
+    }
+
+    if (baContainer) {
+      baContainer.addEventListener('mousedown', () => isSliding = true);
+      window.addEventListener('mouseup', () => isSliding = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!isSliding) return;
+        moveSlider(e.clientX);
+      });
+
+      // Touch events for mobile
+      baContainer.addEventListener('touchstart', () => isSliding = true, { passive: true });
+      window.addEventListener('touchend', () => isSliding = false);
+      window.addEventListener('touchmove', (e) => {
+        if (!isSliding || !e.touches[0]) return;
+        moveSlider(e.touches[0].clientX);
+      }, { passive: true });
+    }
+
+    // 4. Dynamic Custom Pool Cost Estimator Engine
+    let basePoolPrice = 1800000;
+    let poolArchetypeTitle = 'Infinity Horizon';
+    let poolSqft = 600;
+    let selectedAddonsTotal = 0;
+    let selectedAddonsList = [];
+
+    function selectPoolType(element, price, title) {
+      document.querySelectorAll('.config-choice-card').forEach(el => {
+        if (el.closest('.config-options-grid') === element.closest('.config-options-grid')) {
+          el.classList.remove('selected');
+        }
+      });
+      element.classList.add('selected');
+      basePoolPrice = price;
+      poolArchetypeTitle = title;
+      calculateEstimate();
+    }
+
+    function updatePoolSize(sqft) {
+      poolSqft = parseInt(sqft, 10);
+      const length = Math.round(Math.sqrt(poolSqft * 1.5));
+      const width = Math.round(poolSqft / length);
+      document.getElementById('dim-display').textContent = `${poolSqft} sq.ft (${length}ft x ${width}ft)`;
+      calculateEstimate();
+    }
+
+    function toggleAddon(element, price, title) {
+      element.classList.toggle('selected');
+      if (element.classList.contains('selected')) {
+        selectedAddonsTotal += price;
+        if (!selectedAddonsList.includes(title)) selectedAddonsList.push(title);
+      } else {
+        selectedAddonsTotal -= price;
+        selectedAddonsList = selectedAddonsList.filter(item => item !== title);
+      }
+      calculateEstimate();
+    }
+
+    function calculateEstimate() {
+      const sizeMultiplier = (poolSqft - 300) * 1100;
+      const total = basePoolPrice + sizeMultiplier + selectedAddonsTotal;
+      const formatter = new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0
+      });
+      document.getElementById('total-price-display').textContent = formatter.format(total);
+      return total;
+    }
+
+    function openBookingFromEstimator() {
+      openBookingModal(`Custom ${poolArchetypeTitle} (${poolSqft} sq.ft)`);
+    }
+
+    // 5. Booking Modal Controls
+    function openBookingModal(serviceName) {
+      const modal = document.getElementById('bookingModalOverlay');
+      if (serviceName) {
+        const select = document.getElementById('modalServiceType');
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.toLowerCase().includes(serviceName.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      // Default date to tomorrow
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      document.getElementById('modalDate').value = tomorrow.toISOString().split('T')[0];
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBookingModal(e) {
+      if (!e || e.target === document.getElementById('bookingModalOverlay')) {
+        document.getElementById('bookingModalOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const service = document.getElementById('modalServiceType').value;
+      const name = document.getElementById('modalName').value;
+      const phone = document.getElementById('modalPhone').value;
+      const location = document.getElementById('modalLocation').value;
+      const date = document.getElementById('modalDate').value;
+      const time = document.getElementById('modalTime').value;
+
+      // Close modal
+      closeBookingModal();
+
+      // Alert confirmation
+      alert(`🎉 Consultation Confirmed!\n\nReference: #AZL-${Math.floor(1000 + Math.random() * 9000)}\nClient: ${name}\nService: ${service}\nDate: ${date} (${time})\nLocation: ${location}\n\nOur Chief Engineer will contact you at ${phone} to confirm site access.`);
+
+      // Automatically append to Admin Leads Table
+      const tableBody = document.querySelector('#adminLeadsTable tbody');
+      if (tableBody) {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>
+            <strong style="color: #ffffff; display: block;">${name}</strong>
+            <span style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> ${location}</span>
+          </td>
+          <td><span style="color: var(--accent-cyan); font-weight: 700;">${service}</span></td>
+          <td>Site Survey (${date})</td>
+          <td><strong style="color: #ffffff;">₹24.8 Lakhs</strong></td>
+          <td><span class="status-chip status-pending">New Web Booking</span></td>
+          <td>
+            <button class="btn-glass" style="padding: 6px 14px; font-size: 0.8rem;" onclick="inspectLeadDrawer('${name}', '${location}', '${phone}', '${service}', 'Custom', '₹24.8 Lakhs', 'Consultation', 'New Web Booking')">Inspect Dossier</button>
+          </td>
+        `;
+        tableBody.prepend(newRow);
+      }
+    }
+
+    // 6. Portfolio Masonry Filter & Lightbox
+    function filterGallery(category, btn) {
+      document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('.gallery-item-card');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-cat') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCaption');
+      img.src = src;
+      cap.textContent = caption;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (!e || e.target === document.getElementById('lightboxModal') || e.target.classList.contains('modal-close-btn')) {
+        document.getElementById('lightboxModal').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // 7. Admin Tab Navigation & Module Switching
+    function switchAdminTab(tabKey) {
+      document.querySelectorAll('.admin-menu-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.admin-sub-panel').forEach(p => p.classList.remove('active'));
+
+      const targetBtn = document.getElementById(`menu-btn-${tabKey}`);
+      const targetPanel = document.getElementById(`admin-panel-${tabKey}`);
+
+      if (targetBtn) targetBtn.classList.add('active');
+      if (targetPanel) targetPanel.classList.add('active');
+    }
+
+    // 8. Admin Leads Table Filter
+    function filterAdminTable(query, tableId) {
+      const rows = document.querySelectorAll(`#${tableId} tbody tr`);
+      const q = query.toLowerCase();
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    // 9. Expandable Lead Drawer Controls
+    function inspectLeadDrawer(name, location, phone, archetype, size, price, addons, stage) {
+      document.getElementById('dossier-name').textContent = name;
+      document.getElementById('dossier-location').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${location}`;
+      document.getElementById('dossier-phone').innerHTML = `<i class="fa-solid fa-phone"></i> ${phone}`;
+      document.getElementById('dossier-archetype').textContent = archetype;
+      document.getElementById('dossier-size').textContent = size;
+      document.getElementById('dossier-price').textContent = price;
+      document.getElementById('dossier-addons').textContent = addons;
+      document.getElementById('dossier-stage').textContent = stage;
+
+      document.getElementById('quoteDrawerOverlay').classList.add('active');
+      document.getElementById('quoteDrawer').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLeadDrawer() {
+      document.getElementById('quoteDrawerOverlay').classList.remove('active');
+      document.getElementById('quoteDrawer').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function openNewLeadModal() {
+      openBookingModal('Admin Direct Entry');
+    }
+
+    function savePricingUpdates() {
+      const infBase = parseInt(document.getElementById('rate-infinity-base').value, 10);
+      if (infBase > 0) basePoolPrice = infBase;
+      calculateEstimate();
+      alert('✅ Rates published live! Website cost estimator calculations have been updated.');
+    }
+
+    // 10. Interactive 60fps Fluid Ripple Simulation (Canvas)
+    (function initWaterCanvas() {
+      const canvas = document.getElementById('water-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      let particles = [];
+      for (let i = 0; i < 45; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 80 + 40,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          alpha: Math.random() * 0.15 + 0.05
+        });
+      }
+
+      window.addEventListener('mousemove', (e) => {
+        if (particles.length > 55) particles.shift();
+        particles.push({
+          x: e.clientX,
+          y: e.clientY,
+          radius: 60,
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: (Math.random() - 0.5) * 0.8,
+          alpha: 0.25
+        });
+      });
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < -100) p.x = width + 100;
+          if (p.x > width + 100) p.x = -100;
+          if (p.y < -100) p.y = height + 100;
+          if (p.y > height + 100) p.y = -100;
+
+          const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
+          grad.addColorStop(0, `rgba(0, 245, 212, ${p.alpha})`);
+          grad.addColorStop(0.5, `rgba(0, 180, 216, ${p.alpha * 0.5})`);
+          grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>
