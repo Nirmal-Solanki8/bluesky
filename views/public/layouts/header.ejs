@@ -40,8 +40,8 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional">
   </noscript>
 
-  <!-- Core Stylesheet (Cache-Busted v=9.0) -->
-  <link rel="stylesheet" href="/css/style.css?v=9.0">
+  <!-- Core Stylesheet (Cache-Busted v=9.1) -->
+  <link rel="stylesheet" href="/css/style.css?v=9.1">
 
   <!-- Guaranteed Zero-Delay Mobile Drawer Fallback Handlers -->
   <script>
@@ -54,8 +54,7 @@
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
     };
-    window.closeMobileDrawer = function(e) {
-      if (e && e.preventDefault) e.preventDefault();
+    window.closeMobileDrawer = function() {
       var d = document.getElementById('mobile-drawer');
       var b = document.getElementById('drawer-backdrop');
       if (d) d.classList.remove('open');
@@ -233,59 +232,59 @@
       </button>
     </div>
     <ul class="drawer-links">
-      <li><a href="/" onclick="window.closeMobileDrawer(event)">Home</a></li>
-      <li><a href="/about" onclick="window.closeMobileDrawer(event)">About Us</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
 
       <!-- Mobile Pool Types Accordion -->
       <li class="drawer-dropdown-item">
-        <button class="drawer-accordion-btn" type="button">
+        <button class="drawer-accordion-btn" type="button" onclick="this.closest('.drawer-dropdown-item').classList.toggle('open')">
           <span>Pool Types</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="drawer-accordion-content">
-          <a href="/pool-types" onclick="window.closeMobileDrawer(event)">&bull; Types Overview</a>
-          <a href="/private-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Private Villa Pools</a>
-          <a href="/commercial-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Commercial Pools</a>
-          <a href="/recreational-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Recreational Pools</a>
-          <a href="/competition-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Competition Pools</a>
-          <a href="/vanishing-edge-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Vanishing Edge Pools</a>
-          <a href="/overflow-type-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Overflow Type Pools</a>
-          <a href="/skimmer-type-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Skimmer Type Pools</a>
-          <a href="/readymade-frp-swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Readymade FRP Pools</a>
+          <a href="/pool-types">&bull; Types Overview</a>
+          <a href="/private-swimming-pools">&bull; Private Villa Pools</a>
+          <a href="/commercial-swimming-pools">&bull; Commercial Pools</a>
+          <a href="/recreational-swimming-pools">&bull; Recreational Pools</a>
+          <a href="/competition-swimming-pools">&bull; Competition Pools</a>
+          <a href="/vanishing-edge-swimming-pools">&bull; Vanishing Edge Pools</a>
+          <a href="/overflow-type-swimming-pools">&bull; Overflow Type Pools</a>
+          <a href="/skimmer-type-swimming-pools">&bull; Skimmer Type Pools</a>
+          <a href="/readymade-frp-swimming-pools">&bull; Readymade FRP Pools</a>
         </div>
       </li>
 
       <!-- Mobile Services Accordion -->
       <li class="drawer-dropdown-item">
-        <button class="drawer-accordion-btn" type="button">
+        <button class="drawer-accordion-btn" type="button" onclick="this.closest('.drawer-dropdown-item').classList.toggle('open')">
           <span>Services</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="drawer-accordion-content">
-          <a href="/services#swimming-pools" onclick="window.closeMobileDrawer(event)">&bull; Turnkey Swimming Pools</a>
-          <a href="/services#waterfalls" onclick="window.closeMobileDrawer(event)">&bull; Waterfall & Fountains</a>
-          <a href="/services#renovation" onclick="window.closeMobileDrawer(event)">&bull; Pool Renovation & Leak Repair</a>
-          <a href="/services#maintenance" onclick="window.closeMobileDrawer(event)">&bull; Maintenance & AMC</a>
+          <a href="/services#swimming-pools">&bull; Turnkey Swimming Pools</a>
+          <a href="/services#waterfalls">&bull; Waterfall & Fountains</a>
+          <a href="/services#renovation">&bull; Pool Renovation & Leak Repair</a>
+          <a href="/services#maintenance">&bull; Maintenance & AMC</a>
         </div>
       </li>
 
       <!-- Mobile Products Accordion -->
       <li class="drawer-dropdown-item">
-        <button class="drawer-accordion-btn" type="button">
+        <button class="drawer-accordion-btn" type="button" onclick="this.closest('.drawer-dropdown-item').classList.toggle('open')">
           <span>Products</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="drawer-accordion-content">
-          <a href="/products?category=Pool%20Filtration%20%26%20Pumps" onclick="window.closeMobileDrawer(event)">&bull; Equipment & Pumps</a>
-          <a href="/products" onclick="window.closeMobileDrawer(event)">&bull; Bathtubs & Jacuzzis</a>
-          <a href="/products?category=Pool%20Tiles%20%26%20Mosaics" onclick="window.closeMobileDrawer(event)">&bull; Pool Tiles & Mosaics</a>
-          <a href="/products?category=Underwater%20LED%20Lights" onclick="window.closeMobileDrawer(event)">&bull; Underwater Lights</a>
+          <a href="/products?category=Pool%20Filtration%20%26%20Pumps">&bull; Equipment & Pumps</a>
+          <a href="/products">&bull; Bathtubs & Jacuzzis</a>
+          <a href="/products?category=Pool%20Tiles%20%26%20Mosaics">&bull; Pool Tiles & Mosaics</a>
+          <a href="/products?category=Underwater%20LED%20Lights">&bull; Underwater Lights</a>
         </div>
       </li>
 
-      <li><a href="/gallery" onclick="window.closeMobileDrawer(event)">Project Gallery</a></li>
-      <li><a href="/contact" onclick="window.closeMobileDrawer(event)">Contact & Free Quote</a></li>
-      <li><a href="/admin/login" onclick="window.closeMobileDrawer(event)">Admin Portal</a></li>
+      <li><a href="/gallery">Project Gallery</a></li>
+      <li><a href="/contact">Contact & Free Quote</a></li>
+      <li><a href="/admin/login">Admin Portal</a></li>
     </ul>
   </div>
 

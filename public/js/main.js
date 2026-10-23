@@ -158,11 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.overflow = 'hidden';
   };
 
-  window.closeMobileDrawer = function(e) {
-    if (e) {
-      if (typeof e.preventDefault === 'function') e.preventDefault();
-      if (typeof e.stopPropagation === 'function') e.stopPropagation();
-    }
+  window.closeMobileDrawer = function() {
     const drawer = document.getElementById('mobile-drawer');
     const backdrop = document.getElementById('drawer-backdrop');
     if (drawer) drawer.classList.remove('open');
@@ -174,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.toggleMobileDrawer = function(e) {
     const drawer = document.getElementById('mobile-drawer');
     if (drawer && drawer.classList.contains('open')) {
-      window.closeMobileDrawer(e);
+      window.closeMobileDrawer();
     } else {
       window.openMobileDrawer(e);
     }
@@ -199,10 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close drawer on any drawer link click
+  // For on-page anchor links in drawer, close drawer after scroll
   document.querySelectorAll('.drawer-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      window.closeMobileDrawer();
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && (href.startsWith('#') || href.startsWith(window.location.pathname + '#'))) {
+        window.closeMobileDrawer();
+      }
     });
   });
 
