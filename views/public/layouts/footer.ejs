@@ -1,95 +1,352 @@
-<!-- Floating WhatsApp Pill Button (The ONLY WhatsApp Button on Site as Requested) -->
-<a href="https://wa.me/918128920702?text=Hello%20Bluesky%20International,%20I%20am%20interested%20in%20a%20swimming%20pool%20project."
-  class="whatsapp-pill-btn" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp"
-  aria-label="WhatsApp Chat">
-  <i class="fa-brands fa-whatsapp"></i>
-  <span>Chat with us</span>
+<!-- Floating WhatsApp / Luxury Concierge Pill Button -->
+<a href="https://wa.me/<%= (typeof settings !== 'undefined' && settings.whatsapp ? settings.whatsapp.replace(/[^0-9]/g, '') : '918128920702') %>?text=Hello%20Blue%20Sky%20International,%20I%20am%20interested%20in%20an%20architectural%20luxury%20swimming%20pool%20project."
+  class="luxury-chat-pill" target="_blank" rel="noopener noreferrer" title="Direct WhatsApp Concierge"
+  aria-label="Direct WhatsApp Concierge">
+  <i class="bi bi-whatsapp"></i>
+  <span>Direct Concierge</span>
 </a>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container-wide">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="nav-brand" style="margin-bottom: 20px;">
-          <img src="/images/logo.svg" alt="Blue Sky International" width="160" height="48"
-            style="height: 48px; width: auto;" decoding="async">
-        </div>
-        <p class="footer-brand-p">
-          <%= settings.tagline || 'Luxury Swimming Pool Architecture, Turnkey Construction & Filtration Engineering' %>
-        </p>
-        <div class="footer-contact-item">
-          <i class="fa-solid fa-location-dot"></i>
-          <span>
-            <%= settings.address %>
-          </span>
-        </div>
-        <div class="footer-contact-item">
-          <i class="fa-solid fa-phone"></i>
-          <a href="tel:+918128920702">+91 81289 20702</a>
-        </div>
-        <div class="footer-contact-item">
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:<%= settings.email || 'pritesh029@gmail.com' %>">
-            <%= settings.email || 'pritesh029@gmail.com' %>
-          </a>
-        </div>
+<!-- Interactive High-Res Lightbox Modal (For All Gallery & Project Views) -->
+<div class="luxury-lightbox" id="luxuryLightbox" role="dialog" aria-modal="true" aria-label="Project Preview Lightbox">
+  <div class="lightbox-backdrop" onclick="window.closeLuxuryLightbox()"></div>
+  <div class="lightbox-dialog">
+    <button class="lightbox-close-btn" onclick="window.closeLuxuryLightbox()" aria-label="Close Lightbox">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <div class="lightbox-media-frame">
+      <img src="/images/infinity-pool.webp" alt="High Resolution Project" id="lightboxImg" class="lightbox-img" loading="lazy" decoding="async">
+    </div>
+    <div class="lightbox-info-bar">
+      <div>
+        <span class="blueprint-badge blueprint-badge-gold mb-1" id="lightboxCategory">Bespoke Architecture</span>
+        <h4 class="font-serif text-white mb-0" id="lightboxTitle" style="font-size: 1.25rem;">Infinity Horizon Pool</h4>
       </div>
+      <a href="/contact#quote-form" class="luxury-cta-btn" style="padding: 7px 18px; font-size: 0.82rem;">
+        Inquire Similar <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
 
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About Bluesky</a></li>
-          <li><a href="/pool-types">All Pool Types</a></li>
-          <li><a href="/services">Services & MEP</a></li>
-          <li><a href="/products">Equipment Catalog</a></li>
-          <li><a href="/gallery">Project Showcase</a></li>
-          <li><a href="/contact">Get Free Quote</a></li>
-        </ul>
+<!-- Interactive Architectural Consultation Modal (Available Globally from All Pages) -->
+<div class="luxury-lightbox" id="luxuryConsultationModal" role="dialog" aria-modal="true" aria-label="Architectural Consultation Request Modal">
+  <div class="lightbox-backdrop" onclick="window.closeConsultationModal()"></div>
+  <div class="survey-modal-dialog position-relative">
+    <button class="lightbox-close-btn" onclick="window.closeConsultationModal()" aria-label="Close Modal">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    
+    <div class="mb-3 text-start">
+      <div class="blueprint-badge blueprint-badge-gold mb-2 d-inline-block">
+        <i class="bi bi-chat-left-text me-1"></i> Bespoke Architectural Consultation
       </div>
-
-      <div class="footer-col">
-        <h4>Pool Types</h4>
-        <ul class="footer-links">
-          <li><a href="/vanishing-edge-swimming-pools">Infinity Horizon Pools</a></li>
-          <li><a href="/private-swimming-pools">Private Villa Pools</a></li>
-          <li><a href="/commercial-swimming-pools">Resort & Commercial Pools</a></li>
-          <li><a href="/pool-types#recreational">Recreational Water Parks</a></li>
-          <li><a href="/pool-types#readymade-frp">Readymade FRP Pools</a></li>
-          <li><a href="/services#maintenance">Annual Maintenance (AMC)</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Surat Head Office</h4>
-        <p style="font-size: 0.95rem; margin-bottom: 16px; color: var(--text-muted); line-height: 1.6;">
-          A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat
-          395004
-        </p>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <div class="footer-badge-pill">
-            <i class="fa-solid fa-shield-halved"></i> ISO 9001:2015
-          </div>
-          <div class="footer-badge-pill"
-            style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25); color: #b45309;">
-            <i class="fa-solid fa-award"></i>
-            <%= settings.experienceYears || 16 %>+ Years
-          </div>
-        </div>
-      </div>
+      <h3 class="font-serif text-white mb-1" style="font-size: 1.5rem;">
+        Request Architectural Consultation
+      </h3>
+      <p class="text-muted small mb-0">
+        Provide your preliminary specifications below. Our senior civil pool engineer will contact you with a customized blueprint estimate.
+      </p>
     </div>
 
-    <div class="footer-bottom">
-      <div>© <%= new Date().getFullYear() %> Bluesky International. All Rights Reserved.</div>
+    <!-- Live Status Alert inside Modal -->
+    <div id="consultationModalAlert" class="alert d-none py-2 px-3 small rounded-pill mb-3" role="alert"></div>
+
+    <form action="/inquiry" method="POST" id="globalConsultationForm" onsubmit="window.handleConsultationSubmit(event)" class="text-start mt-3">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="modal-survey-name" class="luxury-label">Full Name *</label>
+          <input type="text" id="modal-survey-name" name="name" class="luxury-input" placeholder="Your Name" required autocomplete="name">
+        </div>
+
+        <div class="col-md-6">
+          <label for="modal-survey-phone" class="luxury-label">Phone / WhatsApp *</label>
+          <input type="tel" id="modal-survey-phone" name="phone" class="luxury-input" placeholder="Enter 10-digit mobile number" required autocomplete="tel">
+        </div>
+
+        <div class="col-md-6">
+          <label for="modal-survey-email" class="luxury-label">Email Address (Optional)</label>
+          <input type="email" id="modal-survey-email" name="email" class="luxury-input" placeholder="client@estate.com" autocomplete="email">
+        </div>
+
+        <div class="col-md-6">
+          <label for="modal-survey-city" class="luxury-label">Plot Location / City *</label>
+          <input type="text" id="modal-survey-city" name="city" class="luxury-input" placeholder="Surat, Navsari, Ahmedabad, Mumbai..." required autocomplete="address-level2">
+        </div>
+
+        <div class="col-md-6">
+          <label for="modal-survey-pool-type" class="luxury-label">Architectural Pool Format</label>
+          <select id="modal-survey-pool-type" name="poolType" class="luxury-select">
+            <option value="Vanishing Edge Infinity Pool">Vanishing Edge Horizon Infinity Pool</option>
+            <option value="Luxury Residential Villa Pool">Luxury Residential Villa RCC Pool</option>
+            <option value="Rooftop / Penthouse Sky Pool">Rooftop / Penthouse Cantilevered Sky Pool</option>
+            <option value="Deck-Level Overflow Pool">Deck-Level Overflow Mirror Pool</option>
+            <option value="Commercial & Resort Swimming Pool">Commercial Resort & Club Lagoon</option>
+            <option value="Readymade FRP Fiberglass Pool">Readymade FRP Fiberglass Shell</option>
+            <option value="Hydrotherapy Jacuzzi & Thermal Spa">Hydrotherapy Jacuzzi & Thermal Spa</option>
+            <option value="Pool Renovation, Leak Repair & Retiling">Pool Renovation & Leak Proofing</option>
+            <option value="Annual Maintenance & AMC">Automated Chemical Dosing AMC</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="modal-survey-dimensions" class="luxury-label">Plot / Pool Dimensions</label>
+          <input type="text" id="modal-survey-dimensions" name="poolDimensions" class="luxury-input" placeholder="e.g. 35ft x 18ft (or plot sq.ft)">
+        </div>
+
+        <div class="col-12">
+          <label for="modal-survey-budget" class="luxury-label">Estimated Investment Tier (Optional)</label>
+          <select id="modal-survey-budget" name="budget" class="luxury-select">
+            <option value="">Select Estimated Investment Tier</option>
+            <option value="₹10L - ₹20L">₹10 Lakhs - ₹20 Lakhs (Compact Villa / FRP Shell)</option>
+            <option value="₹20L - ₹40L">₹20 Lakhs - ₹40 Lakhs (Luxury Residential Monolithic RCC)</option>
+            <option value="₹40L - ₹75L">₹40 Lakhs - ₹75 Lakhs (Infinity Horizon / Rooftop Sky Pool)</option>
+            <option value="₹75L+">₹75 Lakhs+ (Ultra-Luxury Estate / 5-Star Resort)</option>
+            <option value="Need Site Survey First">Need Engineer Recommendation First</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="modal-survey-message" class="luxury-label">Site Requirements / Custom Vision</label>
+          <textarea id="modal-survey-message" name="message" rows="2" class="luxury-textarea"
+            placeholder="Share details regarding slope elevation, glass view walls, water curtains, or heating..."></textarea>
+        </div>
+
+        <div class="col-12 pt-2">
+          <button type="submit" id="consultationSubmitBtn" class="luxury-cta-btn w-100 justify-content-center" style="padding: 13px; font-size: 0.98rem;">
+            <i class="bi bi-send-fill me-1"></i> Submit Consultation Request
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  window.openLuxuryLightbox = function (imgSrc, title, category) {
+    var modal = document.getElementById('luxuryLightbox');
+    var img = document.getElementById('lightboxImg');
+    var titleEl = document.getElementById('lightboxTitle');
+    var catEl = document.getElementById('lightboxCategory');
+    if (img && imgSrc) img.src = imgSrc;
+    if (titleEl && title) titleEl.textContent = title;
+    if (catEl && category) catEl.textContent = category;
+    if (modal) modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeLuxuryLightbox = function () {
+    var modal = document.getElementById('luxuryLightbox');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  window.openConsultationModal = function (e, preselectedType) {
+    if (e && e.preventDefault) e.preventDefault();
+    var modal = document.getElementById('luxuryConsultationModal') || document.getElementById('luxury3dSurveyModal');
+    if (preselectedType) {
+      var select = document.getElementById('modal-survey-pool-type');
+      if (select) {
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value === preselectedType || select.options[i].text.toLowerCase().includes(preselectedType.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+    var alertBox = document.getElementById('consultationModalAlert');
+    if (alertBox) alertBox.classList.add('d-none');
+    if (modal) modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeConsultationModal = function () {
+    var modal = document.getElementById('luxuryConsultationModal') || document.getElementById('luxury3dSurveyModal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  // Backwards compatibility aliases
+  window.open3dSurveyModal = window.openConsultationModal;
+  window.close3dSurveyModal = window.closeConsultationModal;
+
+  window.handleConsultationSubmit = async function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = document.getElementById('consultationSubmitBtn');
+    var alertBox = document.getElementById('consultationModalAlert');
+    var origText = btn ? btn.innerHTML : '';
+
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Recording Inquiry...';
+    }
+
+    try {
+      var formData = new FormData(form);
+      var urlEncoded = new URLSearchParams(formData).toString();
+
+      var response = await fetch('/inquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json'
+        },
+        body: urlEncoded
+      });
+
+      var data = await response.json();
+
+      if (data && data.success) {
+        if (alertBox) {
+          alertBox.className = 'alert alert-success py-2 px-3 small rounded-pill mb-3';
+          alertBox.innerHTML = '<i class="bi bi-check-circle-fill me-1"></i> Recorded in Admin Panel! Connecting to WhatsApp...';
+          alertBox.classList.remove('d-none');
+        }
+        if (btn) {
+          btn.innerHTML = '<i class="bi bi-check2-circle text-white me-1"></i> Inquiry Received!';
+        }
+
+        // Open WhatsApp in a new tab
+        if (data.whatsappUrl) {
+          var waWindow = window.open(data.whatsappUrl, '_blank');
+          if (!waWindow) {
+            window.location.href = data.whatsappUrl;
+          }
+        }
+
+        setTimeout(function () {
+          window.closeConsultationModal();
+          form.reset();
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = origText;
+          }
+          if (alertBox) alertBox.classList.add('d-none');
+        }, 1500);
+      } else {
+        if (alertBox) {
+          alertBox.className = 'alert alert-danger py-2 px-3 small rounded-pill mb-3';
+          alertBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-1"></i> ' + ((data && data.message) || 'Error submitting inquiry.');
+          alertBox.classList.remove('d-none');
+        }
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = origText;
+        }
+      }
+    } catch (err) {
+      console.warn('AJAX submit fallback to standard post:', err);
+      form.submit();
+    }
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      window.closeLuxuryLightbox();
+      window.closeConsultationModal();
+    }
+  });
+</script>
+
+<!-- High-End Dark Luxury Footer with Gold Dividers -->
+<footer class="luxury-footer">
+  <div class="container-fluid px-lg-5 px-3">
+    <div class="row g-4 justify-content-between">
+      
+      <!-- Brand & Mission Column -->
+      <div class="col-lg-4 col-md-6">
+        <a href="/" class="d-inline-block mb-3">
+          <img src="/images/logo.svg" alt="Blue Sky International" width="165" height="42" style="height: 42px; width: auto;" decoding="async">
+        </a>
+        <p class="pe-lg-4" style="line-height: 1.7; font-size: 0.95rem; color: #CBD5E1 !important;">
+          <%= typeof settings !== 'undefined' && settings.tagline ? settings.tagline : 'Ultra-luxury architectural swimming pool design, monolithic leakproof RCC construction, and bio-filtration engineering.' %>
+        </p>
+
+        <!-- Certifications & Awards Badges -->
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <div class="blueprint-badge blueprint-badge-gold">
+            <i class="bi bi-shield-check"></i> ISO 9001:2015 Certified
+          </div>
+          <div class="blueprint-badge">
+            <i class="bi bi-award"></i> <%= typeof settings !== 'undefined' && settings.experienceYears ? settings.experienceYears : 16 %>+ Years Excellence
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Architectural Formats -->
+      <div class="col-lg-2 col-md-3 col-6">
+        <h5 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Architectural Formats</h5>
+        <ul class="list-unstyled">
+          <li><a href="/vanishing-edge-swimming-pools" class="footer-link-luxury">Infinity Horizon</a></li>
+          <li><a href="/private-swimming-pools" class="footer-link-luxury">Private Villa Pools</a></li>
+          <li><a href="/commercial-swimming-pools" class="footer-link-luxury">Resort Lagoons</a></li>
+          <li><a href="/overflow-type-swimming-pools" class="footer-link-luxury">Deck-Level Overflow</a></li>
+          <li><a href="/readymade-frp-swimming-pools" class="footer-link-luxury">Readymade FRP Pools</a></li>
+          <li><a href="/pool-types" class="footer-link-luxury text-gold">All 9 Formats &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Turnkey Engineering & AMC -->
+      <div class="col-lg-2 col-md-3 col-6">
+        <h5 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Engineering & MEP</h5>
+        <ul class="list-unstyled">
+          <li><a href="/services#swimming-pools" class="footer-link-luxury">Monolithic RCC</a></li>
+          <li><a href="/services#waterfalls" class="footer-link-luxury">Waterfalls & Cascades</a></li>
+          <li><a href="/services#renovation" class="footer-link-luxury">Structural Leak Repair</a></li>
+          <li><a href="/services#maintenance" class="footer-link-luxury">Annual Maintenance (AMC)</a></li>
+          <li><a href="/products" class="footer-link-luxury">Equipment Catalog</a></li>
+          <li><a href="/gallery" class="footer-link-luxury">Project Showcase</a></li>
+        </ul>
+      </div>
+
+      <!-- Corporate Office & Newsletter Column -->
+      <div class="col-lg-3 col-md-12">
+        <h5 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Surat Studio & Office</h5>
+        <p style="font-size: 0.92rem; line-height: 1.6; color: #CBD5E1 !important;">
+          <i class="bi bi-geo-alt text-gold me-2"></i>
+          <%= typeof settings !== 'undefined' && settings.address ? settings.address : 'A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat 395004' %>
+        </p>
+        <p class="mb-4" style="font-size: 0.92rem; color: #CBD5E1 !important;">
+          <i class="bi bi-envelope text-gold me-2"></i>
+          <a href="mailto:<%= typeof settings !== 'undefined' && settings.email ? settings.email : 'pritesh029@gmail.com' %>" class="text-white text-decoration-none fw-semibold">
+            <%= typeof settings !== 'undefined' && settings.email ? settings.email : 'pritesh029@gmail.com' %>
+          </a>
+        </p>
+
+        <!-- Newsletter Subscription Form -->
+        <h6 class="font-serif text-white mb-2" style="font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px;">Exclusive Newsletter</h6>
+        <form class="newsletter-input-group" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Blue Sky Architectural Briefs.'); this.reset();">
+          <input type="email" placeholder="Your email address" required aria-label="Email for newsletter">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Thin Gold Divider Line -->
+    <div class="footer-gold-divider"></div>
+
+    <!-- Bottom Copyright & Legal -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small gap-3 text-center text-md-start" style="color: #CBD5E1 !important;">
       <div>
-        Bespoke Swimming Pool Architecture & Turnkey Hydraulic Engineering
+        © <%= new Date().getFullYear() %> Blue Sky International. All Rights Reserved.
+      </div>
+      <div class="d-flex flex-wrap justify-content-center text-center gap-2 gap-md-4">
+        <span>Bespoke 5-Star Architectural Pools</span>
+        <span>•</span>
+        <span>Zero Cold Joints Monolithic RCC</span>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="/js/main.js?v=9.2" defer></script>
-</body>
+<!-- Bootstrap 5 JS Bundle CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
+<!-- GSAP 3 CDN for Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
+<!-- Main App Scripts -->
+<script src="/js/main.js?v=12.0" defer></script>
+</body>
 </html>

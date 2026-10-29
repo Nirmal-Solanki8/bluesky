@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "6ace2ec2d6e1dd147c41c231",
+    "name": "Pritesh (Bluesky Admin)",
+    "email": "pritesh029@gmail.com",
+    "password": "$2a$10$mZLvtlzFYmNp0lqEgdSGu.QvlVU.jG5vvywO7sENxxoKB3Yb9OZnW",
+    "role": "superadmin",
+    "createdAt": "2026-10-13T13:14:42.555Z",
+    "updatedAt": "2026-10-16T04:58:39.473Z",
+    "__v": 0
+  }
+]

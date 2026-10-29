@@ -1,331 +1,387 @@
 <%- include('layouts/header') %>
 
-  <!-- ===================================================================
-     SERVICES HERO SECTION
-     =================================================================== -->
-  <section class="services-hero-cinematic">
-    <!-- Cinematic Dedicated Background Image -->
-    <div class="services-hero-bg"></div>
+<!-- Services Hero Section -->
+<section class="page-hero-cinematic">
+  <div class="page-hero-bg" style="background-image: url('/images/pool-types/vanishing-edge.webp');"></div>
+  <div class="page-hero-overlay"></div>
 
-    <!-- Sophisticated Contrast Gradient Overlay -->
-    <div class="services-hero-overlay"></div>
-
-    <div class="container-wide" style="position: relative; z-index: 10;">
-      <div style="max-width: 900px;">
-        <span class="section-tag-gold"
-          style="margin-bottom: 20px; display: inline-flex; align-items: center; gap: 8px; background: rgba(245, 158, 11, 0.16); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); backdrop-filter: blur(14px); box-shadow: 0 4px 20px rgba(245, 158, 11, 0.22); padding: 8px 18px; border-radius: 50px; font-size: 0.84rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">
-          <i class="fa-solid fa-water-ladder" style="color: #fbbf24;"></i> 16+ Years Engineering Excellence
-        </span>
-        <h1
-          style="font-family: var(--font-hero); font-size: clamp(2.8rem, 6vw, 4.6rem); font-weight: 900; line-height: 1.05; color: #ffffff; margin-bottom: 20px; text-shadow: 0 4px 24px rgba(0, 0, 0, 0.65);">
-          Turnkey Pool <span class="text-glow-gradient">Services & Solutions</span>
-        </h1>
-        <p
-          style="font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: #e2e8f0; font-weight: 500; line-height: 1.7; max-width: 760px; margin-bottom: 30px; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);">
-          From 3D architectural modeling and monolithic concrete casting to automated chemical dosing, designer water
-          curtains, and structural leakproofing.
-        </p>
-
-        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <a href="#quote-form" class="btn btn-yellow" style="box-shadow: 0 8px 24px rgba(245, 158, 11, 0.42);">
-            <i class="fa-solid fa-compass-drafting"></i> Request Free Site Survey
-          </a>
-          <a href="/pool-types" class="btn btn-glass"
-            style="background: rgba(255, 255, 255, 0.14); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.32); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);">
-            <i class="fa-solid fa-layer-group"></i> Browse Pool Designs
-          </a>
-        </div>
-      </div>
+  <div class="container position-relative" style="z-index: 10;">
+    <div class="section-tag-luxury mb-3">
+      <i class="bi bi-gear-wide-connected"></i> Turnkey Hydraulic & Civil Engineering
     </div>
-  </section>
+    
+    <h1 class="font-serif text-white display-4 fw-bold mb-3">
+      Architectural Pool <span class="text-gradient-gold">Services & Solutions</span>
+    </h1>
+    
+    <p class="luxury-subtext mx-auto mb-4" style="font-size: 1.15rem; color: #E2E8F0 !important; max-width: 820px;">
+      From 3D topographical laser CAD modeling and monolithic RCC casting to automated chemical dosing, designer water cascades, and structural leakproofing across Gujarat and nationwide.
+    </p>
 
-  <!-- ===================================================================
-     QUICK ANCHOR BAR
-     =================================================================== -->
-  <div class="quick-anchor-sticky-bar">
-    <div class="container-wide"
-      style="overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
-      <div style="display: inline-flex; gap: 10px; padding: 2px;">
-        <a href="#swimming-pools" class="filter-pill"><i class="fa-solid fa-person-swimming"></i> Turnkey RCC Pools</a>
-        <a href="#waterfalls" class="filter-pill"><i class="fa-solid fa-water"></i> Waterfalls & Fountains</a>
-        <a href="#renovation" class="filter-pill"><i class="fa-solid fa-screwdriver-wrench"></i> Pool Renovation</a>
-        <a href="#maintenance" class="filter-pill"><i class="fa-solid fa-hand-holding-droplet"></i> Maintenance &
-          AMC</a>
-        <a href="/products" class="filter-pill"><i class="fa-solid fa-gears"></i> Equipment Catalog</a>
-      </div>
+    <div class="d-flex flex-wrap gap-3 justify-content-center pt-2">
+      <a href="#quote-form" class="luxury-cta-btn" style="padding: 13px 32px; font-size: 0.96rem;">
+        <i class="bi bi-compass"></i> Request 3D Site Survey
+      </a>
+      <a href="/pool-types" class="btn btn-outline-light d-inline-flex align-items-center gap-2"
+        style="border-radius: var(--radius-pill); padding: 12px 28px; font-weight: 600; border-color: rgba(255,255,255,0.25); background: rgba(15,23,42,0.5); backdrop-filter: blur(10px); color: #FFFFFF;">
+        <i class="bi bi-layers"></i> Browse All 9 Formats
+      </a>
     </div>
   </div>
+</section>
 
-  <!-- ===================================================================
-     DETAILED SERVICE SECTIONS (ANCHORED FOR DIRECT NAVBAR LINKS)
-     =================================================================== -->
-  <section class="section">
-    <div class="container-wide">
-
-      <!-- 1. Turnkey Swimming Pools -->
-      <div id="swimming-pools" style="padding-top: 40px; margin-bottom: 80px; scroll-margin-top: 140px;">
-        <div class="showcase-row">
-          <div>
-            <span class="section-tag-gold"><i class="fa-solid fa-shield-halved"></i> 100% Leakproof RCC
-              Construction</span>
-            <h2 class="dive-heading" style="margin-bottom: 16px;">Turnkey Swimming Pools</h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-              End-to-end design and civil engineering for residential villas, hotels, farmhouses, and sports academies.
-              We handle architectural CAD drawings, structural excavation, shuttering, monolithic concrete casting, and
-              full MEP plumbing manifold setup.
-            </p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 28px; display: grid; gap: 12px;">
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Monolithic RCC pouring with
-                dual crystalline waterproofing membrane
-              </li>
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Skimmer, Deck-Level Overflow,
-                and Vanishing Infinity Edge options
-              </li>
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Turnkey handover backed by a
-                comprehensive structural leakproof warranty
-              </li>
-            </ul>
-            <a href="/contact#quote-form" class="btn btn-yellow">
-              <i class="fa-solid fa-calculator"></i> Get Turnkey Pool Quote
-            </a>
-          </div>
-          <div>
-            <div
-              style="border-radius: var(--radius-bento); overflow: hidden; box-shadow: 0 20px 45px rgba(0,0,0,0.18); border: 1px solid var(--border-subtle);">
-              <img src="/images/private-pool-hero.webp"
-                alt="Turnkey Swimming Pools" style="width: 100%; height: 400px; object-fit: cover;" decoding="async" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. Waterfalls & Fountains -->
-      <div id="waterfalls"
-        style="padding-top: 40px; margin-bottom: 80px; scroll-margin-top: 140px; border-top: 1px solid var(--border-subtle);">
-        <div class="showcase-row reverse">
-          <div>
-            <div
-              style="border-radius: var(--radius-bento); overflow: hidden; box-shadow: 0 20px 45px rgba(0,0,0,0.18); border: 1px solid var(--border-subtle);">
-              <img src="/images/pool-types/vanishing-edge.webp"
-                alt="Waterfalls & Fountains" style="width: 100%; height: 400px; object-fit: cover;" decoding="async" loading="lazy">
-            </div>
-          </div>
-          <div>
-            <span class="section-tag-gold"><i class="fa-solid fa-water"></i> Architectural Water Art</span>
-            <h2 class="dive-heading" style="margin-bottom: 16px;">Waterfalls & Fountains</h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-              Transform your pool deck and courtyard with dynamic water features. We engineer stainless steel sheer
-              descent rain curtains, laminar jumping jets, natural rock cascades, and musical dancing fountains.
-            </p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 28px; display: grid; gap: 12px;">
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> SS-304 & SS-316 high-grade
-                sheer descent water blades with LED illumination
-              </li>
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Silent hydraulic booster
-                pumps with multi-pattern control consoles
-              </li>
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Custom natural granite and
-                slate stonework integration
-              </li>
-            </ul>
-            <a href="/contact#quote-form" class="btn btn-yellow">
-              <i class="fa-solid fa-wand-magic-sparkles"></i> Customize Water Feature
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. Pool Renovation -->
-      <div id="renovation"
-        style="padding-top: 40px; margin-bottom: 80px; scroll-margin-top: 140px; border-top: 1px solid var(--border-subtle);">
-        <div class="showcase-row">
-          <div>
-            <span class="section-tag-gold"><i class="fa-solid fa-screwdriver-wrench"></i> Structural Rebirth</span>
-            <h2 class="dive-heading" style="margin-bottom: 16px;">Pool Renovation & Leak Repair</h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-              Give your aging swimming pool a new life. Our structural restoration specialists fix active concrete
-              cracks, re-waterproof leaking basins, replace outdated plumbing lines, and install modern Spanish mosaic
-              tiles.
-            </p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 28px; display: grid; gap: 12px;">
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> High-pressure polyurethane
-                (PU) injection crack leak sealing
-              </li>
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Complete retiling with
-                designer glass mosaics and epoxy grout
-              </li>
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Energy-efficient pump
-                retrofit & automated saltwater conversion
-              </li>
-            </ul>
-            <a href="/contact#quote-form" class="btn btn-yellow">
-              <i class="fa-solid fa-house-chimney-crack"></i> Schedule Leak Inspection
-            </a>
-          </div>
-          <div>
-            <div
-              style="border-radius: var(--radius-bento); overflow: hidden; box-shadow: 0 20px 45px rgba(0,0,0,0.18); border: 1px solid var(--border-subtle);">
-              <img src="/images/resort-pool.jpg"
-                alt="Pool Renovation" style="width: 100%; height: 400px; object-fit: cover;" decoding="async" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. Maintenance & AMC -->
-      <div id="maintenance"
-        style="padding-top: 40px; margin-bottom: 60px; scroll-margin-top: 140px; border-top: 1px solid var(--border-subtle);">
-        <div class="showcase-row reverse">
-          <div>
-            <div
-              style="border-radius: var(--radius-bento); overflow: hidden; box-shadow: 0 20px 45px rgba(0,0,0,0.18); border: 1px solid var(--border-subtle);">
-              <img src="/images/jacuzzi-spa.jpg"
-                alt="Maintenance & AMC" style="width: 100%; height: 400px; object-fit: cover;" decoding="async" loading="lazy">
-            </div>
-          </div>
-          <div>
-            <span class="section-tag-gold"><i class="fa-solid fa-hand-holding-droplet"></i> Crystal Clear Water 365
-              Days</span>
-            <h2 class="dive-heading" style="margin-bottom: 16px;">Maintenance & AMC Care</h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-              Enjoy sparkling, hygienic, algae-free water without lifting a finger. Our Annual Maintenance Contracts
-              (AMC) include routine water chemical testing, pH/chlorine balancing, robotic vacuum bottom sweeping, sand
-              filter backwashing, and pump servicing.
-            </p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 28px; display: grid; gap: 12px;">
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Weekly or bi-weekly pool
-                chemical testing and sanitization
-              </li>
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> Pump basket emptying, valve
-                inspections & media backwash cycles
-              </li>
-              <li style="display: flex; gap: 10px; align-items: center; color: var(--text-main); font-weight: 600;">
-                <i class="fa-solid fa-circle-check" style="color: var(--brand-cyan);"></i> 24/7 priority emergency
-                support for villa and hotel properties
-              </li>
-            </ul>
-            <a href="/contact#quote-form" class="btn btn-yellow">
-              <i class="fa-solid fa-file-signature"></i> Inquire for AMC Plans
-            </a>
-          </div>
-        </div>
-      </div>
-
+<!-- Quick Anchor Bar -->
+<div class="luxury-filter-bar py-3" style="position: sticky; top: 90px; z-index: 100; background: rgba(8, 11, 16, 0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+  <div class="container-wide">
+    <div class="d-flex gap-2 overflow-x-auto pb-1 justify-content-start justify-content-md-center text-nowrap" style="scrollbar-width: none;">
+      <a href="#swimming-pools" class="luxury-filter-btn active">
+        <i class="bi bi-water me-1 text-gold"></i> Turnkey RCC Pools
+      </a>
+      <a href="#waterfalls" class="luxury-filter-btn">
+        <i class="bi bi-droplet-half me-1 text-gold"></i> Waterfalls & Fountains
+      </a>
+      <a href="#renovation" class="luxury-filter-btn">
+        <i class="bi bi-tools me-1 text-gold"></i> Renovation & Leak Repair
+      </a>
+      <a href="#maintenance" class="luxury-filter-btn">
+        <i class="bi bi-shield-check me-1 text-gold"></i> Maintenance & AMC
+      </a>
+      <a href="/products" class="luxury-filter-btn">
+        <i class="bi bi-box-seam me-1 text-gold"></i> Equipment Catalog
+      </a>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- ===================================================================
-     FREE ESTIMATE SECTION
-     =================================================================== -->
-  <section class="section" id="quote-form" style="background: var(--bg-card-subtle);">
-    <div class="container">
-      <div class="quote-banner">
-        <div class="quote-grid">
-          <div>
-            <span class="section-tag-gold"><i class="fa-solid fa-compass-drafting"></i> Free Consultation</span>
-            <h2
-              style="font-family: var(--font-hero); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 16px;">
-              Speak with our Senior Pool Architects
-            </h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 25px; line-height: 1.6;">
-              We offer complimentary site surveys across Surat, Gujarat, and nationwide. Get itemized transparent
-              estimates with zero obligation.
-            </p>
+<!-- Detailed Service Sections -->
+<section class="section py-5 my-4">
+  <div class="container-wide">
 
-            <div
-              style="background: var(--bg-card); padding: 18px 22px; border-radius: 12px; border: 1px solid var(--border-subtle); margin-bottom: 25px;">
-              <div style="font-weight: 700; color: var(--brand-cyan); margin-bottom: 6px;">
-                <i class="fa-solid fa-location-dot"></i> Surat Corporate Office:
-              </div>
-              <div style="color: var(--text-main); font-size: 0.9rem; line-height: 1.5;">
-                A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat,
-                Gujarat 395004
-              </div>
+    <!-- 1. Turnkey Swimming Pools -->
+    <div id="swimming-pools" class="py-5 mb-5" style="scroll-margin-top: 150px;">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="section-tag-luxury">
+            <i class="bi bi-shield-check"></i> 100% Leakproof Monolithic RCC
+          </div>
+          <h2 class="font-serif text-white display-6 fw-bold mb-3">
+            Turnkey Swimming Pools
+          </h2>
+          <p class="mb-4" style="color: #E2E8F0 !important; font-size: 1.08rem; line-height: 1.75;">
+            End-to-end architectural design and civil engineering for residential private villas, boutique resorts, rooftop penthouses, and sports clubs. We oversee soil mechanics survey, heavy Fe-500D rebar cage fabrication, monolithic concrete casting with zero cold joints, and full MEP hydraulic manifold integration.
+          </p>
+
+          <div class="d-grid gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Monolithic RCC casting with dual crystalline waterproofing barrier</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Skimmer, Deck-Level Overflow, and Vanishing Edge Infinity horizon options</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Turnkey commissioning backed by a written structural leakproof guarantee</span>
             </div>
           </div>
 
-          <div class="quote-form-card" id="quote-form">
-            <h3 style="font-family: var(--font-hero); font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">
-              Request Service Estimate
-            </h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
-              Reach out for consultation, 3D design, construction or AMC maintenance.
-            </p>
+          <!-- Blueprint Specification Chips -->
+          <div class="blueprint-spec-grid mb-4">
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Concrete</span>
+              <span class="blueprint-spec-val">M-30 / M-35 Grade</span>
+            </div>
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Steel Mesh</span>
+              <span class="blueprint-spec-val">Fe-500D Dual Grid</span>
+            </div>
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Leak Test</span>
+              <span class="blueprint-spec-val">72h Hydro-Ponding</span>
+            </div>
+          </div>
 
-            <% if (locals.success_msg && success_msg.length> 0) { %>
-              <div
-                style="background: #dcfce7; color: #166534; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.92rem; font-weight: 600; border: 1px solid #bbf7d0;">
-                <i class="fa-solid fa-circle-check"></i>
-                <%= success_msg %>
-              </div>
-              <% } %>
+          <a href="/contact#quote-form" class="luxury-cta-btn">
+            <i class="bi bi-compass"></i> Get Turnkey Pool Quote
+          </a>
+        </div>
 
-                <% if (locals.error_msg && error_msg.length> 0) { %>
-                  <div
-                    style="background: #fee2e2; color: #991b1b; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.92rem; font-weight: 600; border: 1px solid #fecaca;">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <%= error_msg %>
-                  </div>
-                  <% } %>
-
-                    <form action="/inquiry" method="POST">
-                      <div class="form-row">
-                        <div class="form-group">
-                          <label for="srv-name">Your Name *</label>
-                          <input type="text" id="srv-name" name="name" class="form-control" placeholder="Your Name"
-                            autocomplete="name" required>
-                        </div>
-                        <div class="form-group">
-                          <label for="srv-phone">Phone / Mobile *</label>
-                          <input type="tel" id="srv-phone" name="phone" class="form-control" placeholder="Phone Number"
-                            autocomplete="tel" required>
-                        </div>
-                      </div>
-
-                      <div class="form-row">
-                        <div class="form-group">
-                          <label for="srv-service">Service of Interest</label>
-                          <select id="srv-service" name="poolType" class="form-control">
-                            <option value="Turnkey Swimming Pools">Turnkey Swimming Pool Construction</option>
-                            <option value="Infinity Edge Pools">Vanishing Edge Infinity Pools</option>
-                            <option value="Waterfalls & Fountains">Waterfalls & Fountain Features</option>
-                            <option value="Pool Renovation & Repair">Pool Renovation & Crack Leak Repair</option>
-                            <option value="Maintenance & AMC">Maintenance & Cleaning AMC</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="srv-city">City / Location</label>
-                          <input type="text" id="srv-city" name="city" class="form-control"
-                            placeholder="City / Location" autocomplete="address-level2">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="srv-message">Message / Project Specifics</label>
-                        <textarea id="srv-message" name="message" rows="3" class="form-control"
-                          placeholder="Describe your service requirements or project specifics..."></textarea>
-                      </div>
-
-                      <button type="submit" class="btn btn-yellow"
-                        style="width: 100%; padding: 14px; font-weight: 700; border-radius: var(--radius-sm);">
-                        <i class="fa-solid fa-paper-plane"></i> Submit Service Request
-                      </button>
-                    </form>
+        <div class="col-lg-6">
+          <div class="glass-card overflow-hidden tilt-card-3d p-2">
+            <img src="/images/private-pool-hero.webp" alt="Turnkey Swimming Pools" 
+                 class="w-100 rounded-4" style="height: 420px; object-fit: cover;" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <%- include('layouts/footer') %>
+    <!-- 2. Waterfalls & Fountains -->
+    <div id="waterfalls" class="py-5 mb-5 border-top border-secondary border-opacity-25" style="scroll-margin-top: 150px;">
+      <div class="row g-5 align-items-center flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <div class="section-tag-luxury">
+            <i class="bi bi-water"></i> Architectural Aquatic Art
+          </div>
+          <h2 class="font-serif text-white display-6 fw-bold mb-3">
+            Waterfalls & Fountains
+          </h2>
+          <p class="mb-4" style="color: #E2E8F0 !important; font-size: 1.08rem; line-height: 1.75;">
+            Transform your estate pool deck and courtyard into a sensory oasis. We engineer marine-grade SS-316 sheer descent rain curtains, illuminated laminar jumping jets, natural granite cascades, and programmable dancing fountains.
+          </p>
+
+          <div class="d-grid gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">SS-304 & SS-316 high-grade sheer water blades with warm 3000K LED glow</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Whisper-quiet hydraulic booster pumps with multi-pattern control consoles</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Seamless integration with imported natural granite, basalt, and slate walls</span>
+            </div>
+          </div>
+
+          <div class="blueprint-spec-grid mb-4">
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Blade Grade</span>
+              <span class="blueprint-spec-val">SS-316 Marine</span>
+            </div>
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Hydraulics</span>
+              <span class="blueprint-spec-val">Silent Booster</span>
+            </div>
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Illumination</span>
+              <span class="blueprint-spec-val">RGBW / 3000K Warm</span>
+            </div>
+          </div>
+
+          <a href="/contact#quote-form" class="luxury-cta-btn">
+            <i class="bi bi-stars"></i> Customize Water Feature
+          </a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="glass-card overflow-hidden tilt-card-3d p-2">
+            <img src="/images/pool-types/vanishing-edge.webp" alt="Waterfalls & Fountains" 
+                 class="w-100 rounded-4" style="height: 420px; object-fit: cover;" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Pool Renovation & Leak Repair -->
+    <div id="renovation" class="py-5 mb-5 border-top border-secondary border-opacity-25" style="scroll-margin-top: 150px;">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="section-tag-luxury">
+            <i class="bi bi-tools"></i> Structural Restoration
+          </div>
+          <h2 class="font-serif text-white display-6 fw-bold mb-3">
+            Pool Renovation & Leak Repair
+          </h2>
+          <p class="mb-4" style="color: #E2E8F0 !important; font-size: 1.08rem; line-height: 1.75;">
+            Give your aging swimming pool a 5-star rebirth. Our structural restoration specialists fix active concrete cracks, re-waterproof leaking basins with high-pressure polyurethane injections, replace brittle PVC lines, and install modern Spanish mosaic tiles.
+          </p>
+
+          <div class="d-grid gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">High-pressure polyurethane (PU) injection structural crack leak sealing</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Complete retiling with designer glass mosaics and chemical epoxy regrouting</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Energy-efficient inverter pump retrofits & automated saltwater chlorination</span>
+            </div>
+          </div>
+
+          <div class="blueprint-spec-grid mb-4">
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Injection</span>
+              <span class="blueprint-spec-val">High-Pressure PU</span>
+            </div>
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Surfacing</span>
+              <span class="blueprint-spec-val">Epoxy Glass Mosaic</span>
+            </div>
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Energy</span>
+              <span class="blueprint-spec-val">-80% Inverter Pump</span>
+            </div>
+          </div>
+
+          <a href="/contact#quote-form" class="luxury-cta-btn">
+            <i class="bi bi-wrench"></i> Schedule Leak Inspection
+          </a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="glass-card overflow-hidden tilt-card-3d p-2">
+            <img src="/images/resort-pool.webp" alt="Pool Renovation" 
+                 class="w-100 rounded-4" style="height: 420px; object-fit: cover;" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Maintenance & AMC Care -->
+    <div id="maintenance" class="py-5 border-top border-secondary border-opacity-25" style="scroll-margin-top: 150px;">
+      <div class="row g-5 align-items-center flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <div class="section-tag-luxury">
+            <i class="bi bi-award"></i> Crystal Water 365 Days
+          </div>
+          <h2 class="font-serif text-white display-6 fw-bold mb-3">
+            Maintenance & AMC Care
+          </h2>
+          <p class="mb-4" style="color: #E2E8F0 !important; font-size: 1.08rem; line-height: 1.75;">
+            Enjoy sparkling, hygienic, algae-free water without lifting a finger. Our Annual Maintenance Contracts (AMC) include routine water chemical testing, automated pH and salt balancing, robotic vacuum floor scrubbing, high-rate filter backwashing, and pump servicing.
+          </p>
+
+          <div class="d-grid gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Weekly or bi-weekly pool chemical testing, pH balancing, and sanitization</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">Pump strainer basket clearing, valve diagnostics & automated backwash cycles</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-gold fs-5 flex-shrink-0"></i>
+              <span class="text-white fw-semibold" style="font-size: 0.98rem;">24/7 priority emergency response for private villa estates and luxury hotels</span>
+            </div>
+          </div>
+
+          <div class="blueprint-spec-grid mb-4">
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Frequency</span>
+              <span class="blueprint-spec-val">Weekly / Bi-Weekly</span>
+            </div>
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Water Test</span>
+              <span class="blueprint-spec-val">Digital Photometer</span>
+            </div>
+            <div class="blueprint-spec-item">
+              <span class="blueprint-spec-label">Support</span>
+              <span class="blueprint-spec-val">24/7 VIP Concierge</span>
+            </div>
+          </div>
+
+          <a href="/contact#quote-form" class="luxury-cta-btn">
+            <i class="bi bi-file-earmark-text"></i> Inquire for AMC Plans
+          </a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="glass-card overflow-hidden tilt-card-3d p-2">
+            <img src="/images/jacuzzi-spa.webp" alt="Maintenance and AMC Care" 
+                 class="w-100 rounded-4" style="height: 420px; object-fit: cover;" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Luxury Consultation & Estimate Section -->
+<section class="section py-5 my-4" id="quote-form" style="background: rgba(15, 23, 42, 0.5);">
+  <div class="container-wide">
+    <div class="row g-5 align-items-center">
+      
+      <div class="col-lg-5">
+        <div class="section-tag-luxury">
+          <i class="bi bi-compass"></i> Direct Engineering Consultation
+        </div>
+        <h2 class="font-serif text-white display-6 fw-bold mb-3">
+          Speak with our Senior Pool Architects
+        </h2>
+        <p class="luxury-subtext mb-4" style="color: #E2E8F0 !important; font-size: 1.08rem; line-height: 1.75;">
+          We offer complimentary site surveys across Surat, Gujarat, and nationwide. Get transparent itemized estimates with our 100% monolithic leakproof guarantee.
+        </p>
+
+        <div class="glass-card p-4 mb-4">
+          <div class="text-gold fw-bold mb-2 small text-uppercase" style="letter-spacing: 0.8px;">
+            <i class="bi bi-geo-alt-fill me-1"></i> Surat Studio & Corporate Office:
+          </div>
+          <p class="text-white mb-2" style="font-size: 0.95rem; line-height: 1.6;">
+            <%= typeof settings !== 'undefined' && settings.address ? settings.address : 'A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat 395004' %>
+          </p>
+          <div class="d-flex align-items-center gap-2 text-muted small">
+            <i class="bi bi-clock text-gold me-1"></i> Mon-Sat: 9AM - 8PM
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2 text-muted small">
+          <i class="bi bi-shield-check text-gold fs-5"></i>
+          <span>16+ Years Turnkey Mastery &bull; 720+ Pools Completed</span>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="luxury-form-card">
+          <h3 class="font-serif text-white mb-2" style="font-size: 1.6rem;">
+            Request Service Estimate
+          </h3>
+          <p class="small mb-4" style="color: #CBD5E1 !important;">
+            Reach out for consultation, 3D design, construction or AMC maintenance.
+          </p>
+
+          <form action="/inquiry" method="POST">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="srv-name" class="luxury-label">Your Full Name *</label>
+                <input type="text" id="srv-name" name="name" class="luxury-input" placeholder="e.g. Vikramaditya Singhania" required autocomplete="name">
+              </div>
+
+              <div class="col-md-6">
+                <label for="srv-phone" class="luxury-label">Mobile Number *</label>
+                <input type="tel" id="srv-phone" name="phone" class="luxury-input" placeholder="Enter 10-digit mobile number" required autocomplete="tel">
+              </div>
+
+              <div class="col-md-6">
+                <label for="srv-service" class="luxury-label">Service of Interest</label>
+                <select id="srv-service" name="poolType" class="luxury-select">
+                  <option value="Turnkey Swimming Pools">Turnkey Swimming Pool Construction</option>
+                  <option value="Vanishing Edge Infinity Pool">Vanishing Edge Infinity Horizon Pools</option>
+                  <option value="Waterfalls & Fountains">Waterfalls & Fountain Features</option>
+                  <option value="Pool Renovation, Leak Repair & Retiling">Pool Renovation & Structural Leak Repair</option>
+                  <option value="Annual Maintenance & AMC">Annual Maintenance & Automated Dosing AMC</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label for="srv-city" class="luxury-label">City / Project Location *</label>
+                <input type="text" id="srv-city" name="city" class="luxury-input" placeholder="Surat, Mumbai, Goa, etc." required autocomplete="address-level2">
+              </div>
+
+              <div class="col-12">
+                <label for="srv-message" class="luxury-label">Message / Project Specifics</label>
+                <textarea id="srv-message" name="message" rows="3" class="luxury-textarea"
+                  placeholder="Describe your service requirements, pool dimensions, or property specifics..."></textarea>
+              </div>
+
+              <div class="col-12 pt-2">
+                <button type="submit" class="luxury-cta-btn w-100 justify-content-center" style="padding: 14px; font-size: 1rem;">
+                  <i class="bi bi-send-fill"></i> Submit Service Request
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<%- include('layouts/footer') %>

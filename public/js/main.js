@@ -1,64 +1,362 @@
 // Init UI
 document.addEventListener('DOMContentLoaded', () => {
   // Theme
-  document.documentElement.setAttribute('data-theme', 'light');
+  document.documentElement.setAttribute('data-theme', 'dark');
 
-  // Hero typing (Optimized for instant mobile LCP: starts with full text visible)
+  // ===================================================================
+  // 0. LUXURY HERO AUTOMATIC BACKGROUND IMAGE SLIDER (Sliding Left)
+  // - Hardware-accelerated 3D transform (translate3d)
+  // - Mobile Touch Swipe Support (passive touchstart/touchend)
+  // - IntersectionObserver (0 CPU / 0 GPU cost when offscreen)
+  // - Page Visibility API (saves mobile battery when tab/phone is sleep)
+  // ===================================================================
+  const trackEl = document.getElementById('luxuryHeroTrack');
+  const heroContainer = document.getElementById('luxuryHeroSection');
+  const navEl = document.getElementById('luxurySliderNav');
+
+  if (trackEl) {
+    const dots = navEl ? Array.from(navEl.querySelectorAll('.luxury-slider-dot')) : [];
+    const totalUniqueSlides = 5;
+    let currentSlide = 0;
+    let sliderTimer = null;
+    let isTransitioning = false;
+    let isHeroInView = true;
+
+    const updateDots = (index) => {
+      const activeIdx = index % totalUniqueSlides;
+      dots.forEach((dot, idx) => {
+        if (idx === activeIdx) {
+          dot.classList.add('active');
+          dot.setAttribute('aria-selected', 'true');
+        } else {
+          dot.classList.remove('active');
+          dot.setAttribute('aria-selected', 'false');
+        }
+      });
+    };
+
+    const moveToSlide = (index, animated = true) => {
+      currentSlide = index;
+      if (animated) {
+        trackEl.style.transition = 'transform 1.1s cubic-bezier(0.25, 1, 0.5, 1)';
+        isTransitioning = true;
+      } else {
+        trackEl.style.transition = 'none';
+        isTransitioning = false;
+      }
+      trackEl.style.transform = `translate3d(-${currentSlide * 100}%, 0, 0)`;
+      updateDots(currentSlide);
+    };
+
+    const nextSlide = () => {
+      if (isTransitioning || !isHeroInView) return;
+      moveToSlide(currentSlide + 1, true);
+    };
+
+    const prevSlide = () => {
+      if (isTransitioning || !isHeroInView) return;
+      if (currentSlide <= 0) {
+        moveToSlide(totalUniqueSlides, false);
+        trackEl.offsetHeight; // force reflow
+        moveToSlide(totalUniqueSlides - 1, true);
+      } else {
+        moveToSlide(currentSlide - 1, true);
+      }
+    };
+
+    trackEl.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      if (currentSlide >= totalUniqueSlides) {
+        moveToSlide(0, false);
+      }
+    });
+
+    const startAutoPlay = () => {
+      stopAutoPlay();
+      if (!isHeroInView) return;
+      sliderTimer = setInterval(nextSlide, 4500);
+    };
+
+    const stopAutoPlay = () => {
+      if (sliderTimer) {
+        clearInterval(sliderTimer);
+        sliderTimer = null;
+      }
+    };
+
+    // Click on dots
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        moveToSlide(idx, true);
+        startAutoPlay();
+      });
+    });
+
+    // Mobile Touch Gesture Support (Swipe left/right)
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    if (heroContainer) {
+      heroContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+        stopAutoPlay();
+      }, { passive: true });
+
+      heroContainer.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+          if (diffX < 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+        startAutoPlay();
+      }, { passive: true });
+
+      // Pause on mouse hover (desktop)
+      heroContainer.addEventListener('mouseenter', stopAutoPlay);
+      heroContainer.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Optimization: Pause when off-screen using IntersectionObserver
+    if ('IntersectionObserver' in window && heroContainer) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isHeroInView = entry.isIntersecting;
+          if (isHeroInView) {
+            startAutoPlay();
+          } else {
+            stopAutoPlay();
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(heroContainer);
+    }
+
+    // Optimization: Pause when browser tab/app is in background
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoPlay();
+      } else if (isHeroInView) {
+        startAutoPlay();
+      }
+    });
+
+    startAutoPlay();
+  }
+
+  // ===================================================================
+  // 1. GSAP WORD-FADING & SLIDING HEADLINE ANIMATION
+  // Luxury headlines: "Luxury Rooftop Pools", "Infinity Sanctuaries", "Monolithic RCC Oasis", "Turnkey Resort Lagoons"
+  // ===================================================================
+  const headlineEl = document.getElementById('heroAnimatedHeadline');
+  if (headlineEl) {
+    const luxuryWords = [
+      'Luxury Rooftop Pools',
+      'Infinity Sanctuaries',
+      'Monolithic RCC Oasis',
+      'Turnkey Resort Lagoons'
+    ];
+    let wordIndex = 0;
+
+    const cycleHeadline = () => {
+      wordIndex = (wordIndex + 1) % luxuryWords.length;
+      const nextWord = luxuryWords[wordIndex];
+
+      if (window.gsap) {
+        gsap.to(headlineEl, {
+          y: -25,
+          opacity: 0,
+          duration: 0.5,
+          ease: 'power2.in',
+          onComplete: () => {
+            headlineEl.textContent = nextWord;
+            gsap.fromTo(headlineEl,
+              { y: 25, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' }
+            );
+          }
+        });
+      } else {
+        headlineEl.style.opacity = '0';
+        headlineEl.style.transform = 'translateY(-15px)';
+        setTimeout(() => {
+          headlineEl.textContent = nextWord;
+          headlineEl.style.opacity = '1';
+          headlineEl.style.transform = 'translateY(0)';
+        }, 300);
+      }
+    };
+
+    // Cycle every 3.2 seconds
+    setInterval(cycleHeadline, 3200);
+  }
+
+  // Fallback for typing text if present on other pages
   const typingElement = document.getElementById('typing-text');
   if (typingElement) {
     const words = ['Bespoke Pools', 'Infinity Horizons', 'Luxury Rooftop Pools', 'Commercial Resorts', 'Wellness Jacuzzis'];
-    let wordIndex = 0;
-    let charIndex = words[0].length;
+    let wIdx = 0;
+    let cIdx = words[0].length;
     let isDeleting = true;
-    let typingSpeed = 70;
 
     function typeEffect() {
-      if (document.hidden) {
-        setTimeout(typeEffect, 600);
-        return;
-      }
-      const currentWord = words[wordIndex];
+      if (document.hidden) { setTimeout(typeEffect, 600); return; }
+      const currentWord = words[wIdx];
       if (isDeleting) {
-        typingElement.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50;
+        typingElement.textContent = currentWord.substring(0, cIdx - 1);
+        cIdx--;
       } else {
-        typingElement.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 110;
+        typingElement.textContent = currentWord.substring(0, cIdx + 1);
+        cIdx++;
       }
-
-      if (!isDeleting && charIndex === currentWord.length) {
-        typingSpeed = 2400;
+      if (!isDeleting && cIdx === currentWord.length) {
+        setTimeout(typeEffect, 2400);
         isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
+      } else if (isDeleting && cIdx === 0) {
         isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        typingSpeed = 450;
+        wIdx = (wIdx + 1) % words.length;
+        setTimeout(typeEffect, 450);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 45 : 100);
       }
-
-      setTimeout(typeEffect, typingSpeed);
     }
-    // Start typing after user interaction (scroll/touch) or after 12s idle delay
-    let started = false;
-    const startTyping = () => {
-      if (started) return;
-      started = true;
-      window.removeEventListener('scroll', startTyping);
-      window.removeEventListener('touchstart', startTyping);
-      setTimeout(typeEffect, 1200);
-    };
-
-    window.addEventListener('scroll', startTyping, { passive: true, once: true });
-    window.addEventListener('touchstart', startTyping, { passive: true, once: true });
-    setTimeout(startTyping, 12000);
+    setTimeout(typeEffect, 1200);
   }
 
-  // Rock-Solid Fixed Floating Pill Navbar (Always visible, zero jitter)
-  const navPill = document.querySelector('.floating-nav-pill');
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  const dropdownItems = document.querySelectorAll('.has-dropdown');
+  // ===================================================================
+  // 2. INTERACTIVE BEFORE / AFTER SLIDER (RCC CONSTRUCTION VS FINISHED POOL)
+  // Plain HTML5/CSS3 + Vanilla JS with touch and mouse drag support
+  // ===================================================================
+  const baContainer = document.querySelector('.before-after-container');
+  if (baContainer) {
+    const baAfter = baContainer.querySelector('.ba-after');
+    const baHandle = baContainer.querySelector('.ba-handle');
+    let isDragging = false;
 
+    const setSliderPosition = (xPos) => {
+      const rect = baContainer.getBoundingClientRect();
+      let offsetX = xPos - rect.left;
+      let percent = (offsetX / rect.width) * 100;
+      percent = Math.max(3, Math.min(97, percent));
+
+      if (baAfter) {
+        baAfter.style.clipPath = `polygon(${percent}% 0, 100% 0, 100% 100%, ${percent}% 100%)`;
+      }
+      if (baHandle) {
+        baHandle.style.left = `${percent}%`;
+      }
+    };
+
+    let rafPending = false;
+    const scheduleUpdate = (clientX) => {
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(() => {
+          setSliderPosition(clientX);
+          rafPending = false;
+        });
+      }
+    };
+
+    baContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      scheduleUpdate(e.clientX);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      scheduleUpdate(e.clientX);
+    }, { passive: true });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Touch Support with smooth 120Hz rAF
+    baContainer.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) {
+        isDragging = true;
+        scheduleUpdate(e.touches[0].clientX);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging || !e.touches || !e.touches[0]) return;
+      scheduleUpdate(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+  }
+
+  // ===================================================================
+  // 3. 3D TILT EFFECT FOR FEATURED POOL CARDS (DESKTOP ONLY FOR 120HZ MOBILE FPS)
+  // ===================================================================
+  const tiltCards = document.querySelectorAll('.tilt-card-3d');
+  if (window.matchMedia('(hover: hover) and (min-width: 992px)').matches) {
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -8; // max 8 deg
+        const rotateY = ((x - centerX) / centerX) * 8;  // max 8 deg
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    });
+  }
+
+  // ===================================================================
+  // 4. STATS COUNTER ANIMATION ON SCROLL
+  // ===================================================================
+  const counterElements = document.querySelectorAll('.counter-animate');
+  if (counterElements.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const endValue = parseInt(target.getAttribute('data-count'), 10);
+          const suffix = target.getAttribute('data-suffix') || '';
+          if (!isNaN(endValue)) {
+            let start = 0;
+            const duration = 1600;
+            const stepTime = 20;
+            const totalSteps = duration / stepTime;
+            const increment = endValue / totalSteps;
+            const timer = setInterval(() => {
+              start += increment;
+              if (start >= endValue) {
+                target.textContent = endValue + suffix;
+                clearInterval(timer);
+              } else {
+                target.textContent = Math.floor(start) + suffix;
+              }
+            }, stepTime);
+          }
+          obs.unobserve(target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counterElements.forEach(el => observer.observe(el));
+  }
+
+  const navPill = document.querySelector('.luxury-nav-pill') || document.querySelector('.floating-nav-pill');
   if (navPill) {
     let isScrolled = false;
     let ticking = false;
@@ -96,9 +394,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   // Dropdown menu
-  const navHeader = document.querySelector('.floating-nav-pill');
+  const navHeader = document.querySelector('.floating-nav-pill') || document.querySelector('.luxury-nav-pill');
+  const dropdownItems = document.querySelectorAll('.luxury-dropdown, .has-dropdown');
 
   dropdownItems.forEach(dropdown => {
     dropdown.addEventListener('mouseenter', () => {
@@ -145,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const drawerClose = document.getElementById('drawer-close');
   const drawerBackdrop = document.getElementById('drawer-backdrop');
 
-  window.openMobileDrawer = function(e) {
+  window.openMobileDrawer = function (e) {
     if (e) {
       if (typeof e.preventDefault === 'function') e.preventDefault();
       if (typeof e.stopPropagation === 'function') e.stopPropagation();
@@ -158,7 +456,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.overflow = 'hidden';
   };
 
-  window.closeMobileDrawer = function() {
+  window.closeMobileDrawer = function (e) {
+    if (e) {
+      if (typeof e.preventDefault === 'function') e.preventDefault();
+      if (typeof e.stopPropagation === 'function') e.stopPropagation();
+    }
     const drawer = document.getElementById('mobile-drawer');
     const backdrop = document.getElementById('drawer-backdrop');
     if (drawer) drawer.classList.remove('open');
@@ -167,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.overflow = '';
   };
 
-  window.toggleMobileDrawer = function(e) {
+  window.toggleMobileDrawer = function (e) {
     const drawer = document.getElementById('mobile-drawer');
     if (drawer && drawer.classList.contains('open')) {
       window.closeMobileDrawer();
@@ -199,6 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Touch swipe to close mobile drawer (Natural mobile gesture)
+  const mobileDrawer = document.getElementById('mobile-drawer');
   if (mobileDrawer) {
     let touchStartX = 0;
     let touchStartY = 0;
@@ -227,6 +530,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       window.closeMobileDrawer();
+    }
+  });
+
+  // Silent Admin Access Shortcut for Owner (Ctrl + Alt + A or Ctrl + Shift + A)
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.altKey || e.shiftKey) && (e.key === 'a' || e.key === 'A')) {
+      e.preventDefault();
+      window.location.href = '/admin/login';
     }
   });
 
@@ -262,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof targetItem.scrollIntoView === 'function') {
           try {
             targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-          } catch (_) {}
+          } catch (_) { }
         }
 
         jumpCard.classList.remove('jumping-now');
@@ -429,8 +740,8 @@ document.addEventListener('DOMContentLoaded', () => {
               });
               poFCP.observe({ type: 'paint', buffered: true });
             }
-          } catch (_) {}
-        } catch (_) {}
+          } catch (_) { }
+        } catch (_) { }
       }, 50);
     });
   });

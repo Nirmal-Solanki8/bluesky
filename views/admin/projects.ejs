@@ -1,26 +1,30 @@
 <%- include('layouts/header') %>
 
-<div class="page-title-box">
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
   <div>
-    <h1>Portfolio & Project Gallery</h1>
-    <p style="color: var(--admin-text-muted); font-size: 0.9rem;">Showcase your completed swimming pool construction projects</p>
+    <h1 class="font-serif text-white display-6 fw-bold mb-1">Portfolio & Project Gallery</h1>
+    <p class="text-muted small mb-0">Showcase completed 5-star swimming pools, infinity horizons & residential estates</p>
   </div>
 </div>
 
-<!-- Add Project Form -->
-<div class="admin-form-card">
-  <h3 style="margin-bottom: 20px; font-size: 1.15rem; color: #0f172a;"><i class="fa-solid fa-plus-circle" style="color: #0284c7;"></i> Add Completed Pool Project</h3>
-  
+<!-- Add Project Card with Drag-and-Drop Image Preview -->
+<div class="admin-card mb-4">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title mb-0">
+      <i class="bi bi-plus-circle-fill text-gold me-2"></i> Add Completed Pool Project
+    </h3>
+  </div>
+
   <form action="/admin/projects" method="POST" enctype="multipart/form-data">
-    <div class="admin-grid-2">
-      <div class="admin-form-group">
-        <label>Project Title *</label>
-        <input type="text" name="title" class="admin-form-control" placeholder="e.g. The Grand Azure Horizon Pool" required>
+    <div class="row g-3 mb-3">
+      <div class="col-md-6">
+        <label class="luxury-label">Project Title *</label>
+        <input type="text" name="title" class="admin-input" placeholder="e.g. The Grand Azure Horizon Pool" required>
       </div>
 
-      <div class="admin-form-group">
-        <label>Category *</label>
-        <select name="category" class="admin-form-control" required>
+      <div class="col-md-6">
+        <label class="luxury-label">Architectural Category *</label>
+        <select name="category" class="admin-select" required>
           <% categories.forEach(cat => { %>
             <option value="<%= cat %>"><%= cat %></option>
           <% }) %>
@@ -28,86 +32,89 @@
       </div>
     </div>
 
-    <div class="admin-grid-3">
-      <div class="admin-form-group">
-        <label>Location (City/State) *</label>
-        <input type="text" name="location" class="admin-form-control" placeholder="e.g. Dumas Road, Surat" required>
+    <div class="row g-3 mb-3">
+      <div class="col-md-4">
+        <label class="luxury-label">Location (City, State) *</label>
+        <input type="text" name="location" class="admin-input" placeholder="e.g. Dumas Road, Surat" required>
       </div>
 
-      <div class="admin-form-group">
-        <label>Client Name / Property</label>
-        <input type="text" name="clientName" class="admin-form-control" placeholder="Private Luxury Villa">
+      <div class="col-md-4">
+        <label class="luxury-label">Client / Property Name</label>
+        <input type="text" name="clientName" class="admin-input" placeholder="Private Luxury Villa Estate">
       </div>
 
-      <div class="admin-form-group">
-        <label>Completion Year</label>
-        <input type="text" name="completionYear" class="admin-form-control" placeholder="2024" value="2024">
+      <div class="col-md-4">
+        <label class="luxury-label">Completion Year</label>
+        <input type="text" name="completionYear" class="admin-input" placeholder="2024" value="2024">
       </div>
     </div>
 
-    <div class="admin-form-group">
-      <label>Dimensions / Size (Length x Width x Depth)</label>
-      <input type="text" name="dimensions" class="admin-form-control" placeholder="e.g. 45ft x 20ft x 4.5ft">
+    <div class="mb-3">
+      <label class="luxury-label">Dimensions / Specifications</label>
+      <input type="text" name="dimensions" class="admin-input" placeholder="e.g. 45ft x 20ft x 4.5ft (M-30 RCC Monolithic)">
     </div>
 
-    <div class="admin-form-group">
-      <label>Project Highlights / Description</label>
-      <textarea name="description" rows="2" class="admin-form-control" placeholder="Monolithic RCC structure, infinity horizon overflow, smart RGBW lighting..."></textarea>
+    <div class="mb-4">
+      <label class="luxury-label">Architectural Highlights / Scope</label>
+      <textarea name="description" rows="2" class="admin-textarea" placeholder="Monolithic RCC structure, infinity horizon overflow, Italian variable speed pumps, RGBW smart lighting..."></textarea>
     </div>
 
-    <!-- Cover Image Upload & URL with Live Preview -->
-    <div style="background: #f8fafc; border: 1px solid var(--admin-border); border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-      <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; display: block;">Cover Photo (Pool Image)</label>
-      <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 15px;">
-        <img id="newProjectPreview" src="/images/infinity-pool.jpg" alt="Preview" style="width: 100px; height: 65px; object-fit: cover; border-radius: 8px; border: 1px solid #cbd5e1;">
-        <div style="font-size: 0.85rem; color: #64748b;" id="previewText">
-          Select an image file from your device or paste an online image URL below.
+    <!-- Drag-and-Drop File Upload Zone with Instant Preview -->
+    <div class="mb-4">
+      <label class="luxury-label mb-2">High-Resolution Project Cover Imagery</label>
+      
+      <div class="admin-dropzone" id="projectDropzone">
+        <input type="file" name="coverImage" id="projFileInput" class="admin-dropzone-input" accept="image/*">
+        <div class="dropzone-icon">
+          <i class="bi bi-cloud-arrow-up"></i>
+        </div>
+        <div class="dropzone-title">Drag & Drop Pool Photo Here, or Browse</div>
+        <div class="dropzone-sub">Supports WebP, JPG, PNG up to 10MB</div>
+        
+        <div class="dropzone-preview-container" id="dropzonePreview">
+          <img id="newProjectPreview" src="/images/infinity-pool.jpg" alt="Preview Image">
         </div>
       </div>
 
-      <div class="admin-grid-equal-2">
-        <div>
-          <label style="font-size: 0.85rem; color: #475569;">Upload From Computer</label>
-          <input type="file" name="coverImage" id="projFileInput" class="admin-form-control" accept="image/*">
-        </div>
-        <div>
-          <label style="font-size: 0.85rem; color: #475569;">Or Paste Image URL</label>
-          <input type="url" name="imageUrl" id="projUrlInput" class="admin-form-control" placeholder="https://images.unsplash.com/...">
-        </div>
+      <div class="mt-2 text-center text-muted small">
+        <span>— Or Paste Online Photo URL —</span>
+      </div>
+      <div class="mt-2">
+        <input type="url" name="imageUrl" id="projUrlInput" class="admin-input" placeholder="https://images.unsplash.com/photo-pool...">
       </div>
     </div>
 
-    <div style="display: flex; gap: 30px; margin-bottom: 20px; align-items: center;">
-      <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600;">
-        <input type="checkbox" name="isFeatured" checked style="width: 18px; height: 18px;">
-        <span>Feature on Home Page & Highlights</span>
-      </label>
+    <div class="d-flex align-items-center gap-2 mb-4">
+      <input type="checkbox" name="isFeatured" id="isFeatured" checked class="form-check-input" style="background-color: rgba(8,11,16,0.8); border-color: #D4AF37;">
+      <label for="isFeatured" class="text-white small fw-bold cursor-pointer">Feature on Homepage Masterpiece Portfolio</label>
     </div>
 
-    <button type="submit" class="btn-sm btn-admin-primary" style="padding: 10px 22px; font-size: 0.92rem;">
-      <i class="fa-solid fa-cloud-arrow-up"></i> Save to Portfolio
+    <button type="submit" class="admin-btn-gold">
+      <i class="bi bi-check2-circle"></i> Save to Project Showcase
     </button>
   </form>
 </div>
 
-<!-- Existing Projects Table -->
-<div class="card-table">
-  <div class="card-header">
-    <h3>Existing Portfolio Projects (<%= projects ? projects.length : 0 %>)</h3>
+<!-- Existing Projects Table in Dark Glass Panel -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title mb-0">
+      <i class="bi bi-images text-gold me-2"></i> Showcase Masterpieces (<%= projects ? projects.length : 0 %>)
+    </h3>
   </div>
 
-  <div class="table-responsive">
-    <table>
+  <div class="admin-table-responsive">
+    <table class="admin-table">
       <thead>
         <tr>
-          <th>Photo</th>
+          <th>Preview</th>
           <th>Title</th>
           <th>Category</th>
           <th>Location</th>
-          <th>Size</th>
+          <th>Dimensions</th>
           <th>Year</th>
           <th>Featured</th>
-          <th>Action</th>
+          <th class="text-end">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -115,22 +122,36 @@
           <% projects.forEach(p => { %>
             <tr>
               <td>
-                <img src="<%= p.coverImage || '/images/infinity-pool.jpg' %>" alt="<%= p.title %>" style="width: 80px; height: 55px; object-fit: cover; border-radius: 6px;" onerror="this.src='/images/infinity-pool.jpg'">
+                <img src="<%= p.coverImage || '/images/infinity-pool.jpg' %>" alt="<%= p.title %>"
+                  style="width: 75px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(212,175,55,0.3);"
+                  onerror="this.src='/images/infinity-pool.jpg'">
               </td>
-              <td><strong><%= p.title %></strong></td>
-              <td><span class="badge" style="background: #e0f2fe; color: #0369a1;"><%= p.category %></span></td>
-              <td><%= p.location %></td>
-              <td><small style="color: #64748b;"><%= p.dimensions || '-' %></small></td>
-              <td><%= p.completionYear %></td>
-              <td><%= p.isFeatured ? '⭐ Yes' : 'No' %></td>
               <td>
-                <div class="action-btns">
-                  <a href="/admin/projects/<%= p._id %>/edit" class="btn-sm btn-admin-warning">
-                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                <strong class="text-white"><%= p.title %></strong>
+              </td>
+              <td>
+                <span class="admin-badge badge-azure"><%= p.category %></span>
+              </td>
+              <td class="text-muted small"><%= p.location %></td>
+              <td>
+                <span class="blueprint-badge py-0 px-2 small"><%= p.dimensions || '-' %></span>
+              </td>
+              <td class="text-muted small"><%= p.completionYear %></td>
+              <td>
+                <% if (p.isFeatured) { %>
+                  <span class="admin-badge badge-gold"><i class="bi bi-star-fill"></i> Featured</span>
+                <% } else { %>
+                  <span class="text-muted small">Standard</span>
+                <% } %>
+              </td>
+              <td class="text-end">
+                <div class="d-inline-flex gap-2">
+                  <a href="/admin/projects/<%= p._id %>/edit" class="btn btn-sm btn-outline-warning" style="border-radius: var(--admin-radius-pill); font-size: 0.78rem;">
+                    <i class="bi bi-pencil"></i> Edit
                   </a>
-                  <form action="/admin/projects/<%= p._id %>/delete" method="POST" onsubmit="return confirm('Delete this project?');" style="display: inline;">
-                    <button type="submit" class="btn-sm btn-admin-danger">
-                      <i class="fa-solid fa-trash"></i> Delete
+                  <form action="/admin/projects/<%= p._id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?');" style="display: inline;">
+                    <button type="submit" class="btn btn-sm btn-outline-danger" style="border-radius: var(--admin-radius-pill); font-size: 0.78rem;">
+                      <i class="bi bi-trash"></i>
                     </button>
                   </form>
                 </div>
@@ -139,8 +160,8 @@
           <% }) %>
         <% } else { %>
           <tr>
-            <td colspan="8" style="text-align: center; padding: 30px; color: #64748b;">
-              No projects added yet. Use the form above to add your first swimming pool project.
+            <td colspan="8" class="text-center py-4 text-muted">
+              No projects added yet. Use the upload panel above to showcase your first pool project.
             </td>
           </tr>
         <% } %>
@@ -150,11 +171,11 @@
 </div>
 
 <script>
-  // Preview image
+  // Drag and drop / URL live preview
   const projFileInput = document.getElementById('projFileInput');
   const projUrlInput = document.getElementById('projUrlInput');
   const newProjectPreview = document.getElementById('newProjectPreview');
-  const previewText = document.getElementById('previewText');
+  const dropzonePreview = document.getElementById('dropzonePreview');
 
   if (projFileInput) {
     projFileInput.addEventListener('change', function(e) {
@@ -162,8 +183,8 @@
       if (file) {
         const reader = new FileReader();
         reader.onload = function(evt) {
-          newProjectPreview.src = evt.target.result;
-          if (previewText) previewText.textContent = 'Selected: ' + file.name;
+          if (newProjectPreview) newProjectPreview.src = evt.target.result;
+          if (dropzonePreview) dropzonePreview.style.display = 'block';
         };
         reader.readAsDataURL(file);
       }
@@ -174,8 +195,8 @@
     projUrlInput.addEventListener('input', function(e) {
       const url = e.target.value.trim();
       if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
-        newProjectPreview.src = url;
-        if (previewText) previewText.textContent = 'URL: ' + url;
+        if (newProjectPreview) newProjectPreview.src = url;
+        if (dropzonePreview) dropzonePreview.style.display = 'block';
       }
     });
   }

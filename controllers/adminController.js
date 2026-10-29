@@ -611,10 +611,24 @@ exports.getSettings = async (req, res) => {
     if (!settings) {
       settings = await Setting.create({});
     }
+
+    // Auto-calculate years based on founding year 2008
+    const currentYear = new Date().getFullYear();
+    const foundingYear = settings.foundingYear || 2008;
+    const autoYears = Math.max(16, currentYear - foundingYear);
+    settings.experienceYears = settings.experienceYears 
+      ? Math.max(Number(settings.experienceYears), autoYears) 
+      : autoYears;
+    settings.autoCalculatedYears = autoYears;
+    const adminUser = req.session.admin?.id
+      ? await Admin.findById(req.session.admin.id).select('-password').lean()
+      : null;
+
     res.render('admin/settings', {
       title: 'Website Settings & Company Info',
       settings,
       admin: req.session.admin,
+      adminUser: adminUser || req.session.admin,
       activeMenu: 'settings'
     });
   } catch (error) {
@@ -673,6 +687,98 @@ exports.postSettings = async (req, res) => {
   } catch (error) {
     console.error(error);
     req.flash('error_msg', 'Failed to update website settings.');
+    res.redirect('/admin/settings');
+  }
+};
+
+// Admin Account Security & Password Change
+exports.postChangePassword = async (req, res) => {
+  try {
+    const adminId = req.session.admin && req.session.admin.id;
+    if (!adminId) {
+      req.flash('error_msg', 'Session expired. Please log in again.');
+      return res.redirect('/admin/login');
+    }
+
+    const { name, email, currentPassword, newPassword, confirmPassword } = req.body;
+
+    const admin = await Admin.findById(adminId);
+    if (!admin) {
+      req.flash('error_msg', 'Admin account not found in database.');
+      return res.redirect('/admin/settings');
+    }
+
+    let profileUpdated = false;
+    let passwordUpdated = false;
+
+    // 1. Update Display Name if provided
+    if (name && name.trim() && name.trim() !== admin.name) {
+      admin.name = name.trim();
+      profileUpdated = true;
+    }
+
+    // 2. Update Email if provided
+    if (email && email.trim() && email.trim().toLowerCase() !== admin.email) {
+      const emailLower = email.trim().toLowerCase();
+      const existing = await Admin.findOne({ email: emailLower, _id: { $ne: adminId } });
+      if (existing) {
+        req.flash('error_msg', 'This email address is already in use by another account.');
+        return res.redirect('/admin/settings');
+      }
+      admin.email = emailLower;
+      profileUpdated = true;
+    }
+
+    // 3. Password change logic
+    const wantsToChangePassword = Boolean(currentPassword || newPassword || confirmPassword);
+    if (wantsToChangePassword) {
+      if (!currentPassword) {
+        req.flash('error_msg', 'Please enter your current password to authorize a password change.');
+        return res.redirect('/admin/settings');
+      }
+
+      const isMatch = await admin.comparePassword(currentPassword);
+      if (!isMatch) {
+        req.flash('error_msg', 'The current password you entered is incorrect.');
+        return res.redirect('/admin/settings');
+      }
+
+      if (!newPassword || newPassword.length < 6) {
+        req.flash('error_msg', 'New password must be at least 6 characters long.');
+        return res.redirect('/admin/settings');
+      }
+
+      if (newPassword !== confirmPassword) {
+        req.flash('error_msg', 'New password and confirmation password do not match.');
+        return res.redirect('/admin/settings');
+      }
+
+      // Setting admin.password triggers the mongoose pre('save') hook which bcrypt hashes it
+      admin.password = newPassword;
+      passwordUpdated = true;
+    }
+
+    if (!profileUpdated && !passwordUpdated) {
+      req.flash('error_msg', 'No changes detected to update.');
+      return res.redirect('/admin/settings');
+    }
+
+    await admin.save();
+
+    // Keep active session synchronized
+    req.session.admin.name = admin.name;
+    req.session.admin.email = admin.email;
+
+    if (passwordUpdated) {
+      req.flash('success_msg', 'Admin password changed successfully! Your account is secured.');
+    } else {
+      req.flash('success_msg', 'Admin profile updated successfully.');
+    }
+
+    res.redirect('/admin/settings');
+  } catch (error) {
+    console.error('Password change error:', error);
+    req.flash('error_msg', 'An error occurred while updating admin credentials.');
     res.redirect('/admin/settings');
   }
 };

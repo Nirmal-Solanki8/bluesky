@@ -12,6 +12,8 @@ router.get('/gallery', publicController.getGallery);
 router.get('/projects', publicController.getGallery);
 router.get('/project', publicController.getGallery);
 router.get('/contact', publicController.getContact);
+router.get('/3d-survey', (req, res) => res.redirect('/contact'));
+router.get('/free-3d-survey', (req, res) => res.redirect('/contact'));
 
 // Pool types
 router.get('/pool-types', publicController.getPoolTypes);

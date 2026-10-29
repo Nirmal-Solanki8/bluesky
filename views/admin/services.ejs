@@ -1,77 +1,91 @@
 <%- include('layouts/header') %>
 
-<div class="page-title-box">
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
   <div>
-    <h1>Manage Pool Services</h1>
-    <p style="color: var(--admin-text-muted); font-size: 0.9rem;">Add or remove pool construction and maintenance services</p>
+    <h1 class="font-serif text-white display-6 fw-bold mb-1">Turnkey Pool Services</h1>
+    <p class="text-muted small mb-0">Manage monolithic civil RCC construction, hydrotherapy spas & maintenance AMC offerings</p>
   </div>
 </div>
 
-<!-- Add Service Form -->
-<div class="admin-form-card">
-  <h3 style="margin-bottom: 20px; font-size: 1.15rem; color: #0f172a;"><i class="fa-solid fa-plus-circle" style="color: #0284c7;"></i> Add New Swimming Pool Service</h3>
-  
+<!-- Add Service Card with Drag-and-Drop Image Preview -->
+<div class="admin-card mb-4">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title mb-0">
+      <i class="bi bi-plus-circle-fill text-gold me-2"></i> Add Turnkey Capability Service
+    </h3>
+  </div>
+
   <form action="/admin/services" method="POST" enctype="multipart/form-data">
-    <div class="admin-grid-2">
-      <div class="admin-form-group">
-        <label>Service Title *</label>
-        <input type="text" name="title" class="admin-form-control" placeholder="Service Title" required>
+    <div class="row g-3 mb-3">
+      <div class="col-md-8">
+        <label class="luxury-label">Service Title *</label>
+        <input type="text" name="title" class="admin-input" placeholder="e.g. Monolithic RCC Swimming Pools" required>
       </div>
 
-      <div class="admin-form-group">
-        <label>Display Order</label>
-        <input type="number" name="order" class="admin-form-control" placeholder="1" value="0">
-      </div>
-    </div>
-
-    <div class="admin-form-group">
-      <label>Short Description (Shown on Home Cards) *</label>
-      <input type="text" name="shortDescription" class="admin-form-control" placeholder="Brief summary of the service" required>
-    </div>
-
-    <div class="admin-form-group">
-      <label>Full Description *</label>
-      <textarea name="fullDescription" rows="3" class="admin-form-control" placeholder="Detailed technical description of this service..." required></textarea>
-    </div>
-
-    <div class="admin-form-group">
-      <label>Key Features (Comma separated)</label>
-      <input type="text" name="features" class="admin-form-control" placeholder="Leakproof RCC, Vanishing Edge, Glass Walls, LED Illumination">
-    </div>
-
-    <div class="admin-grid-equal-2">
-      <div class="admin-form-group">
-        <label>Upload Service Photo</label>
-        <input type="file" name="image" class="admin-form-control" accept="image/*">
-      </div>
-
-      <div class="admin-form-group">
-        <label>Or Image URL</label>
-        <input type="url" name="imageUrl" class="admin-form-control" placeholder="https://images.unsplash.com/...">
+      <div class="col-md-4">
+        <label class="luxury-label">Display Order</label>
+        <input type="number" name="order" class="admin-input" placeholder="1" value="0">
       </div>
     </div>
 
-    <button type="submit" class="btn-sm btn-admin-primary" style="padding: 10px 20px; font-size: 0.9rem;">
-      <i class="fa-solid fa-cloud-arrow-up"></i> Save Service
+    <div class="mb-3">
+      <label class="luxury-label">Short Summary (Shown on homepage bento cards) *</label>
+      <input type="text" name="shortDescription" class="admin-input" placeholder="Bespoke turnkey RCC construction, structural leakproofing & FINA engineering" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="luxury-label">Full Technical Scope & Engineering Description *</label>
+      <textarea name="fullDescription" rows="3" class="admin-textarea" placeholder="Comprehensive description of excavation, shuttering, dual rebar cage, waterproofing..." required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="luxury-label">Key Highlights / Features (Comma separated)</label>
+      <input type="text" name="features" class="admin-input" placeholder="M-30 Concrete, 72h Ponding Test, Variable Speed Pumps, RGBW LED Illumination">
+    </div>
+
+    <!-- Drag-and-Drop File Upload Zone -->
+    <div class="mb-4">
+      <label class="luxury-label mb-2">Service Cover Imagery</label>
+      <div class="admin-dropzone" id="serviceDropzone">
+        <input type="file" name="image" id="srvFileInput" class="admin-dropzone-input" accept="image/*">
+        <div class="dropzone-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+        <div class="dropzone-title">Drag & Drop Service Photo Here, or Browse</div>
+        <div class="dropzone-sub">Supports WebP, JPG, PNG up to 10MB</div>
+        <div class="dropzone-preview-container" id="srvDropzonePreview">
+          <img id="newSrvPreview" src="/images/private-pool-hero.webp" alt="Preview Image">
+        </div>
+      </div>
+      <div class="mt-2 text-center text-muted small">
+        <span>— Or Paste Online Photo URL —</span>
+      </div>
+      <div class="mt-2">
+        <input type="url" name="imageUrl" id="srvUrlInput" class="admin-input" placeholder="https://images.unsplash.com/photo-pool...">
+      </div>
+    </div>
+
+    <button type="submit" class="admin-btn-gold">
+      <i class="bi bi-check2-circle"></i> Save Turnkey Service
     </button>
   </form>
 </div>
 
-<!-- Existing Services Table -->
-<div class="card-table">
-  <div class="card-header">
-    <h3>Existing Services (<%= services.length %>)</h3>
+<!-- Services Table in Dark Glass Panel -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title mb-0">
+      <i class="bi bi-tools text-gold me-2"></i> Active Turnkey Services (<%= services.length %>)
+    </h3>
   </div>
 
-  <div class="table-responsive">
-    <table>
+  <div class="admin-table-responsive">
+    <table class="admin-table">
       <thead>
         <tr>
-          <th>Image</th>
-          <th>Title</th>
-          <th>Short Description</th>
-          <th>Features</th>
-          <th>Action</th>
+          <th>Preview</th>
+          <th>Service Title</th>
+          <th>Summary</th>
+          <th>Technical Features</th>
+          <th class="text-end">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -79,25 +93,35 @@
           <% services.forEach(s => { %>
             <tr>
               <td>
-                <img src="<%= s.image || '/images/infinity-pool.jpg' %>" alt="<%= s.title %>" style="width: 70px; height: 50px; object-fit: cover; border-radius: 6px;" onerror="this.src='/images/infinity-pool.jpg'">
-              </td>
-              <td><strong><%= s.title %></strong></td>
-              <td style="max-width: 300px; font-size: 0.88rem; color: #475569;"><%= s.shortDescription %></td>
-              <td style="font-size: 0.82rem;">
-                <% if (s.features && s.features.length > 0) { %>
-                  <%= s.features.join(', ') %>
-                <% } else { %>
-                  -
-                <% } %>
+                <img src="<%= s.image || '/images/infinity-pool.jpg' %>" alt="<%= s.title %>"
+                  style="width: 75px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(212,175,55,0.3);"
+                  onerror="this.src='/images/infinity-pool.jpg'">
               </td>
               <td>
-                <div class="action-btns">
-                  <a href="/admin/services/<%= s._id %>/edit" class="btn-sm btn-admin-warning">
-                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                <strong class="text-white"><%= s.title %></strong>
+              </td>
+              <td class="text-muted small" style="max-width: 280px; line-height: 1.5;">
+                <%= s.shortDescription %>
+              </td>
+              <td>
+                <% if (s.features && s.features.length > 0) { %>
+                  <div class="d-flex flex-wrap gap-1">
+                    <% s.features.forEach(feat => { %>
+                      <span class="blueprint-badge py-0 px-2 small"><%= feat %></span>
+                    <% }) %>
+                  </div>
+                <% } else { %>
+                  <span class="text-muted small">-</span>
+                <% } %>
+              </td>
+              <td class="text-end">
+                <div class="d-inline-flex gap-2">
+                  <a href="/admin/services/<%= s._id %>/edit" class="btn btn-sm btn-outline-warning" style="border-radius: var(--admin-radius-pill); font-size: 0.78rem;">
+                    <i class="bi bi-pencil"></i> Edit
                   </a>
                   <form action="/admin/services/<%= s._id %>/delete" method="POST" onsubmit="return confirm('Delete this service?');" style="display: inline;">
-                    <button type="submit" class="btn-sm btn-admin-danger">
-                      <i class="fa-solid fa-trash"></i> Delete
+                    <button type="submit" class="btn btn-sm btn-outline-danger" style="border-radius: var(--admin-radius-pill); font-size: 0.78rem;">
+                      <i class="bi bi-trash"></i>
                     </button>
                   </form>
                 </div>
@@ -106,8 +130,8 @@
           <% }) %>
         <% } else { %>
           <tr>
-            <td colspan="5" style="text-align: center; padding: 30px; color: #64748b;">
-              No services added yet. Fill the form above to add your first service.
+            <td colspan="5" class="text-center py-4 text-muted">
+              No services registered. Add a turnkey pool service using the form above.
             </td>
           </tr>
         <% } %>
@@ -115,5 +139,36 @@
     </table>
   </div>
 </div>
+
+<script>
+  const srvFileInput = document.getElementById('srvFileInput');
+  const srvUrlInput = document.getElementById('srvUrlInput');
+  const newSrvPreview = document.getElementById('newSrvPreview');
+  const srvDropzonePreview = document.getElementById('srvDropzonePreview');
+
+  if (srvFileInput) {
+    srvFileInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          if (newSrvPreview) newSrvPreview.src = evt.target.result;
+          if (srvDropzonePreview) srvDropzonePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+
+  if (srvUrlInput) {
+    srvUrlInput.addEventListener('input', function(e) {
+      const url = e.target.value.trim();
+      if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+        if (newSrvPreview) newSrvPreview.src = url;
+        if (srvDropzonePreview) srvDropzonePreview.style.display = 'block';
+      }
+    });
+  }
+</script>
 
 <%- include('layouts/footer') %>

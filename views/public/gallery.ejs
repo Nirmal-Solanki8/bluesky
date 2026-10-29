@@ -1,68 +1,332 @@
 <%- include('layouts/header') %>
 
-  <section class="page-hero-cinematic">
-    <div class="page-hero-bg" style="background-image: url('/images/infinity-pool.jpg');"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="container" style="position: relative; z-index: 10;">
-      <span class="section-tag-gold" style="margin-bottom: 16px; display: inline-flex;"><i class="fa-solid fa-trophy"></i> Masterpiece Portfolio</span>
-      <h1 class="page-hero-title">
-        Our Completed <span class="text-glow-gradient">Projects</span>
-      </h1>
-      <p class="page-hero-desc">
-        Explore our portfolio of bespoke residential, commercial, luxury resort & infinity pools crafted with precision engineering.
-      </p>
+<!-- Cinematic Hero -->
+<section class="page-hero-cinematic">
+  <div class="page-hero-bg" style="background-image: url('/images/infinity-pool.webp');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container position-relative" style="z-index: 10;">
+    <div class="section-tag-luxury mb-3">
+      <i class="bi bi-award-fill"></i> Architectural Monolithic Portfolio
     </div>
-  </section>
+    <h1 class="font-serif text-white display-5 fw-bold mb-3">
+      Masterpiece Portfolio & <span class="text-gradient-gold">Project Showcase</span>
+    </h1>
+    <p class="luxury-subtext mb-0">
+      Explore our signature portfolio of turnkey luxury villa pools, vanishing edge resort horizons, cantilevered rooftop sky pools, and bespoke hydrotherapy spas built across Gujarat and Western India.
+    </p>
+  </div>
+</section>
 
-  <section class="section" style="padding: 70px 0 100px;">
-    <div class="container">
-      <!-- Category filter buttons -->
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 50px;">
-        <a href="/gallery" class="filter-pill <%= selectedCategory === 'all' ? 'active' : '' %>">All Pools</a>
-        <% categories.forEach(cat=> { %>
+<!-- Luxury Architectural Stats Strip -->
+<div class="container-wide my-4">
+  <div class="luxury-stats-strip">
+    <div class="luxury-stat-card">
+      <div class="luxury-stat-num">150+</div>
+      <div class="luxury-stat-label">Architectural Pools Built</div>
+      <p class="text-muted small mb-0 mt-1">Across Surat, Navsari, Ahmedabad & Mumbai</p>
+    </div>
+    <div class="luxury-stat-card">
+      <div class="luxury-stat-num">15-Yr</div>
+      <div class="luxury-stat-label">RCC Structural Guarantee</div>
+      <p class="text-muted small mb-0 mt-1">Engineered monolithic casting standard</p>
+    </div>
+    <div class="luxury-stat-card">
+      <div class="luxury-stat-num">100%</div>
+      <div class="luxury-stat-label">Zero-Seepage Hydrostatic Record</div>
+      <p class="text-muted small mb-0 mt-1">Quad-layer crystalline waterproofing barrier</p>
+    </div>
+    <div class="luxury-stat-card">
+      <div class="luxury-stat-num">3D CAD</div>
+      <div class="luxury-stat-label">Laser Site Survey & Elevation</div>
+      <p class="text-muted small mb-0 mt-1">Photorealistic architectural renders</p>
+    </div>
+  </div>
+</div>
+
+<!-- Main Gallery Section -->
+<section class="section py-5">
+  <div class="container-wide">
+    
+    <!-- Header & Category Filter Bar -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+      <div>
+        <span class="blueprint-badge blueprint-badge-gold mb-2 d-inline-block">Curated Classifications</span>
+        <h2 class="font-serif text-white fs-2 mb-0">Select Project Category</h2>
+      </div>
+      <div class="text-muted small">
+        <i class="bi bi-shield-check text-gold me-1"></i> Tap any project card for high-resolution architectural inspection
+      </div>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="luxury-filter-bar mb-5">
+      <a href="/gallery" class="luxury-filter-btn <%= selectedCategory === 'all' ? 'active' : '' %>">
+        <i class="bi bi-grid-fill me-1"></i> All Masterpieces
+      </a>
+      <% if (typeof categories !== 'undefined' && categories && categories.length > 0) { %>
+        <% categories.forEach(cat => { %>
           <a href="/gallery?category=<%= encodeURIComponent(cat) %>"
-            class="filter-pill <%= selectedCategory === cat ? 'active' : '' %>">
+            class="luxury-filter-btn <%= selectedCategory === cat ? 'active' : '' %>">
             <%= cat %>
           </a>
-          <% }) %>
-      </div>
+        <% }) %>
+      <% } else { %>
+        <a href="/gallery?category=Residential%20Villa%20Pools" class="luxury-filter-btn">Residential Villa</a>
+        <a href="/gallery?category=Infinity%20Edge%20Pools" class="luxury-filter-btn">Infinity Edge</a>
+        <a href="/gallery?category=Commercial%20%26%20Hotel%20Pools" class="luxury-filter-btn">Resort & Commercial</a>
+        <a href="/gallery?category=Rooftop%20Pools" class="luxury-filter-btn">Rooftop Sky Pools</a>
+      <% } %>
+    </div>
 
-      <div class="grid-3">
-        <% if (projects && projects.length> 0) { %>
-          <% projects.forEach(project=> { %>
-            <div class="portfolio-card">
-              <img src="<%= project.coverImage || '/images/infinity-pool.jpg' %>"
-                alt="<%= project.title || 'Luxury Swimming Pool' %>" class="portfolio-img" loading="lazy"
-                decoding="async" onerror="this.src='/images/infinity-pool.jpg'">
-              <div class="portfolio-overlay">
-                <span class="portfolio-category">
-                  <%= project.category %>
-                </span>
-                <h3 class="portfolio-title">
-                  <%= project.title %>
-                </h3>
-                <div class="portfolio-meta">
-                  <i class="fa-solid fa-location-dot" style="color: var(--brand-yellow);"></i>
-                  <%= project.location %> • <%= project.completionYear %>
-                      <% if (project.dimensions) { %>
-                        <span
-                          style="margin-left: auto; font-size: 0.78rem; opacity: 0.9; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px;">
-                          <%= project.dimensions %>
-                        </span>
-                        <% } %>
+    <!-- Masonry / Responsive Grid with 3D Tilt & Lightbox -->
+    <div class="row g-4">
+      <% if (typeof projects !== 'undefined' && projects && projects.length > 0) { %>
+        <% projects.forEach(project => { %>
+          <div class="col-lg-4 col-md-6">
+            <div class="portfolio-home-card tilt-card-3d h-100" 
+                 onclick="window.openLuxuryLightbox('<%= project.coverImage || '/images/infinity-pool.webp' %>', '<%= project.title %>', '<%= project.category %>')"
+                 style="cursor: pointer; border-radius: 16px; overflow: hidden; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2);">
+              
+              <div class="position-relative" style="height: 280px; overflow: hidden;">
+                <img src="<%= project.coverImage || '/images/infinity-pool.webp' %>"
+                  alt="<%= project.title || 'Luxury Swimming Pool' %>" class="portfolio-home-img w-100 h-100"
+                  loading="lazy" decoding="async" onerror="this.src='/images/infinity-pool.webp'"
+                  style="object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+                
+                <div class="position-absolute top-0 start-0 m-3 d-flex flex-wrap gap-2">
+                  <span class="portfolio-home-tag m-0">
+                    <%= project.category %>
+                  </span>
+                  <% if (project.dimensions) { %>
+                    <span class="blueprint-badge blueprint-badge-gold py-1 px-2" style="font-size: 0.75rem;">
+                      <i class="bi bi-rulers me-1"></i><%= project.dimensions %>
+                    </span>
+                  <% } %>
+                </div>
+
+                <div class="position-absolute bottom-0 end-0 m-3">
+                  <span class="btn btn-sm btn-dark rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: rgba(8, 11, 16, 0.85); border: 1px solid rgba(212, 175, 55, 0.4); color: var(--gold-champagne);">
+                    <i class="bi bi-zoom-in"></i>
+                  </span>
                 </div>
               </div>
-            </div>
-            <% }) %>
-              <% } else { %>
-                <div style="text-align: center; grid-column: 1/-1; padding: 60px 20px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-subtle);">
-                  <i class="fa-solid fa-images" style="font-size: 3rem; color: var(--brand-cyan); opacity: 0.5; margin-bottom: 16px; display: block;"></i>
-                  <h3 style="color: var(--text-main); margin-bottom: 8px;">No projects found</h3>
-                  <p style="color: var(--text-muted); font-size: 0.95rem;">No projects listed under this category at the moment.</p>
+
+              <div class="p-4 d-flex flex-column justify-content-between" style="background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(8, 11, 16, 0.98) 100%);">
+                <div>
+                  <h3 class="font-serif text-white fs-5 fw-bold mb-2">
+                    <%= project.title %>
+                  </h3>
+                  <div class="d-flex align-items-center text-muted small mb-3">
+                    <i class="bi bi-geo-alt text-gold me-1"></i>
+                    <span><%= project.location || 'Gujarat, India' %></span>
+                    <% if (project.completionYear) { %>
+                      <span class="mx-2 text-secondary">•</span>
+                      <span>Completed <%= project.completionYear %></span>
+                    <% } %>
+                  </div>
                 </div>
-                <% } %>
+
+                <div class="pt-3 border-top border-secondary border-opacity-25 d-flex align-items-center justify-content-between">
+                  <span class="text-gold small fw-semibold">
+                    <i class="bi bi-shield-check me-1"></i> Monolithic Turnkey
+                  </span>
+                  <span class="text-white small d-inline-flex align-items-center gap-1 hover-gold">
+                    View Blueprint <i class="bi bi-arrow-right text-gold"></i>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="col-12 text-center py-5">
+          <div class="glass-card p-5 max-w-700 mx-auto">
+            <i class="bi bi-images text-gold fs-1 d-block mb-3"></i>
+            <h3 class="font-serif text-white mb-2">No Projects Listed In This Category</h3>
+            <p class="text-muted">We have custom private portfolios available under strict client NDA. Contact our lead architect for private archival presentations.</p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <a href="/gallery" class="luxury-cta-btn">View All Projects</a>
+              <a href="/contact" class="luxury-cta-btn luxury-cta-secondary">Request Private Portfolio</a>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+  </div>
+</section>
+
+<!-- Architectural Benchmark Standards Bento Grid -->
+<section class="section py-5 position-relative" style="background: rgba(11, 17, 33, 0.5); border-top: 1px solid rgba(212, 175, 55, 0.15); border-bottom: 1px solid rgba(212, 175, 55, 0.15);">
+  <div class="container-wide">
+    <div class="text-center max-w-700 mx-auto mb-5">
+      <span class="blueprint-badge blueprint-badge-gold mb-2 d-inline-block">Structural Superiority</span>
+      <h2 class="font-serif text-white display-6 fw-bold mb-3">The Architectural Anatomy of Our Pools</h2>
+      <p class="text-muted">Every Blue Sky swimming pool is designed to perform for half a century without settlement cracks, tile debonding, or water loss.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="glass-card p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div style="width: 46px; height: 46px; border-radius: 12px; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: center; color: var(--gold-champagne); font-size: 1.3rem;">
+              <i class="bi bi-layers-fill"></i>
+            </div>
+            <h4 class="font-serif text-white fs-5 mb-0">M30 Monolithic RCC Shell</h4>
+          </div>
+          <p class="text-muted small mb-3">Continuous concrete pour eliminates cold joints and structural shear stress. High-grade Fe500 TMT steel cages engineered for expansive clay soils.</p>
+          <ul class="list-unstyled text-muted small d-flex flex-column gap-1 mb-0">
+            <li><i class="bi bi-check2 text-gold me-2"></i>IS 456 & IS 3370 Compliance</li>
+            <li><i class="bi bi-check2 text-gold me-2"></i>15-Year Structural Integrity Warranty</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="glass-card p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div style="width: 46px; height: 46px; border-radius: 12px; background: rgba(2, 132, 199, 0.15); border: 1px solid rgba(2, 132, 199, 0.3); display: flex; align-items: center; justify-content: center; color: #38bdf8; font-size: 1.3rem;">
+              <i class="bi bi-droplet-half"></i>
+            </div>
+            <h4 class="font-serif text-white fs-5 mb-0">Quad-Barrier Waterproofing</h4>
+          </div>
+          <p class="text-muted small mb-3">Polymer-modified cementitious elastomeric membrane with crystalline penetration prevents internal hydrostatic pressure failure.</p>
+          <ul class="list-unstyled text-muted small d-flex flex-column gap-1 mb-0">
+            <li><i class="bi bi-check2 text-gold me-2"></i>4-Day Mandatory Water Ponding Test</li>
+            <li><i class="bi bi-check2 text-gold me-2"></i>Chemical resistant epoxy tile grouting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="glass-card p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div style="width: 46px; height: 46px; border-radius: 12px; background: rgba(0, 245, 212, 0.15); border: 1px solid rgba(0, 245, 212, 0.3); display: flex; align-items: center; justify-content: center; color: #00F5D4; font-size: 1.3rem;">
+              <i class="bi bi-sliders"></i>
+            </div>
+            <h4 class="font-serif text-white fs-5 mb-0">German Hydraulic Automation</h4>
+          </div>
+          <p class="text-muted small mb-3">Commercial sand filtration with AFM glass media, whisper-quiet variable speed pumps, and smartphone-controlled RGBW underwater lighting.</p>
+          <ul class="list-unstyled text-muted small d-flex flex-column gap-1 mb-0">
+            <li><i class="bi bi-check2 text-gold me-2"></i>Salt chlorination & UV ozone sanitization</li>
+            <li><i class="bi bi-check2 text-gold me-2"></i>70% Lower power consumption</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <%- include('layouts/footer') %>
+<!-- Direct Consultation Form Section -->
+<section class="section py-5" id="quote-form">
+  <div class="container-wide">
+    <div class="row g-5 align-items-center">
+      
+      <div class="col-lg-5">
+        <div class="section-tag-luxury mb-3">
+          <i class="bi bi-compass"></i> Turnkey Masterpiece Inquiries
+        </div>
+        <h2 class="font-serif text-white display-6 fw-bold mb-3">
+          Commission Your <span class="text-gradient-gold">Bespoke Pool</span>
+        </h2>
+        <p class="text-muted mb-4" style="line-height: 1.7;">
+          Every project featured in our portfolio started with a single conversation. Schedule a laser site survey with our lead civil architect to assess plot topography, soil bearing capacity, and 3D architectural feasibility.
+        </p>
+
+        <div class="glass-card p-4 mb-4">
+          <div class="d-flex align-items-center gap-3">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold-champagne); display: flex; align-items: center; justify-content: center; color: var(--gold-champagne); font-size: 1.4rem;">
+              <i class="bi bi-compass"></i>
+            </div>
+            <div>
+              <span class="text-muted small d-block">Surat Design Studio</span>
+              <span class="text-white fs-6 fw-bold">Turnkey Architectural Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <a href="https://wa.me/918128920702?text=Hello%20Blue%20Sky,%20I%20am%20interested%20in%20a%20swimming%20pool%20project%20similar%20to%20your%20portfolio." target="_blank" rel="noopener noreferrer" class="btn btn-success rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2">
+            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+          </a>
+          <span class="text-muted small">Avg reply under 15 minutes</span>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="luxury-form-card">
+          <h3 class="font-serif text-white mb-2 fs-4">
+            Request Architectural Estimation
+          </h3>
+          <p class="text-muted small mb-4">
+            Share preliminary details for a customized itemized estimate and 3D design blueprint.
+          </p>
+
+          <form action="/inquiry" method="POST">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="portfolio-name" class="luxury-label">Full Name *</label>
+                <input type="text" id="portfolio-name" name="name" class="luxury-input" placeholder="Your Name" required autocomplete="name">
+              </div>
+
+              <div class="col-md-6">
+                <label for="portfolio-phone" class="luxury-label">Phone / WhatsApp *</label>
+                <input type="tel" id="portfolio-phone" name="phone" class="luxury-input" placeholder="Enter 10-digit mobile number" required autocomplete="tel">
+              </div>
+
+              <div class="col-md-6">
+                <label for="portfolio-city" class="luxury-label">Site City / Location *</label>
+                <input type="text" id="portfolio-city" name="city" class="luxury-input" placeholder="Surat, Navsari, Ahmedabad..." required autocomplete="address-level2">
+              </div>
+
+              <div class="col-md-6">
+                <label for="portfolio-type" class="luxury-label">Pool Archetype</label>
+                <select id="portfolio-type" name="poolType" class="luxury-select">
+                  <option value="Residential Villa Pool">Luxury Residential Villa Pool</option>
+                  <option value="Vanishing Edge Infinity Pool">Vanishing Edge Horizon Pool</option>
+                  <option value="Commercial & Resort Pool">Commercial & Resort Pool</option>
+                  <option value="Rooftop / Terrace Sky Pool">Rooftop Glass Sky Pool</option>
+                  <option value="Deck-Level Overflow Mirror Pool">Deck-Level Overflow Mirror Pool</option>
+                  <option value="Readymade FRP Pool">Readymade FRP Fiberglass Pool</option>
+                  <option value="Pool Renovation & Retiling">Pool Renovation & Retiling</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label for="portfolio-dimensions" class="luxury-label">Approximate Size / Plot Area</label>
+                <input type="text" id="portfolio-dimensions" name="poolDimensions" class="luxury-input" placeholder="e.g. 35' x 16' (or 600 sq.ft)">
+              </div>
+
+              <div class="col-md-6">
+                <label for="portfolio-budget" class="luxury-label">Target Investment Tier</label>
+                <select id="portfolio-budget" name="budget" class="luxury-select">
+                  <option value="">Select Target Budget</option>
+                  <option value="₹10L - ₹20L">₹10 Lakhs - ₹20 Lakhs</option>
+                  <option value="₹20L - ₹40L">₹20 Lakhs - ₹40 Lakhs (Residential Standard)</option>
+                  <option value="₹40L - ₹75L">₹40 Lakhs - ₹75 Lakhs (Infinity / Resort)</option>
+                  <option value="₹75L+">₹75 Lakhs+ (Ultra Luxury Estate)</option>
+                  <option value="Need Site Survey">Need On-Site Consultation First</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="portfolio-message" class="luxury-label">Project Vision / Special Features</label>
+                <textarea id="portfolio-message" name="message" rows="3" class="luxury-textarea" placeholder="Describe any specific elements: overflow channel, glass wall, sunken seating, jacuzzi jets, heating..."></textarea>
+              </div>
+
+              <div class="col-12 pt-2">
+                <button type="submit" class="luxury-cta-btn w-100 justify-content-center" style="padding: 14px; font-size: 1rem;">
+                  <i class="bi bi-send-fill"></i> Submit Project Blueprint Request
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<%- include('layouts/footer') %>

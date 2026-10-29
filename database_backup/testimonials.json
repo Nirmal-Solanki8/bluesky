@@ -1,0 +1,80 @@
+[
+  {
+    "_id": "6acfb2e3a1495491a549c1be",
+    "clientName": "Rajesh & Meena Shah",
+    "designation": "Villa Owner",
+    "location": "Katargam, Surat",
+    "rating": 5,
+    "review": "Bluesky International built our Katargam villa infinity pool in record time. The leakproof concrete structure and automated saltwater chlorination are flawless!",
+    "avatar": "/images/default-avatar.png",
+    "isApproved": true,
+    "__v": 0,
+    "createdAt": "2026-10-14T16:50:43.832Z",
+    "updatedAt": "2026-10-14T16:50:43.832Z"
+  },
+  {
+    "_id": "6acfb2e3a1495491a549c1bf",
+    "clientName": "Harish Patel",
+    "designation": "Estate Owner",
+    "location": "Bodakdev, Ahmedabad",
+    "rating": 5,
+    "review": "Their 16 years of expertise clearly shows. From 3D CAD modeling to the Spanish glass mosaic finish, everything was delivered turnkey with absolute professionalism.",
+    "avatar": "/images/default-avatar.png",
+    "isApproved": true,
+    "__v": 0,
+    "createdAt": "2026-10-14T16:50:43.832Z",
+    "updatedAt": "2026-10-14T16:50:43.832Z"
+  },
+  {
+    "_id": "6acfb2e3a1495491a549c1c0",
+    "clientName": "Sanjay Verma",
+    "designation": "Managing Director",
+    "location": "Verma Heritage Resort, Mumbai",
+    "rating": 5,
+    "review": "Outstanding commercial resort swimming pool engineering. The high-rate sand filtration pumps and zero-edge deck gutters keep the water crystal clear 24/7.",
+    "avatar": "/images/default-avatar.png",
+    "isApproved": true,
+    "__v": 0,
+    "createdAt": "2026-10-14T16:50:43.833Z",
+    "updatedAt": "2026-10-14T16:50:43.833Z"
+  },
+  {
+    "_id": "6acfb2e3a1495491a549c1c1",
+    "clientName": "Amit Trivedi",
+    "designation": "Farmhouse Owner",
+    "location": "Sanand, Ahmedabad",
+    "rating": 5,
+    "review": "Superb craftsmanship and hydraulic knowledge. The negative edge infinity wall merges directly into our landscape garden. Highly recommended for turnkey luxury.",
+    "avatar": "/images/default-avatar.png",
+    "isApproved": true,
+    "__v": 0,
+    "createdAt": "2026-10-14T16:50:43.833Z",
+    "updatedAt": "2026-10-14T16:50:43.833Z"
+  },
+  {
+    "_id": "6acfb53053af3c631b6d826d",
+    "clientName": "Kishore Bhai Patel",
+    "designation": "Estate Owner",
+    "location": "Navsari, Gujarat",
+    "rating": 5,
+    "review": "Bluesky International completed our farmhouse pool with exceptional elegance and precision!",
+    "avatar": "/images/default-avatar.png",
+    "isApproved": true,
+    "createdAt": "2026-10-14T17:00:32.076Z",
+    "updatedAt": "2026-10-14T17:00:32.076Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acfba18fae3b37d05f10591",
+    "clientName": "Kishore Bhai Patel",
+    "designation": "Estate Owner",
+    "location": "Navsari, Gujarat",
+    "rating": 5,
+    "review": "Bluesky International completed our farmhouse pool with exceptional elegance and precision!",
+    "avatar": "/images/default-avatar.png",
+    "isApproved": true,
+    "createdAt": "2026-10-14T17:21:28.398Z",
+    "updatedAt": "2026-10-14T17:21:28.398Z",
+    "__v": 0
+  }
+]

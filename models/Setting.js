@@ -25,6 +25,10 @@ const settingSchema = new mongoose.Schema({
     type: String,
     default: 'A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat 395004'
   },
+  foundingYear: {
+    type: Number,
+    default: 2008
+  },
   experienceYears: {
     type: Number,
     default: 16

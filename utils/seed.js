@@ -41,7 +41,8 @@ const seedDB = async () => {
     settings.whatsapp = '+91 81289 20702';
     settings.email = 'pritesh029@gmail.com';
     settings.address = 'A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat 395004';
-    settings.experienceYears = 16;
+    settings.foundingYear = 2008;
+    settings.experienceYears = Math.max(16, new Date().getFullYear() - 2008);
     settings.poolsBuilt = 720;
     settings.happyClients = 680;
     settings.maintenanceContracts = 150;

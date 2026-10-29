@@ -48,9 +48,10 @@ router.get('/testimonials/:id/edit', isAuthenticated, adminController.getEditTes
 router.post('/testimonials/:id/edit', isAuthenticated, adminController.postEditTestimonial);
 router.post('/testimonials/:id/delete', isAuthenticated, adminController.deleteTestimonial);
 
-// Settings
+// Settings & Security
 router.get('/settings', isAuthenticated, adminController.getSettings);
 router.post('/settings', isAuthenticated, adminController.postSettings);
+router.post('/settings/password', isAuthenticated, adminController.postChangePassword);
 
 module.exports = router;
 

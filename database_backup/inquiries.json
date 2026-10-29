@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "6acfb820fae3b37d05f1056e",
+    "name": "Rohan Sharma",
+    "phone": "+91 98250 12345",
+    "email": "",
+    "poolType": "Vanishing Edge Infinity Pool",
+    "poolDimensions": "35 x 18 ft",
+    "city": "Surat",
+    "budget": "₹15L - ₹30L",
+    "message": "Quotation requested for Vanishing Edge Infinity Pool. Dimensions: 35 x 18 ft, City: Surat, Budget: ₹15L - ₹30L.",
+    "status": "New",
+    "adminNotes": "",
+    "createdAt": "2026-10-14T17:13:04.500Z",
+    "updatedAt": "2026-10-14T17:13:04.500Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acfba0cfae3b37d05f10575",
+    "name": "Rohan Sharma",
+    "phone": "+91 98250 12345",
+    "email": "",
+    "poolType": "Vanishing Edge Infinity Pool",
+    "poolDimensions": "35 x 18 ft",
+    "city": "Surat",
+    "budget": "₹15L - ₹30L",
+    "message": "Quotation requested for Vanishing Edge Infinity Pool. Dimensions: 35 x 18 ft, City: Surat, Budget: ₹15L - ₹30L.",
+    "status": "New",
+    "adminNotes": "",
+    "createdAt": "2026-10-14T17:21:16.959Z",
+    "updatedAt": "2026-10-14T17:21:16.959Z",
+    "__v": 0
+  },
+  {
+    "_id": "6adb7d16e8bd64167a819194",
+    "name": "Test Customer",
+    "phone": "9876543210",
+    "email": "",
+    "poolType": "Private Swimming Pool",
+    "poolDimensions": "24ft x 12ft (288 sq.ft, ~36,700 Liters)",
+    "city": "Surat",
+    "budget": "",
+    "message": "Testing instant calculation inquiry submission",
+    "status": "New",
+    "adminNotes": "",
+    "createdAt": "2026-10-23T15:28:22.946Z",
+    "updatedAt": "2026-10-23T15:28:22.946Z",
+    "__v": 0
+  }
+]

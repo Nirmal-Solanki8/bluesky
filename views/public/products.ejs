@@ -1,91 +1,362 @@
 <%- include('layouts/header') %>
 
-  <!-- Page Hero Banner -->
-  <section class="page-hero-cinematic">
-    <div class="page-hero-bg" style="background-image: url('/images/resort-pool.jpg');"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="container" style="position: relative; z-index: 10;">
-      <span class="section-tag-gold" style="margin-bottom: 18px; display: inline-flex;">
-        <i class="fa-solid fa-gears"></i> High-Performance Hardware
-      </span>
-      <h1 class="page-hero-title">
-        Pool Equipment & <span class="text-glow-gradient">Technology</span>
-      </h1>
-      <p class="page-hero-desc">
-        Commercial-grade sand filters, variable speed inverter pumps, robotic suction cleaners, and architectural RGBW underwater LED illumination.
-      </p>
+<!-- Cinematic Hero -->
+<section class="page-hero-cinematic">
+  <div class="page-hero-bg" style="background-image: url('/images/resort-pool.webp');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container position-relative" style="z-index: 10;">
+    <div class="section-tag-luxury mb-3">
+      <i class="bi bi-cpu-fill"></i> Hydraulic Engineering & Smart Hardware
     </div>
-  </section>
+    <h1 class="font-serif text-white display-5 fw-bold mb-3">
+      Commercial Pool Equipment & <span class="text-gradient-gold">Filtration Systems</span>
+    </h1>
+    <p class="luxury-subtext mb-0">
+      Engineered for crystal-clear optical water clarity and whisper-quiet operation. We supply and commission certified European & American pumps, activated AFM glass filtration, titanium heat pumps, and IP68 RGBW LED fixtures.
+    </p>
+  </div>
+</section>
 
-  <!-- Products Catalog -->
-  <section class="section" style="background: var(--bg-main);">
-    <div class="container-wide">
-      <!-- Category filter buttons -->
-      <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 45px;">
-        <a href="/products" class="filter-pill <%= selectedCategory === 'all' ? 'active' : '' %>">
-          All Products
-        </a>
+<!-- Hydraulic Engineering Metrics Strip -->
+<div class="container-wide my-4">
+  <div class="luxury-stats-strip">
+    <div class="luxury-stat-card">
+      <div class="luxury-stat-num">99.8%</div>
+      <div class="luxury-stat-label">Optical Water Clarity</div>
+      <p class="text-muted small mb-0 mt-1">Sub-5 micron activated glass media filtration</p>
+    </div>
+    <div class="luxury-stat-card">
+      <div class="luxury-stat-num">70%</div>
+      <div class="luxury-stat-label">Power Conservation</div>
+      <p class="text-muted small mb-0 mt-1">Variable frequency Italian inverter drives</p>
+    </div>
+    <div class="luxury-stat-card">
+      <div class="luxury-stat-num">50,000h</div>
+      <div class="luxury-stat-label">LED Illumination Rating</div>
+      <p class="text-muted small mb-0 mt-1">Resin-filled IP68 waterproof underwater chips</p>
+    </div>
+    <div class="luxury-stat-card">
+      <div class="luxury-stat-num">100%</div>
+      <div class="luxury-stat-label">OEM Genuine Parts & Service</div>
+      <p class="text-muted small mb-0 mt-1">Direct manufacturer authorization & spares</p>
+    </div>
+  </div>
+</div>
+
+<!-- Products Catalog Section -->
+<section class="section py-5">
+  <div class="container-wide">
+    
+    <!-- Section Header & Filter -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+      <div>
+        <span class="blueprint-badge blueprint-badge-gold mb-2 d-inline-block">Hardware Catalog</span>
+        <h2 class="font-serif text-white fs-2 mb-0">Select Equipment Category</h2>
+      </div>
+      <div class="text-muted small">
+        <i class="bi bi-patch-check-fill text-gold me-1"></i> All hardware tested for high-salinity & tropical conditions
+      </div>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="luxury-filter-bar mb-5">
+      <a href="/products" class="luxury-filter-btn <%= selectedCategory === 'all' ? 'active' : '' %>">
+        <i class="bi bi-grid-fill me-1"></i> All Equipment
+      </a>
+      <% if (typeof categories !== 'undefined' && categories && categories.length > 0) { %>
         <% categories.forEach(cat => { %>
           <a href="/products?category=<%= encodeURIComponent(cat) %>"
-            class="filter-pill <%= selectedCategory === cat ? 'active' : '' %>">
+            class="luxury-filter-btn <%= selectedCategory === cat ? 'active' : '' %>">
             <%= cat %>
           </a>
         <% }) %>
-      </div>
+      <% } else { %>
+        <a href="/products?category=Pool%20Filtration%20%26%20Pumps" class="luxury-filter-btn">Filtration & Pumps</a>
+        <a href="/products?category=Underwater%20LED%20Lights" class="luxury-filter-btn">Underwater Lighting</a>
+        <a href="/products?category=Cleaning%20Equipment%20%26%20Robots" class="luxury-filter-btn">Robotic Vacuums</a>
+        <a href="/products?category=Pool%20Heating%20%26%20Heat%20Pumps" class="luxury-filter-btn">Heat Pumps</a>
+        <a href="/products?category=Pool%20Tiles%20%26%20Mosaics" class="luxury-filter-btn">Tiles & Mosaics</a>
+      <% } %>
+    </div>
 
-      <div class="grid-4">
-        <% if (products && products.length > 0) { %>
-          <% products.forEach(prod => { %>
-            <div class="product-card-premium">
-              <div class="product-img-wrap">
-                <img src="<%= prod.image || '/images/resort-pool.jpg' %>" alt="<%= prod.name %>"
-                  loading="lazy" decoding="async" onerror="this.src='/images/resort-pool.jpg'">
+    <!-- Product Grid with 3D Tilt Glass Cards -->
+    <div class="row g-4">
+      <% if (products && products.length > 0) { %>
+        <% products.forEach(prod => { %>
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="glass-card h-100 p-3 d-flex flex-column tilt-card-3d" style="border: 1px solid rgba(212, 175, 55, 0.2); background: rgba(15, 23, 42, 0.75);">
+              
+              <!-- Image & Badges -->
+              <div class="position-relative" style="height: 220px; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 16px;">
+                <img src="<%= prod.image || '/images/resort-pool.webp' %>" alt="<%= prod.name %>"
+                  style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                  loading="lazy" decoding="async" onerror="this.src='/images/resort-pool.webp'">
+                
+                <div class="position-absolute top-0 start-0 m-2 d-flex flex-column gap-1">
+                  <span class="blueprint-badge blueprint-badge-gold py-1 px-2" style="font-size: 0.72rem;">
+                    <%= prod.category %>
+                  </span>
+                  <% if (prod.brand) { %>
+                    <span class="badge bg-dark bg-opacity-75 border border-secondary text-white py-1 px-2" style="font-size: 0.7rem; width: fit-content;">
+                      <i class="bi bi-tag-fill text-gold me-1"></i><%= prod.brand %>
+                    </span>
+                  <% } %>
+                </div>
+
+                <div class="position-absolute bottom-0 end-0 m-2">
+                  <span class="badge <%= prod.inStock !== false ? 'bg-success' : 'bg-warning text-dark' %> py-1 px-2" style="font-size: 0.72rem;">
+                    <i class="bi <%= prod.inStock !== false ? 'bi-check-circle-fill' : 'bi-clock-fill' %> me-1"></i>
+                    <%= prod.inStock !== false ? 'In Stock' : 'Order On Request' %>
+                  </span>
+                </div>
               </div>
 
-              <div style="flex: 1; display: flex; flex-direction: column;">
-                <span style="font-size: 0.76rem; color: var(--brand-cyan); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 6px; display: block;">
-                  <%= prod.category %>
-                </span>
-
-                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); line-height: 1.3; margin-bottom: 8px;">
+              <!-- Content -->
+              <div class="d-flex flex-column flex-grow-1">
+                <h3 class="font-serif text-white mb-2" style="font-size: 1.15rem; line-height: 1.35;">
                   <%= prod.name %>
                 </h3>
 
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 18px; flex: 1;">
-                  <%= prod.shortDescription %>
+                <p class="text-muted small mb-3 flex-grow-1" style="line-height: 1.55;">
+                  <%= prod.shortDescription || 'Commercial grade swimming pool hydraulic system with high chemical tolerance and optimized energy efficiency.' %>
                 </p>
 
-                <div style="padding-top: 14px; border-top: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <div class="pt-3 border-top border-secondary border-opacity-25 d-flex align-items-center justify-content-between gap-2 mt-auto">
                   <% if (prod.price && Number(prod.price) > 0) { %>
                     <div>
-                      <span style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; display: block;">Price</span>
-                      <strong style="font-size: 1.25rem; font-weight: 800; color: var(--brand-cyan);">₹<%= Number(prod.price).toLocaleString('en-IN') %></strong>
+                      <span class="text-muted small d-block" style="font-size: 0.7rem; letter-spacing: 0.05em;">ESTIMATED PRICE</span>
+                      <strong class="text-gold" style="font-size: 1.2rem; font-family: var(--font-serif);">₹<%= Number(prod.price).toLocaleString('en-IN') %></strong>
                     </div>
                   <% } else { %>
                     <div>
-                      <span style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; display: block;">Pricing</span>
-                      <strong style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">Quote on Request</strong>
+                      <span class="text-muted small d-block" style="font-size: 0.7rem; letter-spacing: 0.05em;">PRICING</span>
+                      <strong class="text-white small" style="font-weight: 600;">Custom Quotation</strong>
                     </div>
                   <% } %>
 
-                  <a href="/contact?product=<%= encodeURIComponent(prod.name) %>#quote-form" class="btn btn-outline"
-                    style="padding: 8px 16px; font-size: 0.85rem; font-weight: 700; white-space: nowrap;">
-                    Inquire <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem; margin-left: 4px;"></i>
-                  </a>
+                  <div class="d-flex align-items-center gap-1">
+                    <a href="https://wa.me/918128920702?text=Hello%20Blue%20Sky,%20I%20need%20price%20and%20technical%20specs%20for:%20<%= encodeURIComponent(prod.name) %>"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn btn-outline-success btn-sm rounded-circle d-inline-flex align-items-center justify-content-center"
+                       style="width: 36px; height: 36px; border-color: rgba(37, 211, 102, 0.4);"
+                       title="WhatsApp Instant Specs">
+                      <i class="bi bi-whatsapp"></i>
+                    </a>
+                    <a href="/contact?product=<%= encodeURIComponent(prod.name) %>#quote-form" class="luxury-cta-btn"
+                      style="padding: 7px 14px; font-size: 0.8rem;">
+                      Inquire <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
                 </div>
+
               </div>
+
             </div>
-          <% }) %>
-        <% } else { %>
-          <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-subtle);">
-            <i class="fa-solid fa-box-open" style="font-size: 3rem; color: var(--text-dim); margin-bottom: 15px;"></i>
-            <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">No Products Found</h3>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">There are no products listed under this category yet.</p>
-            <a href="/products" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">View All Products</a>
           </div>
-        <% } %>
+        <% }) %>
+      <% } else { %>
+        <div class="col-12 text-center py-5">
+          <div class="glass-card p-5 max-w-700 mx-auto">
+            <i class="bi bi-box-seam text-gold fs-1 d-block mb-3"></i>
+            <h3 class="font-serif text-white mb-2">No Equipment Cataloged in this Category</h3>
+            <p class="text-muted">We source all international pool hardware including Pentair, Hayward, Emaux, and AstralPool on direct order.</p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <a href="/products" class="luxury-cta-btn">View All Products</a>
+              <a href="/contact" class="luxury-cta-btn luxury-cta-secondary">Custom Hardware Request</a>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+  </div>
+</section>
+
+<!-- Hydraulic Engineering Standards Comparison Section -->
+<section class="section py-5 position-relative" style="background: rgba(11, 17, 33, 0.5); border-top: 1px solid rgba(212, 175, 55, 0.15); border-bottom: 1px solid rgba(212, 175, 55, 0.15);">
+  <div class="container-wide">
+    <div class="text-center max-w-700 mx-auto mb-5">
+      <span class="blueprint-badge blueprint-badge-gold mb-2 d-inline-block">Technical Benchmark</span>
+      <h2 class="font-serif text-white display-6 fw-bold mb-3">Commercial Grade vs Standard Equipment</h2>
+      <p class="text-muted">Why our hydraulic installations run for decades with crystal water and minimal power.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="glass-card p-4 p-md-5 h-100 border-danger border-opacity-25" style="background: rgba(239, 68, 68, 0.03);">
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); display: flex; align-items: center; justify-content: center; color: #F87171; font-size: 1.3rem;">
+              <i class="bi bi-x-octagon-fill"></i>
+            </div>
+            <div>
+              <h4 class="font-serif text-white fs-5 mb-0">Conventional / Cheap Local Hardware</h4>
+              <span class="text-muted small">Standard market grade components</span>
+            </div>
+          </div>
+
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-0 text-muted small">
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-x-circle-fill text-danger fs-6 mt-1 flex-shrink-0"></i>
+              <span><strong>Low-grade silica sand:</strong> Channels and cakes within 18 months, leading to cloudy water and bacterial biofilm buildup.</span>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-x-circle-fill text-danger fs-6 mt-1 flex-shrink-0"></i>
+              <span><strong>Single-speed noisy pumps:</strong> Continuous high RPM draws excessive electricity and overheats in Indian summers.</span>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-x-circle-fill text-danger fs-6 mt-1 flex-shrink-0"></i>
+              <span><strong>Resin-lacking underwater lights:</strong> Water leakage inside casing causes short circuits and burned LED chips.</span>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-x-circle-fill text-danger fs-6 mt-1 flex-shrink-0"></i>
+              <span><strong>No OEM warranty support:</strong> Unbranded imports leave clients stranded without spare impellers or O-rings.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="glass-card p-4 p-md-5 h-100 border-gold" style="background: rgba(212, 175, 55, 0.04);">
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold-champagne); display: flex; align-items: center; justify-content: center; color: var(--gold-champagne); font-size: 1.3rem;">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <div>
+              <h4 class="font-serif text-white fs-5 mb-0">Blue Sky Engineered Hardware</h4>
+              <span class="text-gold small fw-semibold">ISO 9001 Certified & European Tested</span>
+            </div>
+          </div>
+
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-0 text-muted small">
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-check-circle-fill text-gold fs-6 mt-1 flex-shrink-0"></i>
+              <span><strong>AFM Activated Glass Media:</strong> Self-sterilizing glass media filters down to sub-5 microns without biocides or clumping for 15+ years.</span>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-check-circle-fill text-gold fs-6 mt-1 flex-shrink-0"></i>
+              <span><strong>Variable Speed Inverter Drives:</strong> Whisper-quiet 45dB operation, cuts monthly electricity bills by up to 70%.</span>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-check-circle-fill text-gold fs-6 mt-1 flex-shrink-0"></i>
+              <span><strong>Fully Encapsulated IP68 LED:</strong> 316L Marine-grade stainless steel with resin seal resists chemical corrosion & heat.</span>
+            </li>
+            <li class="d-flex align-items-start gap-2">
+              <i class="bi bi-check-circle-fill text-gold fs-6 mt-1 flex-shrink-0"></i>
+              <span><strong>Comprehensive Warranty & Spares:</strong> 100% genuine parts stock maintained at our Surat warehouse with immediate technician dispatch.</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <%- include('layouts/footer') %>
+<!-- Direct Equipment Consultation & Sizing Form -->
+<section class="section py-5" id="quote-form">
+  <div class="container-wide">
+    <div class="row g-5 align-items-center">
+      
+      <div class="col-lg-5">
+        <div class="section-tag-luxury mb-3">
+          <i class="bi bi-calculator-fill"></i> Hydraulic Engineering Support
+        </div>
+        <h2 class="font-serif text-white display-6 fw-bold mb-3">
+          Need Equipment <span class="text-gradient-gold">Sizing & Quotation?</span>
+        </h2>
+        <p class="text-muted mb-4" style="line-height: 1.7;">
+          Unsure whether your pool requires a 1.5 HP or 3.0 HP pump? Share your pool dimensions or water volume. Our hydraulic engineers will calculate head-loss, flow turnover rates, and send an itemized hardware bill of quantities.
+        </p>
+
+        <div class="glass-card p-4 mb-4">
+          <div class="d-flex align-items-center gap-3">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(37, 211, 102, 0.2); border: 1px solid rgba(37, 211, 102, 0.4); display: flex; align-items: center; justify-content: center; color: #25d366; font-size: 1.4rem;">
+              <i class="bi bi-whatsapp"></i>
+            </div>
+            <div>
+              <span class="text-muted small d-block">Quick WhatsApp Equipment Desk</span>
+              <a href="https://wa.me/918128920702?text=Hello%20Blue%20Sky,%20I%20need%20assistance%20with%20swimming%20pool%20filtration%20and%20pump%20equipment." target="_blank" rel="noopener noreferrer" class="text-white fs-5 fw-bold text-decoration-none hover-gold">Chat with Specialist</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3 text-muted small">
+          <i class="bi bi-truck text-gold fs-5"></i>
+          <span>Prompt dispatch across Gujarat, Maharashtra, Rajasthan & all India.</span>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="luxury-form-card">
+          <h3 class="font-serif text-white mb-2 fs-4">
+            Request Equipment Quotation
+          </h3>
+          <p class="text-muted small mb-4">
+            Specify hardware requirements or swimming pool dimensions for accurate hydraulic equipment recommendations.
+          </p>
+
+          <form action="/inquiry" method="POST">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="eq-name" class="luxury-label">Full Name *</label>
+                <input type="text" id="eq-name" name="name" class="luxury-input" placeholder="Your Name" required autocomplete="name">
+              </div>
+
+              <div class="col-md-6">
+                <label for="eq-phone" class="luxury-label">Phone / WhatsApp *</label>
+                <input type="tel" id="eq-phone" name="phone" class="luxury-input" placeholder="Enter 10-digit mobile number" required autocomplete="tel">
+              </div>
+
+              <div class="col-md-6">
+                <label for="eq-city" class="luxury-label">Delivery City / Site Location *</label>
+                <input type="text" id="eq-city" name="city" class="luxury-input" placeholder="Surat, Ahmedabad, Mumbai..." required autocomplete="address-level2">
+              </div>
+
+              <div class="col-md-6">
+                <label for="eq-category" class="luxury-label">Equipment Classification</label>
+                <select id="eq-category" name="poolType" class="luxury-select">
+                  <option value="Pool Filtration & Pumps">Sand / Glass Filtration & Pumps</option>
+                  <option value="Underwater LED Lighting">Underwater LED Lighting & Automation</option>
+                  <option value="Pool Heating & Heat Pumps">Heat Pumps & All-Weather Heating</option>
+                  <option value="Cleaning Robots & Maintenance">Robotic Cleaner / Suction Systems</option>
+                  <option value="Pool Tiles & Glass Mosaics">Vitrified Pool Tiles & Glass Mosaics</option>
+                  <option value="Salt Chlorinator & Ozone">Salt Chlorinators & Sanitization</option>
+                  <option value="Complete Hydraulic Package">Complete Turnkey Hydraulic Package</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label for="eq-dimensions" class="luxury-label">Pool Size or Water Volume</label>
+                <input type="text" id="eq-dimensions" name="poolDimensions" class="luxury-input" placeholder="e.g. 50,000 Liters or 30ft x 15ft x 4ft">
+              </div>
+
+              <div class="col-md-6">
+                <label for="eq-budget" class="luxury-label">Target Equipment Budget</label>
+                <select id="eq-budget" name="budget" class="luxury-select">
+                  <option value="">Select Equipment Budget</option>
+                  <option value="₹50,000 - ₹1.5 Lakh">₹50,000 - ₹1.5 Lakhs (Basic Filtration)</option>
+                  <option value="₹1.5 Lakh - ₹3.5 Lakh">₹1.5 Lakhs - ₹3.5 Lakhs (Villa Residential Standard)</option>
+                  <option value="₹3.5 Lakh - ₹8 Lakh">₹3.5 Lakhs - ₹8 Lakhs (Commercial / Inverter / Heat Pump)</option>
+                  <option value="₹8 Lakh+">₹8 Lakhs+ (Resort / Olympic Specification)</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="eq-message" class="luxury-label">Required Products / Specific Brands</label>
+                <textarea id="eq-message" name="message" rows="3" class="luxury-textarea" placeholder="List the specific pumps, lighting colors, or filter sizes you need..."></textarea>
+              </div>
+
+              <div class="col-12 pt-2">
+                <button type="submit" class="luxury-cta-btn w-100 justify-content-center" style="padding: 14px; font-size: 1rem;">
+                  <i class="bi bi-send-fill"></i> Submit Equipment Quotation Request
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<%- include('layouts/footer') %>

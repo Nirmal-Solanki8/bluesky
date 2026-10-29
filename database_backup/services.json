@@ -1,0 +1,122 @@
+[
+  {
+    "_id": "6ace2ec2d6e1dd147c41c238",
+    "title": "Architectural Infinity Edge Pools",
+    "slug": "architectural-infinity-edge-pools",
+    "shortDescription": "Signature vanishing-edge horizons with glass viewing walls and negative edge hydraulics.",
+    "fullDescription": "Bluesky International crafts breathtaking infinity pools that visually merge with natural horizons and skies. Engineered with earthquake-resistant monolithic RCC, structural acrylic glass panels, and precision balancing tanks.",
+    "icon": "pool",
+    "image": "/images/rooftop-pool.jpg",
+    "features": [
+      "Monolithic Leakproof RCC Structure",
+      "Submerged Architectural Acrylic Glass Walls",
+      "Zero-Noise Balancing Tank & Surge Systems",
+      "Smart Multi-Zone RGBW Lighting"
+    ],
+    "isActive": true,
+    "order": 1,
+    "createdAt": "2026-10-13T13:14:42.816Z",
+    "updatedAt": "2026-10-13T13:14:42.816Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ace2ec2d6e1dd147c41c239",
+    "title": "Luxury Villa & Rooftop Swimming Pools",
+    "slug": "luxury-villa-rooftop-swimming-pools",
+    "shortDescription": "Ultra-lightweight structural rooftop pools with advanced membrane waterproofing and sky views.",
+    "fullDescription": "Engineered specifically for penthouses and luxury villa terraces. Featuring ultra-durable waterproofing membranes, high-rate compact filtration systems, and bespoke designer mosaics.",
+    "icon": "pool",
+    "image": "/images/jacuzzi-spa.jpg",
+    "features": [
+      "Engineered Structural Load Distribution",
+      "Triple-Layer Anti-Seepage Membrane",
+      "Quiet Eco Inverter Pumps",
+      "Anti-Slip Italian Deck Porcelain"
+    ],
+    "isActive": true,
+    "order": 2,
+    "createdAt": "2026-10-13T13:14:42.816Z",
+    "updatedAt": "2026-10-13T13:14:42.816Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ace2ec2d6e1dd147c41c23a",
+    "title": "Commercial Resorts & Semi-Olympic Pools",
+    "slug": "commercial-resorts-semi-olympic-pools",
+    "shortDescription": "High-capacity pools built in compliance with FINA and international water safety standards.",
+    "fullDescription": "Customized for 5-star hospitality resorts, sports clubs, and township clubhouses. Incorporates high-capacity bobbin wound sand filters, automatic ORP/pH controllers, and ozone sanitation.",
+    "icon": "pool",
+    "image": "/images/pool-types/vanishing-edge.webp",
+    "features": [
+      "FINA Standard Dimensions & Lane Lines",
+      "Automatic Chlorine & pH Dosing Units",
+      "Dual In-Ground Skimmers & Overflow Gratings",
+      "Underwater Sound & Lighting Systems"
+    ],
+    "isActive": true,
+    "order": 3,
+    "createdAt": "2026-10-13T13:14:42.816Z",
+    "updatedAt": "2026-10-13T13:14:42.816Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ace2ec2d6e1dd147c41c23d",
+    "title": "Annual Maintenance Contracts (AMC) & Water Care",
+    "slug": "annual-maintenance-contracts-amc",
+    "shortDescription": "Routine vacuum sweeping, chemical balancing, backwashing, and 24/7 technical assistance.",
+    "fullDescription": "Keep your pool pristine and crystalline year-round with our certified pool chemists and technicians.",
+    "icon": "pool",
+    "image": "/images/pool-types/commercial.webp",
+    "features": [
+      "Bi-Weekly Suction Sweeping & Brushing",
+      "Precise pH & Free Chlorine Balancing",
+      "Preventative Pump & Multiport Servicing",
+      "24/7 Rapid Emergency Response"
+    ],
+    "isActive": true,
+    "order": 6,
+    "createdAt": "2026-10-13T13:14:42.816Z",
+    "updatedAt": "2026-10-13T13:14:42.816Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ace2ec2d6e1dd147c41c23b",
+    "title": "Hydrotherapy Jacuzzi & Thermal Spas",
+    "slug": "hydrotherapy-jacuzzi-thermal-spas",
+    "shortDescription": "Heated hydrotherapy spas with targeted air-water massage jets and chromotherapy.",
+    "fullDescription": "Turn your backyard or terrace into an opulent private wellness sanctuary with digital heat pumps, whisper-quiet air blowers, and ergonomic loungers.",
+    "icon": "pool",
+    "image": "/images/pool-types/overflow.webp",
+    "features": [
+      "Rotary Hydrotherapy Jets",
+      "Energy-Efficient Titanium Heat Pump",
+      "Ergonomic Therapeutic Seating",
+      "Touch Control & Smartphone App Sync"
+    ],
+    "isActive": true,
+    "order": 4,
+    "createdAt": "2026-10-13T13:14:42.816Z",
+    "updatedAt": "2026-10-13T13:14:42.816Z",
+    "__v": 0
+  },
+  {
+    "_id": "6ace2ec2d6e1dd147c41c23c",
+    "title": "Turnkey Pool Renovation & Leak Proofing",
+    "slug": "turnkey-pool-renovation-leak-proofing",
+    "shortDescription": "Modernization of aging pools, epoxy regrouting, LED retrofitting, and automated chlorination.",
+    "fullDescription": "Revitalize cracked or leaking older pools into modern luxury oases with premium glass mosaic retiling, skimmer replacements, and automated filtration upgrades.",
+    "icon": "pool",
+    "image": "/images/private-pool-hero.webp",
+    "features": [
+      "Structural Crack Injection & Sealing",
+      "Designer Glass Mosaic Retiling",
+      "Saltwater Chlorinator Conversion",
+      "Eco-Friendly Inverter Filtration Retrofit"
+    ],
+    "isActive": true,
+    "order": 5,
+    "createdAt": "2026-10-13T13:14:42.816Z",
+    "updatedAt": "2026-10-13T13:14:42.816Z",
+    "__v": 0
+  }
+]

@@ -64,12 +64,10 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.json({ limit: '10mb' }));
 app.use(methodOverride('_method'));
 
-// View engine & cache
+// View engine & cache (Compiled into memory for ultra-fast TTFB)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-if (process.env.NODE_ENV === 'production') {
-  app.enable('view cache');
-}
+app.enable('view cache');
 
 // Favicon shortcut
 app.get('/favicon.ico', (req, res) => {

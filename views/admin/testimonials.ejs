@@ -1,41 +1,43 @@
 <%- include('layouts/header') %>
 
-<div class="page-title-box">
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
   <div>
-    <h1>Client Reviews & Testimonials</h1>
-    <p style="color: var(--admin-text-muted); font-size: 0.9rem;">Manage client feedback and reviews displayed on the website</p>
+    <h1 class="font-serif text-white display-6 fw-bold mb-1">Client Reviews & Testimonials</h1>
+    <p class="text-muted small mb-0">Manage high-net-worth client endorsements, star ratings & public visibility</p>
   </div>
 </div>
 
-<!-- Add Testimonial Form -->
-<div class="admin-form-card">
-  <h3 style="margin-bottom: 20px; font-size: 1.15rem; color: #0f172a;">
-    <i class="fa-solid fa-plus-circle" style="color: #0284c7;"></i> Add New Client Review
-  </h3>
-  
+<!-- Add Testimonial Card -->
+<div class="admin-card mb-4">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title mb-0">
+      <i class="bi bi-plus-circle-fill text-gold me-2"></i> Add Client Endorsement
+    </h3>
+  </div>
+
   <form action="/admin/testimonials" method="POST">
-    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 20px;">
-      <div class="admin-form-group">
-        <label>Client / Customer Name *</label>
-        <input type="text" name="clientName" class="admin-form-control" placeholder="Client Name" required>
+    <div class="row g-3 mb-3">
+      <div class="col-md-5">
+        <label class="luxury-label">Client Name *</label>
+        <input type="text" name="clientName" class="admin-input" placeholder="e.g. Rajesh & Meena Shah" required>
       </div>
 
-      <div class="admin-form-group">
-        <label>Designation / Role</label>
-        <input type="text" name="designation" class="admin-form-control" placeholder="Designation / Role" value="Villa Owner">
+      <div class="col-md-4">
+        <label class="luxury-label">Designation / Role</label>
+        <input type="text" name="designation" class="admin-input" placeholder="Private Villa Owner" value="Private Villa Owner">
       </div>
 
-      <div class="admin-form-group">
-        <label>Location (City/Area)</label>
-        <input type="text" name="location" class="admin-form-control" placeholder="Location / City">
+      <div class="col-md-3">
+        <label class="luxury-label">Location (City / Area)</label>
+        <input type="text" name="location" class="admin-input" placeholder="Katargam, Surat">
       </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
-      <div class="admin-form-group">
-        <label>Star Rating (1 to 5)</label>
-        <select name="rating" class="admin-form-control">
-          <option value="5" selected>⭐⭐⭐⭐⭐ (5 Stars)</option>
+    <div class="row g-3 mb-3 align-items-center">
+      <div class="col-md-4">
+        <label class="luxury-label">Star Rating (1 to 5)</label>
+        <select name="rating" class="admin-select">
+          <option value="5" selected>⭐⭐⭐⭐⭐ (5 Stars - Luxury Standard)</option>
           <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
           <option value="3">⭐⭐⭐ (3 Stars)</option>
           <option value="2">⭐⭐ (2 Stars)</option>
@@ -43,33 +45,35 @@
         </select>
       </div>
 
-      <div class="admin-form-group" style="padding-top: 28px;">
-        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600;">
-          <input type="checkbox" name="isApproved" checked style="width: 18px; height: 18px;">
-          <span>Show publicly on website (Approved)</span>
+      <div class="col-md-8 pt-md-4">
+        <label class="d-flex align-items-center gap-2 text-white small fw-bold cursor-pointer">
+          <input type="checkbox" name="isApproved" checked class="form-check-input" style="background-color: rgba(8,11,16,0.8); border-color: #D4AF37;">
+          <span>Show Publicly on Website Testimonials Section (Approved)</span>
         </label>
       </div>
     </div>
 
-    <div class="admin-form-group">
-      <label>Review / Testimonial Text *</label>
-      <textarea name="review" rows="3" class="admin-form-control" placeholder="What did the client say about our swimming pool design, construction quality, timeline and equipment?" required></textarea>
+    <div class="mb-4">
+      <label class="luxury-label">Client Review / Testimonial Text *</label>
+      <textarea name="review" rows="3" class="admin-textarea" placeholder="Detailed feedback regarding architectural design, construction speed, monolithic RCC quality, water filtration, and turnover care..." required></textarea>
     </div>
 
-    <button type="submit" class="btn-sm btn-admin-primary" style="padding: 10px 22px; font-size: 0.92rem;">
-      <i class="fa-solid fa-cloud-arrow-up"></i> Save Review
+    <button type="submit" class="admin-btn-gold">
+      <i class="bi bi-check2-circle"></i> Save Client Review
     </button>
   </form>
 </div>
 
-<!-- Testimonials Table -->
-<div class="card-table">
-  <div class="card-header">
-    <h3>Existing Client Reviews (<%= (typeof testimonials !== 'undefined' && testimonials) ? testimonials.length : 0 %>)</h3>
+<!-- Testimonials Table in Dark Glass Panel -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title mb-0">
+      <i class="bi bi-chat-quote text-gold me-2"></i> Client Reviews (<%= (typeof testimonials !== 'undefined' && testimonials) ? testimonials.length : 0 %>)
+    </h3>
   </div>
 
-  <div class="table-responsive">
-    <table>
+  <div class="admin-table-responsive">
+    <table class="admin-table">
       <thead>
         <tr>
           <th>Client</th>
@@ -78,37 +82,43 @@
           <th>Rating</th>
           <th>Review</th>
           <th>Status</th>
-          <th>Actions</th>
+          <th class="text-end">Actions</th>
         </tr>
       </thead>
       <tbody>
         <% if (testimonials && testimonials.length > 0) { %>
           <% testimonials.forEach(t => { %>
             <tr>
-              <td><strong><%= t.clientName %></strong></td>
-              <td><%= t.designation %></td>
-              <td><%= t.location || '-' %></td>
-              <td style="color: #f59e0b; font-size: 0.9rem;">
-                <% for (let i = 0; i < t.rating; i++) { %>★<% } %>
+              <td>
+                <strong class="text-white"><%= t.clientName %></strong>
               </td>
-              <td style="max-width: 320px; font-size: 0.88rem; color: #475569;">
+              <td class="text-muted small"><%= t.designation %></td>
+              <td>
+                <span class="text-muted small"><i class="bi bi-geo-alt text-gold me-1"></i><%= t.location || '-' %></span>
+              </td>
+              <td class="text-gold">
+                <% for (let i = 0; i < t.rating; i++) { %>
+                  <i class="bi bi-star-fill small"></i>
+                <% } %>
+              </td>
+              <td class="text-muted small" style="max-width: 300px; line-height: 1.5;">
                 "<%= t.review %>"
               </td>
               <td>
                 <% if (t.isApproved) { %>
-                  <span class="badge badge-success">Approved</span>
+                  <span class="admin-badge badge-completed">Approved</span>
                 <% } else { %>
-                  <span class="badge badge-danger">Hidden</span>
+                  <span class="admin-badge badge-pending">Pending</span>
                 <% } %>
               </td>
-              <td>
-                <div class="action-btns">
-                  <a href="/admin/testimonials/<%= t._id %>/edit" class="btn-sm btn-admin-warning">
-                    <i class="fa-solid fa-pen-to-square"></i> Edit
+              <td class="text-end">
+                <div class="d-inline-flex gap-2">
+                  <a href="/admin/testimonials/<%= t._id %>/edit" class="btn btn-sm btn-outline-warning" style="border-radius: var(--admin-radius-pill); font-size: 0.78rem;">
+                    <i class="bi bi-pencil"></i> Edit
                   </a>
-                  <form action="/admin/testimonials/<%= t._id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this review?');" style="display: inline;">
-                    <button type="submit" class="btn-sm btn-admin-danger">
-                      <i class="fa-solid fa-trash"></i> Delete
+                  <form action="/admin/testimonials/<%= t._id %>/delete" method="POST" onsubmit="return confirm('Delete this testimonial?');" style="display: inline;">
+                    <button type="submit" class="btn btn-sm btn-outline-danger" style="border-radius: var(--admin-radius-pill); font-size: 0.78rem;">
+                      <i class="bi bi-trash"></i>
                     </button>
                   </form>
                 </div>
@@ -117,8 +127,8 @@
           <% }) %>
         <% } else { %>
           <tr>
-            <td colspan="7" style="text-align: center; padding: 35px; color: #64748b;">
-              No testimonials found. Add your first customer testimonial using the form above!
+            <td colspan="7" class="text-center py-4 text-muted">
+              No client reviews added yet. Use the form above to add your first customer review!
             </td>
           </tr>
         <% } %>

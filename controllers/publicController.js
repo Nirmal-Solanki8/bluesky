@@ -21,6 +21,17 @@ const getCompanySettings = async (forceRefresh = false) => {
     const created = await Setting.create({});
     settings = created.toObject ? created.toObject() : created;
   }
+
+  // Automatic calculation of Years of Mastery based on founding year (2008)
+  const currentYear = new Date().getFullYear();
+  const foundingYear = settings.foundingYear || 2008;
+  const autoCalculatedYears = Math.max(16, currentYear - foundingYear);
+
+  // Keep experienceYears always up to date automatically
+  settings.experienceYears = settings.experienceYears 
+    ? Math.max(Number(settings.experienceYears), autoCalculatedYears) 
+    : autoCalculatedYears;
+
   cachedSettings = settings;
   lastSettingsFetch = now;
   return cachedSettings;
@@ -188,25 +199,47 @@ exports.getContact = async (req, res) => {
   }
 };
 
-// Inquiry submission
+// 3D Survey page
+exports.get3dSurvey = async (req, res) => {
+  try {
+    const settings = await getCompanySettings();
+    res.render('public/3d-survey', {
+      title: `Free 3D Laser Site Survey & Architectural Blueprint | Blue Sky International`,
+      settings,
+      path: '/3d-survey'
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
+
+// Inquiry submission (Saves to Admin Panel & Connects to WhatsApp)
 exports.submitInquiry = async (req, res) => {
   try {
     const { name, phone, email, poolType, poolDimensions, city, budget, message } = req.body;
 
     if (!name || !name.trim()) {
+      if (req.xhr || req.headers.accept?.includes('application/json')) {
+        return res.status(400).json({ success: false, message: 'Please enter your Name.' });
+      }
       req.flash('error_msg', 'Please enter your Name.');
       return res.redirect((req.headers.referer || '/contact') + '#quote-form');
     }
 
     if (!phone || !phone.trim() || phone.trim().replace(/\D/g, '').length < 7) {
+      if (req.xhr || req.headers.accept?.includes('application/json')) {
+        return res.status(400).json({ success: false, message: 'Please enter a valid Phone / Mobile Number.' });
+      }
       req.flash('error_msg', 'Please enter a valid Phone / Mobile Number.');
       return res.redirect((req.headers.referer || '/contact') + '#quote-form');
     }
 
     const finalMessage = (message && message.trim())
       ? message.trim()
-      : `Quotation requested for ${poolType || 'Swimming Pool'}. Dimensions: ${poolDimensions || 'Not specified'}, City: ${city || 'Not specified'}, Budget: ${budget || 'Not specified'}.`;
+      : `Consultation requested for ${poolType || 'Swimming Pool'}. Dimensions: ${poolDimensions || 'Not specified'}, City: ${city || 'Not specified'}, Budget: ${budget || 'Not specified'}.`;
 
+    // 1. Save to Database (Inquiry Model for Admin Panel)
     await Inquiry.create({
       name: name.trim(),
       phone: phone.trim(),
@@ -219,11 +252,44 @@ exports.submitInquiry = async (req, res) => {
       status: 'New'
     });
 
-    req.flash('success_msg', `Thank you, ${name.trim()}! Your swimming pool quotation request has been received. Our senior engineer will call you shortly.`);
-    res.redirect((req.headers.referer || '/contact') + '#quote-form');
+    // 2. Build Direct WhatsApp Concierge URL (Uses Dynamic Settings from Admin Panel)
+    const companySettings = await getCompanySettings();
+    const waPhone = (companySettings && companySettings.whatsapp)
+      ? companySettings.whatsapp.replace(/\D/g, '')
+      : '918128920702';
+    const waLines = [
+      `*New Architectural Consultation Request*`,
+      `----------------------------------`,
+      `👤 *Name:* ${name.trim()}`,
+      `📱 *Phone / WhatsApp:* ${phone.trim()}`,
+      (email && email.trim()) ? `✉️ *Email:* ${email.trim()}` : null,
+      (city && city.trim()) ? `📍 *Location / City:* ${city.trim()}` : null,
+      poolType ? `🏊 *Pool Classification:* ${poolType}` : null,
+      (poolDimensions && poolDimensions.trim()) ? `📐 *Dimensions / Plot:* ${poolDimensions.trim()}` : null,
+      (budget && budget.trim()) ? `💰 *Estimated Investment:* ${budget.trim()}` : null,
+      (message && message.trim()) ? `📝 *Requirements:* ${message.trim()}` : null,
+      `----------------------------------`,
+      `Sent via Blue Sky International Portal`
+    ].filter(Boolean).join('\n');
+
+    const whatsappUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(waLines)}`;
+
+    if (req.xhr || req.headers.accept?.includes('application/json')) {
+      return res.json({
+        success: true,
+        message: `Thank you, ${name.trim()}! Your consultation inquiry has been recorded.`,
+        whatsappUrl: whatsappUrl
+      });
+    }
+
+    req.flash('success_msg', `Thank you, ${name.trim()}! Your consultation request has been received.`);
+    return res.redirect(whatsappUrl);
   } catch (error) {
     console.error('Submit Inquiry Error:', error);
-    req.flash('error_msg', 'There was an issue submitting your inquiry. Please call us directly at +91 81289 20702.');
+    if (req.xhr || req.headers.accept?.includes('application/json')) {
+      return res.status(500).json({ success: false, message: 'There was an issue submitting your inquiry. Please try again.' });
+    }
+    req.flash('error_msg', 'There was an issue submitting your inquiry. Please try again or reach out to us via our contact form.');
     res.redirect((req.headers.referer || '/contact') + '#quote-form');
   }
 };
