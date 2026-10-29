@@ -76,16 +76,16 @@ app.get('/favicon.ico', (req, res) => {
 
 // Static assets cache (Optimized for Mobile browsers & Core Web Vitals)
 app.use(express.static(path.join(__dirname, 'public'), {
-  maxAge: '7d',
+  maxAge: '365d',
   etag: true,
   lastModified: true,
   setHeaders: (res, filePath) => {
-    // Images, fonts, and icons get long cache for instant mobile loading
+    // Images, fonts, and icons get 1-year immutable cache for instant mobile loading
     if (/\.(webp|jpg|jpeg|png|svg|ico|woff|woff2|ttf|eot)$/i.test(filePath)) {
-      res.setHeader('Cache-Control', 'public, max-age=2592000, stale-while-revalidate=86400');
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
     } else if (filePath.endsWith('.css') || filePath.endsWith('.js')) {
-      // CSS & JS have version query params (?v=...), so cache for 1 day
-      res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=3600');
+      // Versioned CSS & JS (?v=...) get 1-year immutable cache
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
     }
   }
 }));

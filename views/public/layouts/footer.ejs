@@ -1,7 +1,7 @@
 <!-- Floating WhatsApp / Luxury Concierge Pill Button -->
 <a href="https://wa.me/<%= (typeof settings !== 'undefined' && settings.whatsapp ? settings.whatsapp.replace(/[^0-9]/g, '') : '918128920702') %>?text=Hello%20Blue%20Sky%20International,%20I%20am%20interested%20in%20an%20architectural%20luxury%20swimming%20pool%20project."
-  class="luxury-chat-pill" target="_blank" rel="noopener noreferrer" title="Direct WhatsApp Concierge"
-  aria-label="Direct WhatsApp Concierge">
+  class="luxury-chat-pill" target="_blank" rel="noopener noreferrer" title="Direct Concierge"
+  aria-label="Direct Concierge">
   <i class="bi bi-whatsapp"></i>
   <span>Direct Concierge</span>
 </a>
@@ -275,7 +275,7 @@
 
       <!-- Quick Architectural Formats -->
       <div class="col-lg-2 col-md-3 col-6">
-        <h5 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Architectural Formats</h5>
+        <h3 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Architectural Formats</h3>
         <ul class="list-unstyled">
           <li><a href="/vanishing-edge-swimming-pools" class="footer-link-luxury">Infinity Horizon</a></li>
           <li><a href="/private-swimming-pools" class="footer-link-luxury">Private Villa Pools</a></li>
@@ -288,7 +288,7 @@
 
       <!-- Turnkey Engineering & AMC -->
       <div class="col-lg-2 col-md-3 col-6">
-        <h5 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Engineering & MEP</h5>
+        <h3 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Engineering & MEP</h3>
         <ul class="list-unstyled">
           <li><a href="/services#swimming-pools" class="footer-link-luxury">Monolithic RCC</a></li>
           <li><a href="/services#waterfalls" class="footer-link-luxury">Waterfalls & Cascades</a></li>
@@ -301,7 +301,7 @@
 
       <!-- Corporate Office & Newsletter Column -->
       <div class="col-lg-3 col-md-12">
-        <h5 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Surat Studio & Office</h5>
+        <h3 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Surat Studio & Office</h3>
         <p style="font-size: 0.92rem; line-height: 1.6; color: #CBD5E1 !important;">
           <i class="bi bi-geo-alt text-gold me-2"></i>
           <%= typeof settings !== 'undefined' && settings.address ? settings.address : 'A-8, Laxmikant Ashram Rd, Rashi Circle, Bhulabhai Desai Park, Hari Darshan Society, Katargam, Surat, Gujarat 395004' %>
@@ -314,7 +314,7 @@
         </p>
 
         <!-- Newsletter Subscription Form -->
-        <h6 class="font-serif text-white mb-2" style="font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px;">Exclusive Newsletter</h6>
+        <h4 class="font-serif text-white mb-2" style="font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px;">Exclusive Newsletter</h4>
         <form class="newsletter-input-group" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Blue Sky Architectural Briefs.'); this.reset();">
           <input type="email" placeholder="Your email address" required aria-label="Email for newsletter">
           <button type="submit">Subscribe</button>
@@ -340,13 +340,7 @@
   </div>
 </footer>
 
-<!-- Bootstrap 5 JS Bundle CDN -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-
-<!-- GSAP 3 CDN for Animations -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-
-<!-- Main App Scripts -->
-<script src="/js/main.js?v=12.0" defer></script>
+<!-- Main App Scripts (Optimized Zero-Dependency Vanilla JS) -->
+<script src="/js/main.js?v=12.3" defer></script>
 </body>
 </html>

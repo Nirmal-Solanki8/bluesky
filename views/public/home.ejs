@@ -1,17 +1,20 @@
 <%- include('layouts/header') %>
 
+<!-- Main Landmark Container (Accessibility Compliant) -->
+<main id="main-content" role="main">
+
 <!-- Hero Section -->
 <section class="luxury-hero-container" id="luxuryHeroSection">
   <!-- Automatic Luxury Background Slider (Sliding to Left via transform: translateX) -->
   <div class="luxury-hero-slider" id="luxuryHeroSlider" aria-hidden="true">
     <div class="luxury-hero-track" id="luxuryHeroTrack">
       <div class="luxury-hero-slide" style="background-image: linear-gradient(180deg, rgba(8, 11, 16, 0.55) 0%, rgba(8, 11, 16, 0.3) 45%, rgba(8, 11, 16, 0.92) 100%), url('/images/private-pool-hero.webp');"></div>
-      <div class="luxury-hero-slide" style="background-image: linear-gradient(180deg, rgba(8, 11, 16, 0.55) 0%, rgba(8, 11, 16, 0.3) 45%, rgba(8, 11, 16, 0.92) 100%), url('/images/infinity-pool.webp');"></div>
-      <div class="luxury-hero-slide" style="background-image: linear-gradient(180deg, rgba(8, 11, 16, 0.55) 0%, rgba(8, 11, 16, 0.3) 45%, rgba(8, 11, 16, 0.92) 100%), url('/images/resort-pool.webp');"></div>
-      <div class="luxury-hero-slide" style="background-image: linear-gradient(180deg, rgba(8, 11, 16, 0.55) 0%, rgba(8, 11, 16, 0.3) 45%, rgba(8, 11, 16, 0.92) 100%), url('/images/rooftop-pool.webp');"></div>
-      <div class="luxury-hero-slide" style="background-image: linear-gradient(180deg, rgba(8, 11, 16, 0.55) 0%, rgba(8, 11, 16, 0.3) 45%, rgba(8, 11, 16, 0.92) 100%), url('/images/jacuzzi-spa.webp');"></div>
+      <div class="luxury-hero-slide" data-bg="/images/infinity-pool.webp"></div>
+      <div class="luxury-hero-slide" data-bg="/images/resort-pool.webp"></div>
+      <div class="luxury-hero-slide" data-bg="/images/rooftop-pool.webp"></div>
+      <div class="luxury-hero-slide" data-bg="/images/jacuzzi-spa.webp"></div>
       <!-- Seamless loop clone of first slide -->
-      <div class="luxury-hero-slide" style="background-image: linear-gradient(180deg, rgba(8, 11, 16, 0.55) 0%, rgba(8, 11, 16, 0.3) 45%, rgba(8, 11, 16, 0.92) 100%), url('/images/private-pool-hero.webp');"></div>
+      <div class="luxury-hero-slide" data-bg="/images/private-pool-hero.webp"></div>
     </div>
   </div>
 
@@ -42,7 +45,7 @@
 
         <!-- Luxury Action Buttons -->
         <div class="d-flex flex-wrap gap-3 pt-1 mb-3">
-          <a href="javascript:void(0)" class="luxury-cta-btn" style="padding: 11px 28px; font-size: 0.92rem;" onclick="window.openConsultationModal(event)">
+          <a href="/contact#quote-form" class="luxury-cta-btn" style="padding: 11px 28px; font-size: 0.92rem;" onclick="window.openConsultationModal(event)">
             <i class="bi bi-calendar2-check"></i> Request Consultation
           </a>
           <a href="#portfolio-showcase" class="btn btn-outline-light d-inline-flex align-items-center gap-2"
@@ -221,23 +224,23 @@
 
         <!-- Frosted Glass Pills Tablist -->
         <div class="apple-pills-wrap" role="tablist" aria-label="Swimming Pool Styles">
-          <button class="apple-pill-btn active" data-index="0" data-img="/images/infinity-pool.webp"
+          <button class="apple-pill-btn active" role="tab" aria-selected="true" data-index="0" data-img="/images/infinity-pool.webp"
             data-tag="Bespoke Architecture" data-title="Infinity Horizon Pools">
             Infinity Pools
           </button>
-          <button class="apple-pill-btn" data-index="1" data-img="/images/resort-pool.webp"
+          <button class="apple-pill-btn" role="tab" aria-selected="false" data-index="1" data-img="/images/resort-pool.webp"
             data-tag="Resort & Hospitality" data-title="Resort Lagoons & Club Pools">
             Resort Pools
           </button>
-          <button class="apple-pill-btn" data-index="2" data-img="/images/rooftop-pool.webp"
+          <button class="apple-pill-btn" role="tab" aria-selected="false" data-index="2" data-img="/images/rooftop-pool.webp"
             data-tag="Penthouse Living" data-title="Luxury Rooftop Glass Pools">
             Rooftop Pools
           </button>
-          <button class="apple-pill-btn" data-index="3" data-img="/images/jacuzzi-spa.webp"
+          <button class="apple-pill-btn" role="tab" aria-selected="false" data-index="3" data-img="/images/jacuzzi-spa.webp"
             data-tag="Hydrotherapy Spas" data-title="Thermal Heated Jacuzzis">
             Jacuzzi & Spas
           </button>
-          <button class="apple-pill-btn" data-index="4" data-img="/images/private-pool-hero.webp"
+          <button class="apple-pill-btn" role="tab" aria-selected="false" data-index="4" data-img="/images/private-pool-hero.webp"
             data-tag="Private Villa" data-title="Skimmer & Overflow Villa Pools">
             Private Pools
           </button>
@@ -508,31 +511,31 @@
     <div class="process-grid">
       <div class="process-step-card glass-card">
         <span class="process-num">01</span>
-        <h4 class="process-title text-white">3D CAD Modeling</h4>
+        <h3 class="process-title text-white">3D CAD Modeling</h3>
         <p class="process-desc" style="color: #CBD5E1 !important;">Site laser survey, soil mechanics analysis, hydraulic sizing, and photorealistic 3D visualization.</p>
       </div>
 
       <div class="process-step-card glass-card">
         <span class="process-num">02</span>
-        <h4 class="process-title text-white">Monolithic RCC</h4>
+        <h3 class="process-title text-white">Monolithic RCC</h3>
         <p class="process-desc" style="color: #CBD5E1 !important;">Precision excavation, heavy steel rebar mesh cage, and monolithic concrete pouring with zero cold joints.</p>
       </div>
 
       <div class="process-step-card glass-card">
         <span class="process-num">03</span>
-        <h4 class="process-title text-white">Dual Waterproofing</h4>
+        <h3 class="process-title text-white">Dual Waterproofing</h3>
         <p class="process-desc" style="color: #CBD5E1 !important;">Polymer crystalline barrier injection with rigorous 72-hour static water ponding leakage tests.</p>
       </div>
 
       <div class="process-step-card glass-card">
         <span class="process-num">04</span>
-        <h4 class="process-title text-white">Mosaics & MEP</h4>
+        <h3 class="process-title text-white">Mosaics & MEP</h3>
         <p class="process-desc" style="color: #CBD5E1 !important;">Designer Spanish glass mosaic tiling, filtration manifold, automated pumps & RGBW LED lighting installation.</p>
       </div>
 
       <div class="process-step-card glass-card">
         <span class="process-num">05</span>
-        <h4 class="process-title text-white">Handover & Care</h4>
+        <h3 class="process-title text-white">Handover & Care</h3>
         <p class="process-desc" style="color: #CBD5E1 !important;">Water chemistry balancing, salt chlorination commissioning, owner handover, and lifetime warranty issuance.</p>
       </div>
     </div>
@@ -617,5 +620,6 @@
     </div>
   </div>
 </section>
+</main>
 
 <%- include('layouts/footer') %>

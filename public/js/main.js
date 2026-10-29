@@ -35,7 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
+    // Deferred background loading for subsequent slides (prevents mobile bandwidth contention on LCP/FCP)
+    const loadDeferredSlides = () => {
+      if (!trackEl) return;
+      const deferredSlides = trackEl.querySelectorAll('.luxury-hero-slide[data-bg]');
+      deferredSlides.forEach(slide => {
+        const bgUrl = slide.getAttribute('data-bg');
+        if (bgUrl) {
+          slide.style.backgroundImage = `linear-gradient(180deg, rgba(8, 11, 16, 0.55) 0%, rgba(8, 11, 16, 0.3) 45%, rgba(8, 11, 16, 0.92) 100%), url('${bgUrl}')`;
+          slide.removeAttribute('data-bg');
+        }
+      });
+    };
+
     const moveToSlide = (index, animated = true) => {
+      loadDeferredSlides();
       currentSlide = index;
       if (animated) {
         trackEl.style.transition = 'transform 1.1s cubic-bezier(0.25, 1, 0.5, 1)';
@@ -149,6 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     startAutoPlay();
+
+    // Idle hydration for subsequent hero slides (does not block mobile initial paint)
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadDeferredSlides, { timeout: 2000 });
+    } else {
+      setTimeout(loadDeferredSlides, 1200);
+    }
   }
 
   // ===================================================================
@@ -165,37 +186,27 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     let wordIndex = 0;
 
+    headlineEl.style.transition = 'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
     const cycleHeadline = () => {
       wordIndex = (wordIndex + 1) % luxuryWords.length;
       const nextWord = luxuryWords[wordIndex];
 
-      if (window.gsap) {
-        gsap.to(headlineEl, {
-          y: -25,
-          opacity: 0,
-          duration: 0.5,
-          ease: 'power2.in',
-          onComplete: () => {
-            headlineEl.textContent = nextWord;
-            gsap.fromTo(headlineEl,
-              { y: 25, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' }
-            );
-          }
-        });
-      } else {
-        headlineEl.style.opacity = '0';
-        headlineEl.style.transform = 'translateY(-15px)';
-        setTimeout(() => {
-          headlineEl.textContent = nextWord;
+      headlineEl.style.opacity = '0';
+      headlineEl.style.transform = 'translate3d(0, -14px, 0)';
+      setTimeout(() => {
+        headlineEl.textContent = nextWord;
+        headlineEl.style.transform = 'translate3d(0, 14px, 0)';
+        requestAnimationFrame(() => {
           headlineEl.style.opacity = '1';
-          headlineEl.style.transform = 'translateY(0)';
-        }, 300);
-      }
+          headlineEl.style.transform = 'translate3d(0, 0, 0)';
+        });
+      }, 350);
     };
 
-    // Cycle every 3.2 seconds
-    setInterval(cycleHeadline, 3200);
+    // Start cycling with graceful delay to keep initial load main thread 100% quiet
+    setTimeout(() => {
+      setInterval(cycleHeadline, 4800);
+    }, 2500);
   }
 
   // Fallback for typing text if present on other pages
@@ -376,7 +387,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', handleNavScroll, { passive: true });
-    handleNavScroll();
 
     // Smooth scroll with offset for floating navbar
     document.addEventListener('click', (e) => {
@@ -567,8 +577,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!targetItem) return;
 
         isJumping = true;
-        applePills.forEach(item => item.classList.remove('active'));
+        applePills.forEach(item => {
+          item.classList.remove('active');
+          item.setAttribute('aria-selected', 'false');
+        });
         targetItem.classList.add('active');
+        targetItem.setAttribute('aria-selected', 'true');
 
         if (typeof targetItem.scrollIntoView === 'function') {
           try {
@@ -709,38 +723,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`%c⚡ Bluesky Engine: Page Load ${loadTime}ms | DOM Ready ${domReady}ms | 120Hz Fluid Scroller Active`,
               'background: #0284c7; color: #ffffff; padding: 4px 8px; border-radius: 4px; font-weight: bold;');
           }
-
-          // Google Official Core Web Vitals (LCP, CLS, FCP)
-          try {
-            if ('PerformanceObserver' in window) {
-              const poLCP = new PerformanceObserver((list) => {
-                const entries = list.getEntries();
-                if (entries.length > 0) {
-                  const last = entries[entries.length - 1];
-                  console.log(`%c📊 [Google Web Vitals] LCP: ${Math.round(last.startTime)}ms`, 'color: #0284c7; font-weight: bold;');
-                }
-              });
-              poLCP.observe({ type: 'largest-contentful-paint', buffered: true });
-
-              const poCLS = new PerformanceObserver((list) => {
-                let cls = 0;
-                for (const e of list.getEntries()) {
-                  if (!e.hadRecentInput) cls += e.value;
-                }
-                console.log(`%c📊 [Google Web Vitals] CLS: ${cls.toFixed(3)}`, 'color: #0284c7; font-weight: bold;');
-              });
-              poCLS.observe({ type: 'layout-shift', buffered: true });
-
-              const poFCP = new PerformanceObserver((list) => {
-                for (const e of list.getEntries()) {
-                  if (e.name === 'first-contentful-paint') {
-                    console.log(`%c📊 [Google Web Vitals] FCP: ${Math.round(e.startTime)}ms`, 'color: #0284c7; font-weight: bold;');
-                  }
-                }
-              });
-              poFCP.observe({ type: 'paint', buffered: true });
-            }
-          } catch (_) { }
         } catch (_) { }
       }, 50);
     });
