@@ -10,10 +10,16 @@
 <div class="luxury-lightbox" id="luxuryLightbox" role="dialog" aria-modal="true" aria-label="Project Preview Lightbox">
   <div class="lightbox-backdrop" onclick="window.closeLuxuryLightbox()"></div>
   <div class="lightbox-dialog">
-    <button class="lightbox-close-btn" onclick="window.closeLuxuryLightbox()" aria-label="Close Lightbox">
-      <i class="bi bi-x-lg"></i>
-    </button>
-    <div class="lightbox-media-frame">
+    <div class="lightbox-top-bar">
+      <button class="lightbox-zoom-toggle-btn" id="lightboxZoomBtn" onclick="window.toggleLightboxZoom(event)" aria-label="Toggle Zoom" title="Toggle 2x Architectural Inspection Zoom">
+        <i class="bi bi-zoom-in" id="lightboxZoomIcon"></i>
+        <span id="lightboxZoomText">Zoom In</span>
+      </button>
+      <button class="lightbox-close-btn" onclick="window.closeLuxuryLightbox()" aria-label="Close Lightbox" title="Close Preview">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="lightbox-media-frame" onclick="window.toggleLightboxZoom(event)" title="Click to Zoom In / Out">
       <img src="/images/infinity-pool.webp" alt="High Resolution Project" id="lightboxImg" class="lightbox-img" loading="lazy" decoding="async">
     </div>
     <div class="lightbox-info-bar">
@@ -122,11 +128,40 @@
 </div>
 
 <script>
+  var isLightboxZoomed = false;
+
+  window.toggleLightboxZoom = function (e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    var frame = document.querySelector('.lightbox-media-frame');
+    var btnIcon = document.getElementById('lightboxZoomIcon');
+    var btnText = document.getElementById('lightboxZoomText');
+    isLightboxZoomed = !isLightboxZoomed;
+
+    if (isLightboxZoomed) {
+      if (frame) frame.classList.add('is-zoomed');
+      if (btnIcon) btnIcon.className = 'bi bi-zoom-out';
+      if (btnText) btnText.textContent = 'Zoom Out';
+    } else {
+      if (frame) frame.classList.remove('is-zoomed');
+      if (btnIcon) btnIcon.className = 'bi bi-zoom-in';
+      if (btnText) btnText.textContent = 'Zoom In';
+    }
+  };
+
   window.openLuxuryLightbox = function (imgSrc, title, category) {
     var modal = document.getElementById('luxuryLightbox');
     var img = document.getElementById('lightboxImg');
     var titleEl = document.getElementById('lightboxTitle');
     var catEl = document.getElementById('lightboxCategory');
+    var frame = document.querySelector('.lightbox-media-frame');
+    var btnIcon = document.getElementById('lightboxZoomIcon');
+    var btnText = document.getElementById('lightboxZoomText');
+
+    isLightboxZoomed = false;
+    if (frame) frame.classList.remove('is-zoomed');
+    if (btnIcon) btnIcon.className = 'bi bi-zoom-in';
+    if (btnText) btnText.textContent = 'Zoom In';
+
     if (img && imgSrc) img.src = imgSrc;
     if (titleEl && title) titleEl.textContent = title;
     if (catEl && category) catEl.textContent = category;
@@ -135,6 +170,9 @@
   };
   window.closeLuxuryLightbox = function () {
     var modal = document.getElementById('luxuryLightbox');
+    var frame = document.querySelector('.lightbox-media-frame');
+    isLightboxZoomed = false;
+    if (frame) frame.classList.remove('is-zoomed');
     if (modal) modal.classList.remove('active');
     document.body.style.overflow = '';
   };
@@ -300,7 +338,7 @@
       </div>
 
       <!-- Corporate Office & Newsletter Column -->
-      <div class="col-lg-3 col-md-12">
+      <div class="col-lg-4 col-md-12">
         <h3 class="font-serif text-white mb-3" style="font-size: 1.05rem; letter-spacing: 0.8px;">Surat Studio & Office</h3>
         <p style="font-size: 0.92rem; line-height: 1.6; color: #CBD5E1 !important;">
           <i class="bi bi-geo-alt text-gold me-2"></i>
@@ -315,10 +353,12 @@
 
         <!-- Newsletter Subscription Form -->
         <h4 class="font-serif text-white mb-2" style="font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px;">Exclusive Newsletter</h4>
-        <form class="newsletter-input-group" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Blue Sky Architectural Briefs.'); this.reset();">
-          <input type="email" placeholder="Your email address" required aria-label="Email for newsletter">
-          <button type="submit">Subscribe</button>
-        </form>
+        <div class="footer-newsletter-wrap">
+          <form class="newsletter-input-group" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Blue Sky Architectural Briefs.'); this.reset();">
+            <input type="email" placeholder="Your email address" required aria-label="Email for newsletter">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
       </div>
 
     </div>

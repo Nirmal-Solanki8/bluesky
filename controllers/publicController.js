@@ -28,8 +28,8 @@ const getCompanySettings = async (forceRefresh = false) => {
   const autoCalculatedYears = Math.max(16, currentYear - foundingYear);
 
   // Keep experienceYears always up to date automatically
-  settings.experienceYears = settings.experienceYears 
-    ? Math.max(Number(settings.experienceYears), autoCalculatedYears) 
+  settings.experienceYears = settings.experienceYears
+    ? Math.max(Number(settings.experienceYears), autoCalculatedYears)
     : autoCalculatedYears;
 
   cachedSettings = settings;
